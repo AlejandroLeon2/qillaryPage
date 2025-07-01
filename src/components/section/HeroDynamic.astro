@@ -1,0 +1,86 @@
+---
+const images = [
+  {
+    url: "/mapache.jpg",
+    alt: "Vista  Machu Picchu",
+    caption: "Explora Machu Picchu",
+  },
+  {
+    url: "/nice.png",
+    alt: "Camino Inca entre montañas",
+    caption: "Aventura Andina",
+  },
+];
+---
+
+<section
+  aria-label="Hero rotativo de destinos destacados"
+  class="relative h-[70vh] md:h-[70vh] overflow-hidden"
+>
+  <div class="w-full h-full relative">
+    {
+      images.map((img, i) => (
+        <figure
+          class={`absolute top-0 left-0 w-full h-full bg-fixed bg-cover bg-center transition-opacity duration-700 ease-in-out ${
+            i === 0 ? "opacity-100 z-10" : "opacity-0 z-0"
+          }`}
+          style={`background-image: url(${img.url});`}
+          data-index={i}
+        >
+          <figcaption class="absolute  top-1/3 left-0 right-0  text-center text-white px-4 py-2 text-xl rounded">
+            <p class="satisfy text-2xl md:text-4xl">{img.alt}</p>
+            <p class="text-4xl md:text-8xl font-semibold">{img.caption}</p>
+            <p class="mx-auto text-md max-w-3xl mt-4 ">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            
+            </p>
+          </figcaption>
+        </figure>
+      ))
+    }
+  </div>
+
+  <!-- Navegación con botones -->
+  <nav
+    aria-label="Controles del slider"
+    class="absolute w-full inset-y-0 flex justify-between items-center px-4 z-20"
+  >
+    <button
+      aria-label="Slide anterior"
+      class="bg-white/60 hover:bg-white pb-1 text-5xl text-black rounded-full w-10 h-10 flex items-center justify-center"
+      id="prevBtn">‹</button
+    >
+    <button
+      aria-label="Slide siguiente"
+      class="bg-white/60 hover:bg-white pb-1 text-5xl text-black rounded-full w-10 h-10 flex items-center justify-center"
+      id="nextBtn">›</button
+    >
+  </nav>
+
+  <script>
+    const slides = document.querySelectorAll("[data-index]");
+    let index = 0;
+    console.log(document.querySelectorAll("[data-index]"));
+
+    const showSlide = (i) => {
+      slides.forEach((s, j) => {
+        s.classList.toggle("opacity-100", j === i);
+        s.classList.toggle("z-10", j === i);
+        s.classList.toggle("opacity-0", j !== i);
+        s.classList.toggle("z-0", j !== i);
+      });
+      index = i;
+    };
+
+    document.getElementById("nextBtn")?.addEventListener("click", () => {
+      showSlide((index + 1) % slides.length);
+    });
+    document.getElementById("prevBtn")?.addEventListener("click", () => {
+      showSlide((index - 1 + slides.length) % slides.length);
+    });
+
+    setInterval(() => {
+      showSlide((index + 1) % slides.length);
+    }, 8000);
+  </script>
+</section>

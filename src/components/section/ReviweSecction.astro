@@ -1,0 +1,51 @@
+---
+import { reviews } from "../../data/reseñasPrincipal";
+import TitleDescripcion from "../ui/TitleDescripcion.astro";
+---
+
+<section
+  class="overflow-hidden w-full flex flex-col justify-center bg-[url('https://picsum.photos/id/1018/1000/600')] bg-cover bg-no-repeat items-center h-150 mx-auto relative"
+>
+  <TitleDescripcion
+    extra=" my-10"
+    pretitulo="Read The Top"
+    titulo="Travel Reviews"
+    descripcion="Lorem ipsum dolor sit amet consec orem ipsum dolor sit amet consec"
+  />
+  <div
+    class="flex transition-transform duration-500 ease-in-out"
+    id="carousel-track"
+    style="transform: translateX(0%)"
+  >
+    {
+      reviews.map((review) => (
+        <div class="min-w-full  flex-shrink-0  ">
+          <div class="bg-white rounded-lg shadow-md flex flex-col justify-center items-center px-8 py-6 max-w-md  mx-auto">
+            <img
+              src={review.photo ? review.photo : "/nice.png"}
+              alt={`Foto de ${review.name}`}
+              class="w-20 h-20 rounded-full object-cover mb-2"
+            />
+            <h3 class=" font-bold satisfy text-2xl">{review.name}</h3>
+            <p class="text-yellow-500 text-xl">{review.stars}</p>
+
+            <p class="text-gray-600 mt-2 ">{review.message}</p>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</section>
+
+<script is:inline>
+  let index = 0;
+  const track = document.getElementById("carousel-track");
+  const total = 8;
+
+  setInterval(() => {
+    index = (index + 1) % total;
+    if (track) {
+      track.style.transform = `translateX(-${index * 100}%)`;
+    }
+  }, 9000);
+</script>

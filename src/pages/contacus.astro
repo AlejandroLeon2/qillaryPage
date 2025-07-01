@@ -1,0 +1,140 @@
+---
+import Secundario from "../layouts/Secundario.astro";
+import HeroStatic from "../components/section/HeroStatic.astro";
+import TitleDescripcion from "../components/ui/TitleDescripcion.astro";
+import { qillary } from "../data/qillary";
+---
+
+<Secundario title="" description="" image="" url="">
+
+  <HeroStatic src="" />
+
+  <section class="pb-12 px-4 w-full">
+    <header class="mb-10 text-center">
+      <TitleDescripcion
+        extra="mt-16"
+        pretitulo="The Best"
+        titulo="Travel Experts"
+        descripcion="Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aene ancommodo ligula eget dolor. Aenean massa. Cum sociis."
+      />
+    </header>
+
+    <div
+      class="grid grid-cols-1 md:grid-cols-3 gap-4 mx-auto max-w-5xl lg:grid-cols-4 place-items-center"
+    >
+      {
+        qillary.team.map((qi) => (
+          <figure class=" relative  md:w-60  group overflow-hidden">
+            <img
+              src={qi.imagen}
+              alt={qi.alt}
+              class=" object-cover w-full h-auto  md:h-70"
+            />
+            <figcaption class="lg:absolute md:text-center h-30 z-1 group-hover:bottom-0 transition-all duration-300 bg-qillary-aqua p-4 ">
+              <h3 class="font-semibold">{qi.nombre}</h3>
+              <p class="mt-1 text-xs">{qi.descripcion}</p>
+            </figcaption>
+          </figure>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="flex flex-col justify-center items-center md:py-20 px-8 md:px-4">
+    <header class="mb-6 lg:flex">
+      <div class="max-w-2xl pr-8">
+        <h2 class="text-2xl font-bold mb-2">Contact Us Now</h2>
+        <p class="mb-2">
+          Si elit omnes impedit ius, vel et hinc agam fabulas. Ut audiam
+          invenire iracundia vim. Tn ea diam ea. Piber Korem sit amet.
+        </p>
+        <p class="mb-2">
+          Al elit omnes impedfghit ius, vel et hinc agam fabulas. Ut audiam inve
+          nire iracu ndia vim. En eam dico simi lique, ut sint posse sit, eum
+          sumo diam ea.
+        </p>
+        <p class="mb-8">
+          Liber consec tetuer in mei, sea in imperdiet assue verit contentiones,
+          an his cibo bla ndit tacimates. Iusto iudi cabit simil ique id velex,
+          in sea rebum deser uisse appntur honcus. Maece nas cibo blandit tacim
+          ates sint posse.
+        </p>
+        <a href="#" class="text-white py-4 px-8 bg-qillary-aqua font-semibold"
+          >Read More</a
+        >
+      </div>
+      <img
+        src="/nice.png"
+        alt=""
+        class="w-70 mt-6 lg:mt-0 mx-auto"
+      />
+    </header>
+
+    <div
+      class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8 px-4 max-w-5xl place-items-center mx-auto"
+    >
+      {
+        qillary.contact.oficinas.map((element) => 
+        (
+          <article class="space-y-2 w-80">
+            <h3 class="text-xl font-semibold">{element.ciudad}</h3>
+            <p class="pb-4">
+             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquam odit a debitis ipsum, voluptate
+            </p>
+            <address class="not-italic">
+              <p>
+                <strong>Email:</strong>
+                <a href="mailto:setsail@example.com" class="hover:text-amber-600 focus:text-amber-600">
+                 {qillary.contact.contactos[0].valor}
+                </a>
+              </p>
+              <>
+                <strong>Phone:</strong>          <a class="hover:text-amber-600 focus:text-amber-600"
+            href={`https://wa.me/${qillary.contact.contactos[1].valor}`}
+            target="_blank"
+            rel="noopener"
+          >
+            {qillary.contact.contactos[1].valor}
+          </a>
+              <p class="py-4">{element.direccion}</p>
+            </address>
+          </article> 
+          
+        ))
+      }
+    </div>
+  </section>
+  <section class="px-8 py-20">
+    <form
+      class="max-w-6xl mx-auto space-y-4 border text-white font-semibold p-4 bg-qillary-aqua"
+    >
+      <h2 class="text-lg font-bold mb-4">Leave a Reply</h2>
+      <!-- Campo de mensaje -->
+      <textarea
+        class="w-full p-4 placeholder-white resize-none bg-white/25"
+        placeholder="Message*"
+        required></textarea>
+
+      <!-- Campos de email y nombre en fila -->
+      <div class="flex flex-col md:flex-row gap-4">
+        <input
+          type="email"
+          class="w-full placeholder-white md:w-1/2 p-4 bg-white/25"
+          placeholder="Email*"
+          required
+        />
+        <input
+          type="text"
+          class="w-full placeholder-white md:w-1/2 p-4 bg-white/25"
+          placeholder="Name*"
+          required
+        />
+      </div>
+
+      <!-- Botón de envío -->
+      <button type="submit" class="w-full p-4 text-black bg-white">
+        SEND
+      </button>
+    </form>
+  </section>
+</Secundario>

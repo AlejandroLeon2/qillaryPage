@@ -1,0 +1,133 @@
+---
+import { qillary } from "../data/qillary";
+---
+
+<footer class="bg-qillary-dark text-white text-sm lg:text-base">
+  <div class="px-6 pt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+    <!-- Logo + Descripción -->
+    <div class="flex flex-col justify-center items-center">
+      <img
+        src={qillary.contact.imagen}
+        alt={qillary.contact.titulo}
+        class="w-80 mb-4"
+      />
+      <p class="leading-relaxed text-gray-400 max-w-xs mb-4">
+        {qillary.contact.descripcion}
+      </p>
+
+      <ul class="space-y-2 text-gray-400">
+        <li>
+          <i class="fas fa-envelope mr-2 text-qillary-aqua"></i>
+          <a href={`mailto:${qillary.contact.contactos[0].valor}`}
+            >{qillary.contact.contactos[0].valor}</a
+          >
+        </li>
+        <li>
+          <i class="fab fa-whatsapp mr-2 text-green-400"></i>
+          <a
+            href={`https://wa.me/${qillary.contact.contactos[1].valor}`}
+            target="_blank"
+            rel="noopener"
+          >
+            {qillary.contact.contactos[1].valor}
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Contactos -->
+    <div class="px-6 py-8 max-w-lg">
+      <h3 class="text-xl text-white font-semibold mb-4">
+        Nuestras Publicaciones Recientes
+      </h3>
+      <ul class="space-y-4">
+        <li>
+          <h4 class="text-sm font-medium">Visita Tailandia, Bali y China</h4>
+          <p class="text-sm text-gray-400">7 de septiembre de 2016</p>
+        </li>
+        <li>
+          <h4 class="text-sm font-medium">El sonido de nuestra selva</h4>
+          <p class="text-sm text-gray-400">7 de septiembre de 2016</p>
+        </li>
+        <li>
+          <h4 class="text-sm font-medium">¡Año nuevo, propósitos nuevos!</h4>
+          <p class="text-sm text-gray-400">7 de septiembre de 2016</p>
+        </li>
+      </ul>
+      <div class="max-w-lg pt-4">
+        <h3 class="text-white font-semibold text-lg mb-3">Our Offices</h3>
+        <ul class="space-y-2 text-sm text-gray-400">
+          <li>
+            <span class="font-semibold"
+              >{qillary.contact.oficinas[0].ciudad}:</span
+            >
+            {qillary.contact.oficinas[0].direccion}
+          </li>
+          <li>
+            <span class="font-semibold"
+              >{qillary.contact.oficinas[1].ciudad}:</span
+            >
+            {qillary.contact.oficinas[1].direccion}
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Oficinas -->
+
+    <section class="px-6 py-8 rounded-md shadow-md max-w-lg mx-auto">
+      <h3 class="text-xl font-semibold text-white mb-2">
+        Subscribe to our Newsletter
+      </h3>
+      <p class="text-gray-400 mb-6">
+        Stay updated with the latest travel tips, exclusive offers, and new
+        destinations from Qillary.
+      </p>
+
+      <form action="/api/subscribe" method="POST" class="space-y-2">
+        <input
+          type="text"
+          id="name"
+          name="name"
+          required
+          placeholder="Name"
+          class="mt-1 block w-full px-4 py-2 bg-gray-700 placeholder:text-white"
+        />
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="Email"
+          required
+          class="mt-1 block w-full px-4 py-2 bg-gray-700 placeholder:text-white"
+        />
+        <button
+          type="submit"
+          class="w-full bg-qillary-aqua text-lg text-white py-4  hover:bg-cyan-700 transition"
+        >
+          Subscribe
+        </button>
+      </form>
+    </section>
+
+    <div class="text-white px-6 py-8 rounded-md max-w-lg">
+      <h3 class="text-xl font-semibold mb-4">Nuestro Instagram</h3>
+      <p class="leading-relaxed text-sm text-gray-400">
+        Aliquam lorem ante, dapibus in viverra quis, feugiat a tellus. Phasellus
+        nulla at arcu placerat, condimentum augue nec, dapibus sapien.
+      </p>
+    </div>
+  </div>
+  <div
+    class="border-t mt-4 border-gray-700 py-6 text-center text-xs text-gray-400"
+  >
+    <p class="mb-1">
+      <span lang="en">We speak English and Spanish.</span>
+      <strong lang="es">Hablamos tu idioma.</strong>
+    </p>
+    <nav aria-label="Footer secondary navigation" class="sr-only">
+      <!-- Opcional: enlaces legales o extra -->
+    </nav>
+    <p>© 2025 Qillary Tours. All rights reserved.</p>
+  </div>
+</footer>

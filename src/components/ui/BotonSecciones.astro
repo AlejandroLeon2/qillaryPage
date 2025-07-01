@@ -1,0 +1,12 @@
+---
+const { data } = Astro.props;
+---
+
+<button
+  type="button"
+  data-tab={data.tab}
+  class="px-4 xl:px-8 py-8 bg-qillary-gris min-w-35  xl:min-w-47 min-h-10 hover:bg-white transition"
+>
+  <i class={`${data.icon} mr-2`} aria-hidden="true"></i>
+  {data.label}
+</button>

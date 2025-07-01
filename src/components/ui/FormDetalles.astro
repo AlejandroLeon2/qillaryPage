@@ -1,0 +1,108 @@
+<form
+  class=" h-185 lg:max-w-xs mx-20 lg:mx-20 lg:ml-8 lg:mr-4 px-6 py-8 mt-15 bg-qillary-aqua shadow space-y-6 text-white"
+  aria-label="Formulario de reserva de tour"
+  method="POST"
+>
+  <header class="text-center">
+    <h2 class="text-2xl font-bold text-white">Book This Tour</h2>
+    <p class="text-white">Arrange your trip in advance – book this tour now!</p>
+  </header>
+
+  <fieldset class="grid md:grid-cols-1 gap-4">
+    <div class="relative">
+      <i class="fas fa-user absolute left-3 top-1/2 -translate-y-1/2 text-white"
+      ></i>
+      <input
+        type="text"
+        name="name"
+        required
+        placeholder="Name *"
+        class="pl-10 w-full p-2 bg-white/20 text-white placeholder-white rounded"
+      />
+    </div>
+
+    <div class="relative">
+      <i
+        class="fas fa-phone absolute left-3 top-1/2 -translate-y-1/2 text-white"
+      ></i>
+      <input
+        type="tel"
+        name="phone"
+        placeholder="Phone"
+        class="pl-10 w-full p-2 bg-white/20 text-white placeholder-white rounded"
+      />
+    </div>
+
+    <div class="relative">
+      <i
+        class="fas fa-envelope absolute left-3 top-1/2 -translate-y-1/2 text-white"
+      ></i>
+      <input
+        type="email"
+        name="email"
+        required
+        placeholder="Email *"
+        class="pl-10 w-full p-2 bg-white/20 text-white placeholder-white rounded"
+      />
+    </div>
+
+    <div class="relative">
+      <i
+        class="fas fa-envelope-open-text absolute left-3 top-1/2 -translate-y-1/2 text-white"
+      ></i>
+      <input
+        type="email"
+        name="confirmEmail"
+        required
+        placeholder="Confirm Email *"
+        class="pl-10 w-full p-2 bg-white/20 text-white placeholder-white rounded"
+      />
+    </div>
+
+    <div class="relative">
+      <i
+        class="fas fa-calendar-day absolute left-3 top-1/2 -translate-y-1/2 text-white"
+      ></i>
+      <input
+        type="text"
+        name="date"
+        placeholder="Date (dd-mm-yy)"
+        class="pl-10 w-full p-2 bg-white/20 text-white placeholder-white rounded"
+      />
+    </div>
+
+    <div class="relative">
+      <i
+        class="fas fa-ticket-alt absolute left-3 top-1/2 -translate-y-1/2 text-white"
+      ></i>
+      <input
+        type="number"
+        name="tickets"
+        min="1"
+        required
+        placeholder="Number of tickets *"
+        class="pl-10 w-full p-2 bg-white/20 text-white placeholder-white rounded"
+      />
+    </div>
+  </fieldset>
+
+  <div class="relative">
+    <i class="fas fa-comment-dots absolute left-3 top-3 text-white"></i>
+    <textarea
+      name="message"
+      rows="4"
+      placeholder="Message"
+      class="pl-10 pt-2 w-full p-2 bg-white/20 text-white placeholder-white rounded"
+    ></textarea>
+  </div>
+
+  <div class="flex flex-col justify-center gap-4 pt-4">
+    <button
+      type="submit"
+      class="bg-qillary-white text-qillary-dark px-6 py-5 rounded hover:bg-teal-500 active:scale-95 hover:text-white transition"
+    >
+      Check Availability
+    </button>
+
+  </div>
+</form>

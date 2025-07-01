@@ -1,0 +1,53 @@
+---
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import "../styles/global.css";
+import { qillary } from "../data/qillary";
+import Whatsapp from "../components/dynamic/Whatsapp.astro";
+import Messenger from "../components/dynamic/Messenger.astro";
+
+const { title, description, image, url } = Astro.props;
+---
+
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+
+    <title>{title} | Descubre Perú</title>
+    <meta name="description" content={description} />
+    <meta
+      name="keywords"
+      content={`Turismo en Perú, viajes, ${title}, Machu Picchu, experiencias andinas`}
+    />
+    <meta name="author" content="Pedro Alejandro" />
+
+    <!-- Metadatos Open Graph (para Facebook, WhatsApp, etc.) -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content={url} />
+    <meta property="og:image" content={image} />
+
+    <!-- SEO: referencia a la página principal -->
+    <link rel="canonical" href="https://tusitio.com/" />
+    <meta name="robots" content="index,follow" />
+
+    <!-- Favicon -->
+    <link rel="icon" href="/qillary-favicon.svg" type="image/svg+xml" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body class="poppins">
+    <Header />
+    <main class=" overflow-hidden">
+      <slot />
+      <Messenger data={qillary} />
+      <Whatsapp data={qillary}/>
+    </main>
+    <Footer />
+  </body>
+</html>

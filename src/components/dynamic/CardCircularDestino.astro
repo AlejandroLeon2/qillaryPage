@@ -1,0 +1,23 @@
+---
+const { link, src, text, title } = Astro.props;
+---
+
+<li class="w-[350px] lg:w-[320px] xl:w-[375px] h-auto rounded-full">
+  <a
+    href={link}
+    class="flex relative items-center"
+    title={`${text} Full tour in ${title} `}
+  >
+    <img
+      src={src}
+      class="w-full h-auto object-cover rounded-full"
+      alt={text}
+      title=`foto en la que se muestra ${text}`
+    />
+    <p
+      class="absolute top-1/2 text-2xl px-4 right-0 left-0 text-center text-white"
+    >
+      {text}
+    </p>
+  </a>
+</li>

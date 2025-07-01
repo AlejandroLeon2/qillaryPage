@@ -1,0 +1,14 @@
+---
+import { multidays } from "../data/multiDays";
+import Secundario from "../layouts/Layout.astro";
+import HeroStatic from "../components/section/HeroStatic.astro";
+import CardMultiple from "../components/ui/CardMultiple.astro";
+---
+
+<Secundario>
+  <HeroStatic/>
+  <h1 class="text-2xl font-bold">Destinos</h1>
+  <ul class="mt-6 grid  grid-cols-1 md:grid-cols-2 max-w-4xl mx-auto gap-8">
+    {multidays.map((d) => <CardMultiple data={d} />)}
+  </ul>
+</Secundario>

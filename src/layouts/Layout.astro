@@ -1,0 +1,84 @@
+---
+import "../styles/global.css";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import Whatsapp from "../components/dynamic/Whatsapp.astro";
+import Messenger from "../components/dynamic/Messenger.astro";
+import { qillary } from "../data/qillary";
+---
+
+<html lang="es">
+  <!-- Idioma configurado a español, esencial para SEO y accesibilidad regional -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Etiqueta generada automáticamente por Astro -->
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- Título SEO-friendly -->
+    <title>Viajes a Machu Picchu | Descubre Perú con Nosotros</title>
+
+    <!-- Meta descripción clara y atractiva -->
+    <meta
+      name="description"
+      content="Explora Machu Picchu, Cusco, el Valle Sagrado y mucho más. Encuentra paquetes turísticos únicos para conocer Perú."
+    />
+
+    <!-- Palabras clave relevantes para buscadores -->
+    <meta
+      name="keywords"
+      content="Viajes a Perú, Machu Picchu, turismo en Cusco, paquetes turísticos, Valle Sagrado, Andes, historia inca"
+    />
+
+    <!-- Nombre del autor del sitio -->
+    <meta name="author" content="Pedro Alejandro" />
+
+    <!-- Open Graph para compartir en redes sociales (Facebook, WhatsApp, etc.) -->
+    <meta property="og:title" content="Viajes a Machu Picchu" />
+    <meta
+      property="og:description"
+      content="Sumérgete en la historia y cultura del Perú. Viajes únicos hacia Machu Picchu y más."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://tusitio.com/" />
+    <meta
+      property="og:image"
+      content="https://tusitio.com/imagenes/machu-picchu.jpg"
+    />
+    <!--  para meta -->
+
+    <meta property="og:title" content="Viajes a Machu Picchu" />
+    <meta
+      property="og:description"
+      content="Sumérgete en la historia y cultura del Perú. Viajes únicos hacia Machu Picchu y más."
+    />
+    <meta
+      property="og:image"
+      content="https://tusitio.com/imagenes/machu-picchu.jpg"
+    />
+    <meta property="og:url" content="https://tusitio.com/" />
+    <meta property="og:type" content="website" />
+
+    <!-- Icono del sitio -->
+    <link rel="icon" type="image/svg+xml" href="/qillary-favicon.svg" />
+
+    <!-- URL canónica para evitar duplicidad de contenido -->
+    <link rel="canonical" href="https://tusitio.com/" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+
+  <body class="poppins">
+    <!-- Slot donde se inyecta el contenido específico de cada página -->
+    <Header />
+    <main>
+      <slot />
+      <Messenger data={qillary} />
+      <Whatsapp data={qillary}/>
+    </main>
+    <Footer />
+  </body>
+</html>

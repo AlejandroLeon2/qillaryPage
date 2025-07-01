@@ -1,0 +1,256 @@
+---
+import Acordeon from "../dynamic/Acordeon.astro";
+import FormDetalles from "../ui/FormDetalles.astro";
+import BotonSecciones from "../ui/BotonSecciones.astro";
+import ContenedorSecciones from "../ui/ContenedorSecciones.astro";
+import { configTabs } from "../../data/menuseccionesmulti";
+import { isLocalService } from "astro/assets";
+
+const { tour = { includes: [], excludes: [] } } = Astro.props;
+---
+
+<section
+  class="w-full relative min-h-screen h-760 md:h-500 xl:h-400 flex flex-col md:flex-row z-49"
+>
+  <section
+    class="flex flex-col lg:flex-row md:px-4 lg:px-0 justify-between md:absolute lg:max-w-4xl xl:max-w-7xl mx-auto pb-4 -top-22 right-0 left-0"
+  >
+    <div class="pb-6 w-full shadow-black/20 shadow-lg shadow-x">
+      <nav
+        class="flex flex-col catamaran bg-qillary-gris md:flex-row text-qillary-dark font-semibol"
+      >
+        {
+          configTabs.tabsPrimarios.map((element) => (
+            <BotonSecciones data={element} />
+          ))
+        }
+      </nav>
+
+      <div
+        id="contenedor"
+        class="flex flex-col mt-14 md:mt-0 lg:flex-row md:justify-between items-center md:items-stretch relative poppins"
+      >
+        <!-- INFORMACION -->
+
+        <ContenedorSecciones tab={configTabs.tabsPrimarios[0].tab}>
+          <!-- Cabecera con nombre y precio -->
+          <header class="">
+            <div class="flex gap-4 items-center">
+              <h1 class="text-2xl md:text-3xl font-bold">
+                {tour.name}
+              </h1>
+              <div>
+                <span class="font-semibold text-lg text-qillary-aqua"
+                  >${tour.price}</span
+                > / per person
+              </div>
+            </div>
+            <div>
+              <p class="my-2 text-qillary-aqua font-semibold">
+                {tour.duration}
+              </p>
+            </div>
+          </header>
+
+          <section class="">
+            <p class="mb-6">{tour.description}</p>
+
+            <!-- Detalles destacados -->
+            <section
+              class="flex gap-2 mb-6 text-xs text-white"
+              aria-label="Detalles destacados"
+            >
+              <div class="text-center px-6 py-3 bg-qillary-aqua">
+                <i class="fas fa-route" aria-hidden="true"></i>
+                <span>1 Tour</span>
+              </div>
+
+              <div class="text-center px-6 py-3 bg-qillary-aqua">
+                <i class="fas fa-user" aria-hidden="true"></i>
+                <span>13+ Age</span>
+              </div>
+
+              <div class="text-center px-6 py-3 bg-qillary-aqua">
+                <i class="fas fa-star" aria-hidden="true"></i>
+                <span>Popular</span>
+              </div>
+            </section>
+
+            <!-- Información detallada -->
+            <section class="flex gap-6 mb-8" aria-label="Itinerario">
+              <div class="grid grid-cols-4 md:grid-cols-5 w-full">
+                <h2 class="font-semibold col-span-1">Destino</h2>
+                <ul
+                  class="mt-4 grid col-span-3 grid-cols-2 md:grid-cols-3 md:col-span-4 items-center gap-4"
+                >
+                  {
+                    tour.destinos.map((element) => (
+                      <li class="">
+                        <p class="min-w-10">{element}</p>
+                      </li>
+                    ))
+                  }
+                </ul>
+              </div>
+            </section>
+
+            <!-- Incluido/No incluido -->
+            <section
+              class="grid grid-cols-1 gap-20"
+              aria-label="Servicios incluidos y no incluidos"
+            >
+              <div class="grid grid-cols-1 md:grid-cols-4">
+                <h2 class="font-semibold">Includes</h2>
+                <ul class="col-span-3 gap-3 grid md:grid-cols-2">
+                  {
+                    tour.includes.map((item) => (
+                      <li class="flex items-start gap-2  py-2">
+                        <i class="fas fa-check-circle  text-green-400 text-lg" />
+
+                        <p class="">{item}</p>
+                      </li>
+                    ))
+                  }
+                </ul>
+              </div>
+              <div class="grid grid-cols-1 md:grid-cols-4">
+                <h2 class="font-semibold">Excludes</h2>
+                <ul class="col-span-3 grid md:grid-cols-2">
+                  {
+                    tour.excludes.map((item) => (
+                      <li class="flex items-start gap-2 py-2">
+                        <i class="fas fa-times-circle text-red-500 text-lg" />
+                        <p>{item}</p>
+                      </li>
+                    ))
+                  }
+                </ul>
+              </div>
+            </section>
+          </section>
+          <div class="space-y-4 mt-20">
+            <h2 class="font-semibold text-2xl">From our gallery</h2>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam
+              impedit quo voluptatem quae corrupti, rerum obcaecati earum autem
+              illo amet ex ipsa dicta exercitationem repellendus voluptas
+              mollitia consequatur omnis. Doloremque?
+            </p>
+            <div class="grid grid-cols-3">
+              <img src="/nice.png" alt="" />
+              <img src="/nice.png" alt="" />
+              <img src="/nice.png" alt="" />
+            </div>
+          </div>
+        </ContenedorSecciones>
+
+        <!-- TOUR PLAN -->
+        <ContenedorSecciones tab={configTabs.tabsPrimarios[1].tab}>
+          <h2 class="text-3xl font-semibold mb-8">Tour Plan</h2>
+          <Acordeon dia={tour} />
+        </ContenedorSecciones>
+
+        <!-- LOCATION -->
+        <ContenedorSecciones tab={configTabs.tabsPrimarios[2].tab}>
+          <h3 class="text-xl font-bold mb-4">Ubicación</h3>
+          <div class="bg-gray-100 rounded max-w-3xl shadow">
+            <p class="mb-2">
+              Tour ubicado en el corazón de España, con recorridos urbanos y
+              rurales.
+            </p>
+            <iframe
+              src="https://maps.google.com/maps?q=Madrid&t=&z=13&ie=UTF8&iwloc=&output=embed"
+              class="w-screen h-120 border rounded"
+              loading="lazy"></iframe>
+          </div>
+        </ContenedorSecciones>
+
+        <!-- GALLERY -->
+        <ContenedorSecciones tab={configTabs.tabsPrimarios[3].tab}>
+          <h3 class="text-xl font-bold mb-4">Galería de fotos</h3>
+          <section class="grid grid-cols-6 gap-4 p-4">
+            <div
+              class="col-span-3 row-span-2 bg-white rounded shadow overflow-hidden flex items-center justify-center"
+            >
+              <img
+                src="/nice.png"
+                alt="Tour destacado"
+                class="h-full w-full object-cover"
+              />
+            </div>
+            <div
+              class="col-span-3 bg-white rounded shadow overflow-hidden h-40 flex items-center justify-center"
+            >
+              <img
+                src="/nice.png"
+                alt="Cusco Express"
+                class="max-h-full w-full object-cover"
+              />
+            </div>
+            <div
+              class="col-span-3 bg-white rounded shadow overflow-hidden h-40 flex items-center justify-center"
+            >
+              <img
+                src="/nice.png"
+                alt="Rainbow Mountain"
+                class="max-h-full w-full object-cover"
+              />
+            </div>
+            <div
+              class="col-span-2 bg-white rounded shadow overflow-hidden h-40 flex items-center justify-center"
+            >
+              <img
+                src="/nice.png"
+                alt="Lima Clásico"
+                class="max-h-full w-full object-cover"
+              />
+            </div>
+            <div
+              class="col-span-4 bg-white rounded shadow overflow-hidden h-40 flex items-center justify-center"
+            >
+              <img
+                src="/nice.png"
+                alt="Puno Lago Titicaca"
+                class="max-h-full w-full object-cover"
+              />
+            </div>
+          </section>
+        </ContenedorSecciones>
+        <ContenedorSecciones tab={configTabs.tabsPrimarios[4].tab} />
+        <FormDetalles />
+      </div>
+    </div>
+
+    <script is:inline>
+      const botones = document.querySelectorAll("[data-tab]");
+      const secciones = Array.from(
+        document.getElementById("contenedor").children
+      ).slice(0, -1);
+
+      function activar(id) {
+        secciones.forEach((sec) => {
+          const activo = sec.id === `${id}`;
+          sec.classList.toggle("hidden", !activo);
+          sec.classList.toggle("block", activo);
+        });
+      }
+
+      function pintar(id) {
+        botones.forEach((boton) => {
+          const activo = boton.dataset.tab === `${id}`;
+          boton.classList.toggle("bg-qillary-gris", !activo);
+          boton.classList.toggle("bg-white", activo);
+        });
+      }
+
+      botones.forEach((btn) => {
+        btn.addEventListener("click", () => activar(btn.dataset.tab));
+        btn.addEventListener("click", (event) =>
+          pintar(event.target.dataset.tab)
+        );
+      });
+
+      activar("INFORMACION");
+    </script>
+  </section>
+</section>

@@ -1,0 +1,18 @@
+---
+import CardDestino from "../ui/CardDestino.astro";
+import TitleDescripcion from "../ui/TitleDescripcion.astro";
+const { data } = Astro.props;
+---
+
+<section class="min-h-screen mt-15">
+  <TitleDescripcion
+    pretitulo="Choose Your"
+    titulo="Perfect Holiday"
+    descripcion="Lorem ipsum dolor sit amet consec"
+  />
+  <section
+    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 max-w-2xl lg:max-w-5xl mx-auto place-items-center gap-4 my-15"
+  >
+    {data.map((elem) => <CardDestino data={elem} />)}
+  </section>
+</section>
