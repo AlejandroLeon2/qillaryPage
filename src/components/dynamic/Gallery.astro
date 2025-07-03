@@ -1,0 +1,60 @@
+---
+// Gallery.astro
+const { images } = Astro.props;
+
+if (images.length !== 5) {
+  throw new Error("El componente Gallery requiere exactamente 5 imágenes.");
+}
+---
+
+<section class="md:grid flex flex-col   space-y-4 md:space-y-0 grid-cols-1 md:grid-cols-6 gap-4 md:p-4">
+  <div
+    class="col-span-3 row-span-2 bg-white rounded shadow overflow-hidden flex items-center justify-center"
+  >
+    <img
+      src={images[0].src}
+      alt={images[0].alt}
+      class="h-full w-full object-cover"
+    />
+  </div>
+
+  <div
+    class="col-span-3 bg-white rounded shadow overflow-hidden  flex items-center justify-center"
+  >
+    <img
+      src={images[1].src}
+      alt={images[1].alt}
+      class="max-h-full w-full object-cover"
+    />
+  </div>
+
+  <div
+    class="col-span-3 bg-white rounded shadow overflow-hidden flex items-center justify-center"
+  >
+    <img
+      src={images[2].src}
+      alt={images[2].alt}
+      class="max-h-full w-full object-cover"
+    />
+  </div>
+
+  <div
+    class="col-span-2 bg-white rounded shadow overflow-hidden  flex items-center justify-center"
+  >
+    <img
+      src={images[3].src}
+      alt={images[3].alt}
+      class="h-full w-full object-cover"
+    />
+  </div>
+
+  <div
+    class="col-span-4 bg-white rounded shadow overflow-hidden h-50 xl:h-70   flex items-center justify-center"
+  >
+    <img
+      src={images[4].src}
+      alt={images[4].alt}
+      class="h-full w-full object-cover"
+    />
+  </div>
+</section>

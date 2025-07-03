@@ -4,28 +4,27 @@ import FormDetalles from "../ui/FormDetalles.astro";
 import BotonSecciones from "../ui/BotonSecciones.astro";
 import ContenedorSecciones from "../ui/ContenedorSecciones.astro";
 import { configTabs } from "../../data/menuseccionesmulti";
-import { isLocalService } from "astro/assets";
+import Gallery from "../dynamic/Gallery.astro";
 
 const { tour = { includes: [], excludes: [] } } = Astro.props;
 ---
 
 <section
-  class="w-full relative min-h-screen h-760 md:h-500 xl:h-400 flex flex-col md:flex-row z-49"
+  class="w-full relative flex flex-col md:flex-row z-49"
 >
+  <nav
+    class="flex flex-col w-full md:absolute -top-22 right-0 left-0 lg:max-w-4xl xl:max-w-7xl mx-auto catamaran bg-qillary-gris md:flex-row text-qillary-dark font-semibol"
+  >
+    {
+      configTabs.tabsPrimarios.map((element) => (
+        <BotonSecciones data={element} />
+      ))
+    }
+  </nav>
   <section
-    class="flex flex-col lg:flex-row md:px-4 lg:px-0 justify-between md:absolute lg:max-w-4xl xl:max-w-7xl mx-auto pb-4 -top-22 right-0 left-0"
+    class="flex flex-col lg:flex-row md:px-4 lg:px-0 justify-between lg:max-w-4xl xl:max-w-7xl mx-auto pb-4"
   >
     <div class="pb-6 w-full shadow-black/20 shadow-lg shadow-x">
-      <nav
-        class="flex flex-col catamaran bg-qillary-gris md:flex-row text-qillary-dark font-semibol"
-      >
-        {
-          configTabs.tabsPrimarios.map((element) => (
-            <BotonSecciones data={element} />
-          ))
-        }
-      </nav>
-
       <div
         id="contenedor"
         class="flex flex-col mt-14 md:mt-0 lg:flex-row md:justify-between items-center md:items-stretch relative poppins"
@@ -137,9 +136,9 @@ const { tour = { includes: [], excludes: [] } } = Astro.props;
               mollitia consequatur omnis. Doloremque?
             </p>
             <div class="grid grid-cols-3">
-              <img src="/nice.png" alt="" />
-              <img src="/nice.png" alt="" />
-              <img src="/nice.png" alt="" />
+              <img src={tour.images[0].src || "/nice.png"} alt="" />
+              <img src={tour.images[1].src || "/nice.png"} alt="" />
+              <img src={tour.images[2].src || "/nice.png"} alt="" />
             </div>
           </div>
         </ContenedorSecciones>
@@ -153,14 +152,14 @@ const { tour = { includes: [], excludes: [] } } = Astro.props;
         <!-- LOCATION -->
         <ContenedorSecciones tab={configTabs.tabsPrimarios[2].tab}>
           <h3 class="text-xl font-bold mb-4">Ubicación</h3>
-          <div class="bg-gray-100 rounded max-w-3xl shadow">
+          <div class="bg-gray-100 rounded max-w-xs md:max-w-3xl shadow">
             <p class="mb-2">
               Tour ubicado en el corazón de España, con recorridos urbanos y
               rurales.
             </p>
             <iframe
               src="https://maps.google.com/maps?q=Madrid&t=&z=13&ie=UTF8&iwloc=&output=embed"
-              class="w-screen h-120 border rounded"
+              class="w-full h-100 border rounded"
               loading="lazy"></iframe>
           </div>
         </ContenedorSecciones>
@@ -168,53 +167,16 @@ const { tour = { includes: [], excludes: [] } } = Astro.props;
         <!-- GALLERY -->
         <ContenedorSecciones tab={configTabs.tabsPrimarios[3].tab}>
           <h3 class="text-xl font-bold mb-4">Galería de fotos</h3>
-          <section class="grid grid-cols-6 gap-4 p-4">
-            <div
-              class="col-span-3 row-span-2 bg-white rounded shadow overflow-hidden flex items-center justify-center"
-            >
-              <img
-                src="/nice.png"
-                alt="Tour destacado"
-                class="h-full w-full object-cover"
-              />
-            </div>
-            <div
-              class="col-span-3 bg-white rounded shadow overflow-hidden h-40 flex items-center justify-center"
-            >
-              <img
-                src="/nice.png"
-                alt="Cusco Express"
-                class="max-h-full w-full object-cover"
-              />
-            </div>
-            <div
-              class="col-span-3 bg-white rounded shadow overflow-hidden h-40 flex items-center justify-center"
-            >
-              <img
-                src="/nice.png"
-                alt="Rainbow Mountain"
-                class="max-h-full w-full object-cover"
-              />
-            </div>
-            <div
-              class="col-span-2 bg-white rounded shadow overflow-hidden h-40 flex items-center justify-center"
-            >
-              <img
-                src="/nice.png"
-                alt="Lima Clásico"
-                class="max-h-full w-full object-cover"
-              />
-            </div>
-            <div
-              class="col-span-4 bg-white rounded shadow overflow-hidden h-40 flex items-center justify-center"
-            >
-              <img
-                src="/nice.png"
-                alt="Puno Lago Titicaca"
-                class="max-h-full w-full object-cover"
-              />
-            </div>
-          </section>
+
+          <Gallery
+            images={[
+              { src: "/nice.png", alt: "Tour destacado" },
+              { src: "/nice.png", alt: "Cusco Express" },
+              { src: "/nice.png", alt: "Rainbow Mountain" },
+              { src: "/nice.png", alt: "Lima Clásico" },
+              { src: "/nice.png", alt: "Puno Lago Titicaca" },
+            ]}
+          />
         </ContenedorSecciones>
         <ContenedorSecciones tab={configTabs.tabsPrimarios[4].tab} />
         <FormDetalles />

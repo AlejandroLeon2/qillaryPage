@@ -1,10 +1,23 @@
 ---
-const {extra, pretitulo, titulo, descripcion}=Astro.props;
+const {
+  extra,
+  pretitulo,
+  titulo,
+  descripcion,
+  pre = "text-qillary-aqua",
+} = Astro.props;
 ---
-<div class={`max-w-2xl px-11 md:px-0 flex flex-col justify-center items-center mx-auto ${extra}`}>
-  <p class="satisfy text-3xl md:text-4xl text-qillary-aqua">{pretitulo}</p>
-  <h2 class="text-5xl md:text-6xl font-semibold mb-4 text-center tracking-tighter">{titulo}</h2>
-  <p class=" max-w-lg">
-{descripcion}
+
+<div
+  class={`max-w-2xl px-11 md:px-0 flex flex-col justify-center items-center mx-auto ${extra}`}
+>
+  <p class={`satisfy text-3xl md:text-4xl ${pre} `}>{pretitulo}</p>
+  <h2
+    class="text-5xl md:text-6xl font-semibold mb-4 text-center tracking-tighter"
+  >
+    {titulo}
+  </h2>
+  <p class="max-w-lg">
+    {descripcion}
   </p>
 </div>
