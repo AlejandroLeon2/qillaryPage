@@ -136,8 +136,9 @@ const { tour = { includes: [], excludes: [] } } = Astro.props;
               class="grid space-y-2 grid-cols-1 md:grid-cols-3 lg:grid-cols-3 place-items-center"
             >
               {
-                tour.images
+                (tour.images || [])
                   .slice(0, 3)
+                  .filter((img) => img?.src || img?.alt || img?.ariallabel)
                   .map((imgs) => (
                     <img
                       src={imgs?.src || "/nice.png"}

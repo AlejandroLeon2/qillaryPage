@@ -1,62 +1,72 @@
 ---
-const { images } = Astro.props;
+const { images = [] } = Astro.props;
 ---
 
 <section
   class="md:grid flex flex-col space-y-4 md:space-y-0 grid-cols-1 md:grid-cols-6 gap-4 md:p-4"
 >
-  <div
-    class="col-span-3 row-span-2 bg-white rounded shadow overflow-hidden flex items-center justify-center"
-  >
-    <img
-      src={images[0]?.src || "/nice.png"}
-      alt={images[0]?.alt || "Paisaje natural capturado durante la excursión"}
-      title={`Imagen del tour: ${images[0]?.ariallabel || "Panorámica del recorrido"}`}
-      class="h-full w-full object-cover"
-    />
-  </div>
+  {
+    images[0] && (
+      <div class="col-span-3 row-span-2 bg-white rounded shadow overflow-hidden flex items-center justify-center">
+        <img
+          src={images[0].src || "/nice.png"}
+          alt={images[0].alt || "Landscape from the tour"}
+          title={`Tour image: ${images[0].ariallabel || "Peruvian scenery"}`}
+          class="h-full w-full object-cover"
+        />
+      </div>
+    )
+  }
 
-  <div
-    class="col-span-3 bg-white rounded shadow overflow-hidden flex items-center justify-center"
-  >
-    <img
-      src={images[1]?.src || "/nice.png"}
-      alt={images[1]?.alt || "Paisaje natural capturado durante la excursión"}
-      title={`Imagen del tour: ${images[1]?.ariallabel || "Panorámica del recorrido"}`}
-      class="max-h-full w-full object-cover"
-    />
-  </div>
+  {
+    images[1] && (
+      <div class="col-span-3 bg-white rounded shadow overflow-hidden flex items-center justify-center">
+        <img
+          src={images[1].src || "/nice.png"}
+          alt={images[1].alt || "Landscape from the tour"}
+          title={`Tour image: ${images[1].ariallabel || "Peruvian scenery"}`}
+          class="max-h-full w-full object-cover"
+        />
+      </div>
+    )
+  }
 
-  <div
-    class="col-span-3 bg-white rounded shadow overflow-hidden flex items-center justify-center"
-  >
-    <img
-      src={images[2]?.src || "/nice.png"}
-      alt={images[2]?.alt || "Paisaje natural capturado durante la excursión"}
-      title={`Imagen del tour: ${images[2]?.ariallabel || "Panorámica del recorrido"}`}
-      class="max-h-full w-full object-cover"
-    />
-  </div>
+  {
+    images[2] && (
+      <div class="col-span-3 bg-white rounded shadow overflow-hidden flex items-center justify-center">
+        <img
+          src={images[2].src || "/nice.png"}
+          alt={images[2].alt || "Landscape from the tour"}
+          title={`Tour image: ${images[2].ariallabel || "Peruvian scenery"}`}
+          class="max-h-full w-full object-cover"
+        />
+      </div>
+    )
+  }
 
-  <div
-    class="col-span-2 bg-white rounded shadow overflow-hidden flex items-center justify-center"
-  >
-    <img
-      src={images[3]?.src || "/nice.png"}
-      alt={images[3]?.alt || "Paisaje natural capturado durante la excursión"}
-      title={`Imagen del tour: ${images[3]?.ariallabel || "Panorámica del recorrido"}`}
-      class="h-full w-full object-cover"
-    />
-  </div>
+  {
+    images[3] && (
+      <div class="col-span-2 bg-white rounded shadow overflow-hidden flex items-center justify-center">
+        <img
+          src={images[3].src || "/nice.png"}
+          alt={images[3].alt || "Landscape from the tour"}
+          title={`Tour image: ${images[3].ariallabel || "Peruvian scenery"}`}
+          class="h-full w-full object-cover"
+        />
+      </div>
+    )
+  }
 
-  <div
-    class="col-span-4 bg-white rounded shadow overflow-hidden h-50 xl:h-70 flex items-center justify-center"
-  >
-    <img
-      src={images[4]?.src || "/nice.png"}
-      alt={images[4]?.alt || "Paisaje natural capturado durante la excursión"}
-      title={`Imagen del tour: ${images[4]?.ariallabel || "Panorámica del recorrido"}`}
-      class="h-full w-full object-cover"
-    />
-  </div>
+  {
+    images[4] && (
+      <div class="col-span-4 bg-white rounded shadow overflow-hidden h-50 xl:h-70 flex items-center justify-center">
+        <img
+          src={images[4].src || "/nice.png"}
+          alt={images[4].alt || "Landscape from the tour"}
+          title={`Tour image: ${images[4].ariallabel || "Peruvian scenery"}`}
+          class="h-full w-full object-cover"
+        />
+      </div>
+    )
+  }
 </section>
