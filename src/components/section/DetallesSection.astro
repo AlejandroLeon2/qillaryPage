@@ -136,19 +136,26 @@ const { tour = { includes: [], excludes: [] } } = Astro.props;
               class="grid space-y-2 grid-cols-1 md:grid-cols-3 lg:grid-cols-3 place-items-center"
             >
               {
-                (tour.images || [])
-                  .slice(0, 3)
-                  .filter((img) => img?.src || img?.alt || img?.ariallabel)
-                  .map((imgs) => (
-                    <img
-                      src={imgs?.src || "/nice.png"}
-                      alt={imgs?.alt || "Imagen del tour"}
-                      title={
-                        imgs?.ariallabel || "Paisaje representativo del viaje"
-                      }
-                      class="w-full h-90 md:w-50 md:h-50 lg:w-60 lg:h-60 object-cover"
-                    />
-                  ))
+                Array.isArray(tour.images) &&
+                  tour.images
+                    .slice(0, 3)
+                    .filter(
+                      (img) =>
+                        typeof img === "object" &&
+                        img !== null &&
+                        typeof img.src === "string" &&
+                        img.src.trim() !== ""
+                    )
+                    .map((img, index) => (
+                      <img
+                        src={img.src}
+                        alt={img.alt || "Imagen del tour"}
+                        title={
+                          img.ariallabel || "Paisaje representativo del viaje"
+                        }
+                        class="w-full h-90 md:w-50 md:h-50 lg:w-60 lg:h-60 object-cover"
+                      />
+                    ))
               }
             </div>
           </div>

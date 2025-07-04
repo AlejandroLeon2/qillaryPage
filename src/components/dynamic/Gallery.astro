@@ -1,71 +1,56 @@
 ---
 const { images = [] } = Astro.props;
+
+const getImage = (index) => {
+  const img = images[index];
+  return {
+    show: !!img?.src,
+    src: img?.src || "/nice.png",
+    alt: img?.alt || "Landscape from the tour",
+    title: `Tour image: ${img?.ariallabel || "Peruvian scenery"}`,
+  };
+};
 ---
 
 <section
   class="md:grid flex flex-col space-y-4 md:space-y-0 grid-cols-1 md:grid-cols-6 gap-4 md:p-4"
 >
   {
-    images[0] && (
+    getImage(0).show && (
       <div class="col-span-3 row-span-2 bg-white rounded shadow overflow-hidden flex items-center justify-center">
-        <img
-          src={images[0].src || "/nice.png"}
-          alt={images[0].alt || "Landscape from the tour"}
-          title={`Tour image: ${images[0].ariallabel || "Peruvian scenery"}`}
-          class="h-full w-full object-cover"
-        />
+        <img {...getImage(0)} class="h-full w-full object-cover" />
       </div>
     )
   }
 
   {
-    images[1] && (
+    getImage(1).show && (
       <div class="col-span-3 bg-white rounded shadow overflow-hidden flex items-center justify-center">
-        <img
-          src={images[1].src || "/nice.png"}
-          alt={images[1].alt || "Landscape from the tour"}
-          title={`Tour image: ${images[1].ariallabel || "Peruvian scenery"}`}
-          class="max-h-full w-full object-cover"
-        />
+        <img {...getImage(1)} class="max-h-full w-full object-cover" />
       </div>
     )
   }
 
   {
-    images[2] && (
+    getImage(2).show && (
       <div class="col-span-3 bg-white rounded shadow overflow-hidden flex items-center justify-center">
-        <img
-          src={images[2].src || "/nice.png"}
-          alt={images[2].alt || "Landscape from the tour"}
-          title={`Tour image: ${images[2].ariallabel || "Peruvian scenery"}`}
-          class="max-h-full w-full object-cover"
-        />
+        <img {...getImage(2)} class="max-h-full w-full object-cover" />
       </div>
     )
   }
 
   {
-    images[3] && (
+    getImage(3).show && (
       <div class="col-span-2 bg-white rounded shadow overflow-hidden flex items-center justify-center">
-        <img
-          src={images[3].src || "/nice.png"}
-          alt={images[3].alt || "Landscape from the tour"}
-          title={`Tour image: ${images[3].ariallabel || "Peruvian scenery"}`}
-          class="h-full w-full object-cover"
-        />
+        <img {...getImage(3)} class="h-full w-full object-cover" />
       </div>
     )
   }
 
   {
-    images[4] && (
+    getImage(4).show && (
       <div class="col-span-4 bg-white rounded shadow overflow-hidden h-50 xl:h-70 flex items-center justify-center">
-        <img
-          src={images[4].src || "/nice.png"}
-          alt={images[4].alt || "Landscape from the tour"}
-          title={`Tour image: ${images[4].ariallabel || "Peruvian scenery"}`}
-          class="h-full w-full object-cover"
-        />
+        <img {...getImage(4)} class="h-full w-full object-cover" />
       </div>
     )
   }
