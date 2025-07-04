@@ -52,8 +52,11 @@ export const multidays = [
         price: 950,
         paymentLink: "",
         images: [
-            { alt: "", ariallabel: "", src: "/images/mapi 5_.webp" }, { alt: "", ariallabel: "", src: "/mapache.jpg" }, { alt: "", ariallabel: "", src: "/mapache.jpg" },
-            { alt: "", ariallabel: "", src: "/mapache.jpg" }, { alt: "", ariallabel: "", src: "/mapache.jpg" }, { alt: "", ariallabel: "", src: "/mapache.jpg" }]
+            { alt: "", ariallabel: "", src: "/images/mapi 5_.webp" },
+            { alt: "", ariallabel: "", src: "/images/maras.webp" },
+            { alt: "", ariallabel: "", src: "/images/CHOQUE4_.webp" },
+            { alt: "", ariallabel: "", src: "/images/plaz.webp" },
+            { alt: "", ariallabel: "", src: "/images/inti_.webp" },]
     },
     {
         name: "Cusco express",
@@ -95,9 +98,11 @@ export const multidays = [
         ],
         price: 650,
         paymentLink: "",
-        images: [{ alt: "", ariallabel: "", src: "/images/plaza-city-tour-cusco_.webp" }, { alt: "", ariallabel: "", src: "images/mapi 5_.webp" },
-            { alt: "", ariallabel: "", src: "images/mapi 5_.webp" }, { alt: "", ariallabel: "", src: "images/mapi 5_.webp" },
-            { alt: "", ariallabel: "", src: "images/mapi 5_.webp" }, { alt: "", ariallabel: "", src: "images/mapi 5_.webp" },]
+        images: [{ alt: "", ariallabel: "", src: "/images/plaza-city-tour-cusco_.webp" },
+            { alt: "", ariallabel: "", src: "/images/maras_.webp" },
+            { alt: "", ariallabel: "", src: "/images/maras.webp" },
+            { alt: "", ariallabel: "", src: "/images/GUIAMAPI.webp" },
+            { alt: "", ariallabel: "", src: "/images/mapi4_.webp" },]
     },
     {
         name: "Lima & Cusco + Rainbow Mountain",
@@ -155,7 +160,11 @@ export const multidays = [
         ],
         price: 1100,
         paymentLink: "",
-        images: [{ alt: "", ariallabel: "", src: "images/TourMontana.webp" }, { alt: "", ariallabel: "", src: "images/plaza-city-tour-cusco_.webp" }, { alt: "", ariallabel: "", src: "images/plaza-city-tour-cusco_.webp" }, { alt: "", ariallabel: "", src: "images/plaza-city-tour-cusco_.webp" }, { alt: "", ariallabel: "", src: "images/plaza-city-tour-cusco_.webp" },]
+        images: [{ alt: "", ariallabel: "", src: "/images/TourMontana.webp" },
+            { alt: "", ariallabel: "", src: "/images/miraflores.webp" },
+            { alt: "", ariallabel: "", src: "/images/3_.webp" },
+            { alt: "", ariallabel: "", src: "/images/max.webp" },
+            { alt: "", ariallabel: "", src: "/images/plaza-city-tour-cusco_.webp" },]
     },
     {
         name: "Lima, Cusco & Puno",
@@ -216,7 +225,11 @@ export const multidays = [
         ],
         price: 1350,
         paymentLink: "",
-        images: [{ alt: "", ariallabel: "", src: "images/Puno 1_.webp" }, { alt: "", ariallabel: "", src: "images/Tour-a-la-Montana.webp" }, { alt: "", ariallabel: "", src: "images/Tour-a-la-Montana.webp" }, { alt: "", ariallabel: "", src: "images/Tour-a-la-Montana.webp" }, { alt: "", ariallabel: "", src: "images/Tour-a-la-Montana.webp" },]
+        images: [{ alt: "", ariallabel: "", src: "/images/Puno 1_.webp" },
+            { alt: "", ariallabel: "", src: "/images/Puno3_.webp" },
+            { alt: "", ariallabel: "", src: "/images/Puno_4.webp" },
+            { alt: "", ariallabel: "", src: "/images/20.webp" },
+            { alt: "", ariallabel: "", src: "/images/maras.webp" },]
     },
     {
         name: "Lima – Paracas & Ica – Cusco",

@@ -2,7 +2,7 @@ export const qillary = {
     team: {
         nombre: "Francisco Padilla",
         descripcion: "With deep knowledge of Peru’s cultural and natural treasures, Francisco brings every journey to life through expert guidance and a passion for accessible travel.",
-        imagen: "/nice.png",
+        imagen: "/images/eapi.webp",
         alt: "Francisco Padilla, expert in Peruvian travel experiences",
         title: "Meet Francisco Padilla – Your Local Travel Expert in Peru"
     },

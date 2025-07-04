@@ -95,7 +95,11 @@ export const offRoadTours = [
         ],
         price: 1700,
         paymentLink: "",
-        images: [{ alt: "", ariallabel: "", src: "/images/TourMontana.webp" }, { alt: "", ariallabel: "", src: "/images/TourMontana.webp" }, { alt: "", ariallabel: "", src: "/images/TourMontana.webp" },]
+        images: [{ alt: "", ariallabel: "", src: "/images/TourMontana.webp" },
+            { alt: "", ariallabel: "", src: "/images/COLCA1_.webp" },
+            { alt: "", ariallabel: "", src: "/images/7_.webp" },
+            { alt: "", ariallabel: "", src: "/images/Puno5_.webp" },
+            { alt: "", ariallabel: "", src: "/images/ballestas.webp" },]
     },
     {
         name: "North off road norte del Perú",
@@ -194,7 +198,11 @@ export const offRoadTours = [
         ],
         price: 1500,
         paymentLink: "",
-        images: [{ alt: "", ariallabel: "", src: "/images/TRU4_.webp" }, { alt: "", ariallabel: "", src: "images/TRU3_.webp" }, { alt: "", ariallabel: "", src: "images/TRU4_.webp" },]
+        images: [{ alt: "", ariallabel: "", src: "/images/TRU4_.webp" },
+            { alt: "", ariallabel: "", src: "/images/TRU2_.webp" },
+            { alt: "", ariallabel: "", src: "/images/IQT4_.webp" },
+            { alt: "", ariallabel: "", src: "/images/TRU5_.webp" },
+            { alt: "", ariallabel: "", src: "/images/TRU3.webp" },]
     },
     {
         name: "Center off road sierra & selva central",
@@ -285,6 +293,10 @@ export const offRoadTours = [
         ],
         price: 1500,
         paymentLink: "",
-        images: [{ alt: "", ariallabel: "", src: "images/IQT2_.webp" }, { alt: "", ariallabel: "", src: "images/IQT5_.webp" },]
+        images: [{ alt: "", ariallabel: "", src: "/images/IQT2_.webp" },
+            { alt: "", ariallabel: "", src: "/images/IQT5_.webp" },
+            { alt: "", ariallabel: "", src: "/images/IQT5_.webp" },
+            { alt: "", ariallabel: "", src: "/images/IQT5_.webp" },
+            { alt: "", ariallabel: "", src: "/images/IQT5_.webp" }]
     }
 ];
