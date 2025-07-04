@@ -52,7 +52,7 @@ export const multidays = [
         price: 950,
         paymentLink: "",
         images: [
-            { alt: "", ariallabel: "", src: "images/mapi 5_.webp" }, { alt: "", ariallabel: "", src: "/mapache.jpg" }, { alt: "", ariallabel: "", src: "/mapache.jpg" },
+            { alt: "", ariallabel: "", src: "/images/mapi 5_.webp" }, { alt: "", ariallabel: "", src: "/mapache.jpg" }, { alt: "", ariallabel: "", src: "/mapache.jpg" },
             { alt: "", ariallabel: "", src: "/mapache.jpg" }, { alt: "", ariallabel: "", src: "/mapache.jpg" }, { alt: "", ariallabel: "", src: "/mapache.jpg" }]
     },
     {
@@ -95,7 +95,7 @@ export const multidays = [
         ],
         price: 650,
         paymentLink: "",
-        images: [{ alt: "", ariallabel: "", src: "images/plaza-city-tour-cusco_.webp" }, { alt: "", ariallabel: "", src: "images/mapi 5_.webp" },
+        images: [{ alt: "", ariallabel: "", src: "/images/plaza-city-tour-cusco_.webp" }, { alt: "", ariallabel: "", src: "images/mapi 5_.webp" },
             { alt: "", ariallabel: "", src: "images/mapi 5_.webp" }, { alt: "", ariallabel: "", src: "images/mapi 5_.webp" },
             { alt: "", ariallabel: "", src: "images/mapi 5_.webp" }, { alt: "", ariallabel: "", src: "images/mapi 5_.webp" },]
     },
@@ -155,7 +155,7 @@ export const multidays = [
         ],
         price: 1100,
         paymentLink: "",
-        images: [{ alt: "", ariallabel: "", src: "images/Tour-a-la-Montana.webp" }, { alt: "", ariallabel: "", src: "images/plaza-city-tour-cusco_.webp" }, { alt: "", ariallabel: "", src: "images/plaza-city-tour-cusco_.webp" }, { alt: "", ariallabel: "", src: "images/plaza-city-tour-cusco_.webp" }, { alt: "", ariallabel: "", src: "images/plaza-city-tour-cusco_.webp" },]
+        images: [{ alt: "", ariallabel: "", src: "images/TourMontana.webp" }, { alt: "", ariallabel: "", src: "images/plaza-city-tour-cusco_.webp" }, { alt: "", ariallabel: "", src: "images/plaza-city-tour-cusco_.webp" }, { alt: "", ariallabel: "", src: "images/plaza-city-tour-cusco_.webp" }, { alt: "", ariallabel: "", src: "images/plaza-city-tour-cusco_.webp" },]
     },
     {
         name: "Lima, Cusco & Puno",

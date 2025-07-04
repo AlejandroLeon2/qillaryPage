@@ -11,11 +11,6 @@ export const configTabs = {
             icon: 'fas fa-map-marked-alt',
         },
         {
-            label: 'LOCATION',
-            tab: 'LOCATION',
-            icon: 'fas fa-map-pin',
-        },
-        {
             label: 'GALLERY',
             tab: 'GALLERY',
             icon: 'fas fa-images',

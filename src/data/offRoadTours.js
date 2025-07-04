@@ -95,7 +95,7 @@ export const offRoadTours = [
         ],
         price: 1700,
         paymentLink: "",
-        images: [{ alt: "", ariallabel: "", src: "images/Tour-a-la-Montana.webp" },]
+        images: [{ alt: "", ariallabel: "", src: "/images/TourMontana.webp" }, { alt: "", ariallabel: "", src: "/images/TourMontana.webp" }, { alt: "", ariallabel: "", src: "/images/TourMontana.webp" },]
     },
     {
         name: "North off road norte del Perú",
@@ -194,7 +194,7 @@ export const offRoadTours = [
         ],
         price: 1500,
         paymentLink: "",
-        images: [{ alt: "", ariallabel: "", src: "images/TRU4_.webp" }, { alt: "", ariallabel: "", src: "images/TRU3_.webp" }, { alt: "", ariallabel: "", src: "images/TRU4_.webp" },]
+        images: [{ alt: "", ariallabel: "", src: "/images/TRU4_.webp" }, { alt: "", ariallabel: "", src: "images/TRU3_.webp" }, { alt: "", ariallabel: "", src: "images/TRU4_.webp" },]
     },
     {
         name: "Center off road sierra & selva central",

@@ -14,7 +14,25 @@ import { qillary } from "../data/qillary";
       <p class="leading-relaxed text-gray-400 max-w-xs mb-4">
         {qillary.contact.descripcion}
       </p>
+    </div>
 
+    <!-- Contactos -->
+    <div class="max-w-lg pt-8">
+      <h3 class="text-white font-semibold text-lg mb-3">Our Offices</h3>
+      <ul class="space-y-2 mb-4 text-sm text-gray-400">
+        <li>
+          <span class="font-semibold"
+            >{qillary.contact.oficinas[0].ciudad}:</span
+          >
+          {qillary.contact.oficinas[0].direccion}
+        </li>
+        <li>
+          <span class="font-semibold"
+            >{qillary.contact.oficinas[1].ciudad}:</span
+          >
+          {qillary.contact.oficinas[1].direccion}
+        </li>
+      </ul>
       <ul class="space-y-2 text-gray-400">
         <li>
           <i class="fas fa-envelope mr-2 text-qillary-aqua"></i>
@@ -26,6 +44,7 @@ import { qillary } from "../data/qillary";
           <i class="fab fa-whatsapp mr-2 text-green-400"></i>
           <a
             href={`https://wa.me/${qillary.contact.contactos[1].valor}`}
+            title={qillary.contact.contactos[1].title}
             target="_blank"
             rel="noopener"
           >
@@ -34,45 +53,6 @@ import { qillary } from "../data/qillary";
         </li>
       </ul>
     </div>
-
-    <!-- Contactos -->
-    <div class="px-6 py-8 max-w-lg">
-      <h3 class="text-xl text-white font-semibold mb-4">
-        Nuestras Publicaciones Recientes
-      </h3>
-      <ul class="space-y-4">
-        <li>
-          <h4 class="text-sm font-medium">Visita Tailandia, Bali y China</h4>
-          <p class="text-sm text-gray-400">7 de septiembre de 2016</p>
-        </li>
-        <li>
-          <h4 class="text-sm font-medium">El sonido de nuestra selva</h4>
-          <p class="text-sm text-gray-400">7 de septiembre de 2016</p>
-        </li>
-        <li>
-          <h4 class="text-sm font-medium">¡Año nuevo, propósitos nuevos!</h4>
-          <p class="text-sm text-gray-400">7 de septiembre de 2016</p>
-        </li>
-      </ul>
-      <div class="max-w-lg pt-4">
-        <h3 class="text-white font-semibold text-lg mb-3">Our Offices</h3>
-        <ul class="space-y-2 text-sm text-gray-400">
-          <li>
-            <span class="font-semibold"
-              >{qillary.contact.oficinas[0].ciudad}:</span
-            >
-            {qillary.contact.oficinas[0].direccion}
-          </li>
-          <li>
-            <span class="font-semibold"
-              >{qillary.contact.oficinas[1].ciudad}:</span
-            >
-            {qillary.contact.oficinas[1].direccion}
-          </li>
-        </ul>
-      </div>
-    </div>
-
     <!-- Oficinas -->
 
     <section class="px-6 py-8 rounded-md shadow-md max-w-lg mx-auto">
@@ -103,7 +83,7 @@ import { qillary } from "../data/qillary";
         />
         <button
           type="submit"
-          class="w-full bg-qillary-aqua text-lg text-white py-4  hover:bg-cyan-700 transition"
+          class="w-full bg-qillary-aqua text-lg text-white py-4 hover:bg-cyan-700 transition"
         >
           Subscribe
         </button>
@@ -113,8 +93,9 @@ import { qillary } from "../data/qillary";
     <div class="text-white px-6 py-8 rounded-md max-w-lg">
       <h3 class="text-xl font-semibold mb-4">Nuestro Instagram</h3>
       <p class="leading-relaxed text-sm text-gray-400">
-        Aliquam lorem ante, dapibus in viverra quis, feugiat a tellus. Phasellus
-        nulla at arcu placerat, condimentum augue nec, dapibus sapien.
+        Follow our journey through breathtaking destinations, cultural
+        snapshots, and unforgettable moments shared by real travelers across
+        Peru.
       </p>
     </div>
   </div>

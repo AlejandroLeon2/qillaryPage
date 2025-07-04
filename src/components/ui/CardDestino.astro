@@ -13,7 +13,8 @@ const minus = data.name.toLowerCase();
 >
   <img
     src={data.images[0].src ? data.images[0].src : `/nice.png`}
-    alt={data.name}
+    alt={`Photo taken during the tour ${data.name}`}
+    title={data.name}
     class="w-full group-hover:scale-105 duration-500 h-full object-cover"
   />
   <div

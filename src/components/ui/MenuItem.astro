@@ -10,7 +10,7 @@ const hasChildren = children.length > 0;
         <p class="flex font-semibold escuchar relative group   items-center justify-between md px-2 py-2 cursor-pointer  text-black hover:text-qillary-aqua ">
           {label}
         </p>
-        <ul class=" md:absolute  mb-4 md:bg-qillary-gris hidden md:pt-10 top-26  md:gap-4 group-focus:grid group-hover:grid lg:grid-cols-2 max-w-xl  w-auto md:pl-6 md:pr-4 md:mr-4">
+        <ul class=" md:absolute overflow-y-scroll max-h-100  mb-4 md:bg-qillary-gris hidden md:pt-4 xl:top-26  md:gap-4 group-focus:grid group-hover:grid lg:grid-cols-2 max-w-2xl  w-auto md:pl-6 md:pr-4 md:mr-4">
           {children.map((subItem) => (
             <li class="pl-8 ">
               <a
@@ -28,6 +28,7 @@ const hasChildren = children.length > 0;
       </div>
     ) : (
       <a
+      title={label}
         href={href}
         class="menu-link  border-b border-gray-500 md:border-white font-semibold flex items-center justify-between px-3 py-2 text-gray-800 hover:text-qillary-aqua "
       >

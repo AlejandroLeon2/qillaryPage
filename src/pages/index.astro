@@ -22,19 +22,41 @@ import { multidays } from "../data/multiDays";
       extra="my-15 text-white"
       pretitulo="Go & Discover"
       titulo="Breathtaking Cities"
-      descripcion="Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aene an commodo ligula eget dolor. Aenean massa. Cum sociis"
+      descripcion="Explore vibrant cities where history, culture, and adventure converge in every street corner."
     />
-    <div
+    <figure
       class="aspect-video w-11/12 max-w-3xl rounded-lg shadow-lg overflow-hidden border-4 border-white"
     >
       <iframe
+        title="Tour virtual por Perú: video promocional de Qillary Tours"
+        loading="lazy"
         class="w-full h-full"
-        src="https://www.youtube.com/embed/Scxs7L0vhZ4"
-        title="Video de aventura en la montaña"
+        src="https://www.youtube-nocookie.com/embed/sTUi3JTuRys?si=Ga-wOZg-HbOebAn7"
+        title="Descubre los paisajes de Perú en este tour guiado"
         frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen></iframe>
-    </div>
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen
+      >
+      </iframe>
+      <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "VideoObject",
+          "name": "Descubre Perú con Qillary Tours",
+          "description": "Un vistazo a nuestros recorridos exclusivos por Lima, Cusco y más.",
+          "thumbnailUrl": "https://img.youtube.com/vi/sTUi3JTuRys/maxresdefault.jpg",
+          "uploadDate": "2023-05-10",
+          "contentUrl": "https://www.youtube.com/watch?v=sTUi3JTuRys",
+          "embedUrl": "https://www.youtube-nocookie.com/embed/sTUi3JTuRys"
+        }
+      </script>
+
+      <figcaption class="text-sm text-gray-600">
+        Video promocional del tour: vistas aéreas, cultura local y experiencias
+        auténticas por Perú.
+      </figcaption>
+    </figure>
   </section>
 
   <section>
@@ -42,7 +64,7 @@ import { multidays } from "../data/multiDays";
       extra="my-15"
       pretitulo="Choose Your"
       titulo="Destination"
-      descripcion="Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aene an commodo ligula eget dolor. Aenean massa. Cum sociis"
+      descripcion="Explore Peru from every angle: the ancient soul of the South, the vibrant heart of the Center, and the natural wonders of the North."
     />
     <ul
       class="grid grid-cols-1 gap-4 max-w-6xl my-8 mx-auto lg:grid-cols-3 place-items-center"

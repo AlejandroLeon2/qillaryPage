@@ -5,13 +5,12 @@ import BotonSecciones from "../ui/BotonSecciones.astro";
 import ContenedorSecciones from "../ui/ContenedorSecciones.astro";
 import { configTabs } from "../../data/menuseccionesmulti";
 import Gallery from "../dynamic/Gallery.astro";
+import Recomendacion from "../ui/Recomendacion.astro";
 
 const { tour = { includes: [], excludes: [] } } = Astro.props;
 ---
 
-<section
-  class="w-full relative flex flex-col md:flex-row z-49"
->
+<section class="w-full relative flex flex-col md:flex-row z-49">
   <nav
     class="flex flex-col w-full md:absolute -top-22 right-0 left-0 lg:max-w-4xl xl:max-w-7xl mx-auto catamaran bg-qillary-gris md:flex-row text-qillary-dark font-semibol"
   >
@@ -130,15 +129,26 @@ const { tour = { includes: [], excludes: [] } } = Astro.props;
           <div class="space-y-4 mt-20">
             <h2 class="font-semibold text-2xl">From our gallery</h2>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam
-              impedit quo voluptatem quae corrupti, rerum obcaecati earum autem
-              illo amet ex ipsa dicta exercitationem repellendus voluptas
-              mollitia consequatur omnis. Doloremque?
+              A curated selection of moments that capture the heart of every
+              journey with Qillary Tours.
             </p>
-            <div class="grid grid-cols-3">
-              <img src={tour.images[0].src || "/nice.png"} alt="" />
-              <img src={tour.images[1].src || "/nice.png"} alt="" />
-              <img src={tour.images[2].src || "/nice.png"} alt="" />
+            <div
+              class="grid space-y-2 grid-cols-1 md:grid-cols-3 lg:grid-cols-3 place-items-center"
+            >
+              {
+                tour.images
+                  .slice(0, 3)
+                  .map((imgs) => (
+                    <img
+                      src={imgs?.src || "/nice.png"}
+                      alt={imgs?.alt || "Imagen del tour"}
+                      title={
+                        imgs?.ariallabel || "Paisaje representativo del viaje"
+                      }
+                      class="w-full h-90 md:w-50 md:h-50 lg:w-60 lg:h-60 object-cover"
+                    />
+                  ))
+              }
             </div>
           </div>
         </ContenedorSecciones>
@@ -150,35 +160,16 @@ const { tour = { includes: [], excludes: [] } } = Astro.props;
         </ContenedorSecciones>
 
         <!-- LOCATION -->
-        <ContenedorSecciones tab={configTabs.tabsPrimarios[2].tab}>
-          <h3 class="text-xl font-bold mb-4">Ubicación</h3>
-          <div class="bg-gray-100 rounded max-w-xs md:max-w-3xl shadow">
-            <p class="mb-2">
-              Tour ubicado en el corazón de España, con recorridos urbanos y
-              rurales.
-            </p>
-            <iframe
-              src="https://maps.google.com/maps?q=Madrid&t=&z=13&ie=UTF8&iwloc=&output=embed"
-              class="w-full h-100 border rounded"
-              loading="lazy"></iframe>
-          </div>
-        </ContenedorSecciones>
 
         <!-- GALLERY -->
-        <ContenedorSecciones tab={configTabs.tabsPrimarios[3].tab}>
+        <ContenedorSecciones tab={configTabs.tabsPrimarios[2].tab}>
           <h3 class="text-xl font-bold mb-4">Galería de fotos</h3>
 
-          <Gallery
-            images={[
-              { src: "/nice.png", alt: "Tour destacado" },
-              { src: "/nice.png", alt: "Cusco Express" },
-              { src: "/nice.png", alt: "Rainbow Mountain" },
-              { src: "/nice.png", alt: "Lima Clásico" },
-              { src: "/nice.png", alt: "Puno Lago Titicaca" },
-            ]}
-          />
+          <Gallery images={tour.images} />
         </ContenedorSecciones>
-        <ContenedorSecciones tab={configTabs.tabsPrimarios[4].tab} />
+        <ContenedorSecciones tab={configTabs.tabsPrimarios[3].tab}>
+          <Recomendacion />
+        </ContenedorSecciones>
         <FormDetalles />
       </div>
     </div>

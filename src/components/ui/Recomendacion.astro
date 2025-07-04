@@ -1,0 +1,172 @@
+---
+const defaultScores = [
+  { label: "Rating", value: 40 },
+  { label: "Comfort", value: 40 },
+  { label: "Food", value: 60 },
+  { label: "Hospitality", value: 100 },
+  { label: "Hygiene", value: 40 },
+  { label: "Reception", value: 40 },
+];
+---
+
+<section class="max-w-4xl mx-auto py-10 px-4 space-y-12">
+  <!-- Breakdown Section -->
+  <div>
+    <h2 class="text-3xl font-bold mb-2">Customer Experience Summary</h2>
+    <p class="text-gray-600 mb-8">
+      Discover how our travelers have rated their experience with our tours. We
+      are committed to providing exceptional service in every aspect of your
+      journey—from comfort to hospitality.
+    </p>
+
+    <div class="flex flex-col md:flex-row gap-10">
+      <!-- Left Score -->
+      <div class="flex flex-col items-center md:items-start md:w-1/3">
+        <span class="text-5xl font-bold">5.3</span>
+        <div class="text-qillary-aqua font-semibold mt-2 flex items-center gap-1">
+          <svg
+            class="w-4 h-4 text-qillary-aqua"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+          >
+            <path
+              d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.518 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.975 2.89a1 1 0 00-.364 1.118l1.518 4.674c.3.921-.755 1.688-1.538 1.118L10 15.347l-3.975 2.89c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.364-1.118L1.666 10.1c-.783-.57-.38-1.81.588-1.81h4.915a1 1 0 00.95-.69l1.518-4.674z"
+            ></path>
+          </svg>
+          Good
+        </div>
+      </div>
+
+      <!-- Right Bars -->
+      <div class="flex-1 space-y-6">
+        {
+          defaultScores.map(({ label, value }) => (
+            <div class="space-y-1" key={label}>
+              <div class="flex justify-between text-sm font-semibold">
+                <span>{label}</span>
+                <span>{value}%</span>
+              </div>
+              <div class="w-full bg-gray-200 h-3 rounded-full">
+                <div
+                  class="bg-qillary-aqua h-3 rounded-full"
+                  style={`width: ${value}%`}
+                />
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+
+  <!-- Comment Form -->
+  <div class="bg-qillary-aqua text-white p-8 rounded-lg">
+    <h3 class="text-2xl font-bold mb-4">Share Your Travel Experience</h3>
+    <p class="mb-6 text-white/90">
+      Help future travelers by sharing your opinion about our services. Your
+      feedback makes us better!
+    </p>
+
+    <form id="review-form" class="space-y-6">
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-4 text-sm">
+        {
+          defaultScores.map((score) => (
+            <label key={score.label} class="flex flex-col gap-1">
+              <span class="text-white font-semibold">{score.label}</span>
+              <div class="flex gap-1">
+                {[1, 2, 3, 4, 5].map((i) => (
+                  <input
+                    type="radio"
+                    name={`score-${score.label}`}
+                    value={i}
+                    class="accent-yellow-400"
+                  />
+                ))}
+              </div>
+            </label>
+          ))
+        }
+      </div>
+
+      <textarea
+        name="comment"
+        rows="4"
+        placeholder="Write your comment here..."
+        class="w-full p-3 rounded text-white bg-white/20  placeholder:text-white"
+      ></textarea>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <input
+          type="text"
+          name="name"
+          placeholder="Full Name*"
+          required
+          class="p-3 rounded text-white bg-white/20 placeholder:text-white"
+        />
+        <input
+          type="email"
+          name="email"
+          placeholder="Email Address*"
+          required
+          class="p-3 rounded text-white bg-white/20 placeholder:text-white"
+        />
+      </div>
+
+      <label class="flex items-center gap-2 text-sm">
+        <input type="checkbox" class="accent-white" />
+        Save my name, email, and website in this browser for the next time I comment.
+      </label>
+
+      <button
+        type="submit"
+        class="bg-white text-black hover:text-white  py-2 px-6 rounded font-bold uppercase tracking-wide hover:bg-cyan-800"
+        >Submit</button
+      >
+    </form>
+  </div>
+
+  <!-- User Comments -->
+  <div id="reviews-output" class="space-y-6"></div>
+</section>
+
+<script is:inline>
+  const form = document.querySelector("#review-form");
+  const output = document.querySelector("#reviews-output");
+  const reviews = JSON.parse(localStorage.getItem("reviews") || "[]");
+
+  const renderReviews = () => {
+    output.innerHTML = "";
+    reviews.forEach((r, idx) => {
+      const div = document.createElement("div");
+      div.className = "border-t pt-4";
+      div.innerHTML = `
+        <div class="flex gap-4 items-start">
+          <img src="https://i.pravatar.cc/50?u=user-${idx}" alt="avatar" class="w-12 h-12 rounded-full" />
+          <div>
+            <p class="font-bold">${r.name}</p>
+            <p class="text-sm text-gray-600">${new Date(r.date).toLocaleString()}</p>
+            <p class="text-sm text-gray-700 mt-2">${r.comment}</p>
+          </div>
+        </div>
+      `;
+      output.appendChild(div);
+    });
+  };
+
+  renderReviews();
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const formData = new FormData(form);
+    const review = {
+      name: formData.get("name"),
+      email: formData.get("email"),
+      comment: formData.get("comment"),
+      date: new Date().toISOString(),
+    };
+    reviews.push(review);
+    localStorage.setItem("reviews", JSON.stringify(reviews));
+    form.reset();
+    renderReviews();
+  });
+</script>
