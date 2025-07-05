@@ -17,71 +17,106 @@ const images = [
 ];
 ---
 
-<section
-  aria-label="Hero rotativo de destinos destacados"
-  class="relative h-[70vh] md:h-[70vh] overflow-hidden"
->
-  <div class="w-full h-full relative">
-    {
-      images.map((img, i) => (
-        <figure
-          class={`absolute  top-0 left-0 w-full h-full bg-fixed bg-cover bg-center transition-opacity duration-700 ease-in-out ${
-            i === 0 ? "opacity-100 z-10" : "opacity-0 z-0"
-          }`}
-          style={`background-image: url(${img.url});`}
-          data-index={i}
-        >
-          <figcaption class="absolute h-full bg-black/20  flex flex-col justify-center items-center left-0 right-0  text-center text-white px-4 py-2 text-xl rounded">
-            <p class="satisfy text-2xl md:text-4xl">{img.alt}</p>
-            <p class="text-4xl md:text-8xl font-semibold">{img.caption}</p>
-            <p class="mx-auto text-md max-w-3xl mt-4 ">{img.description}</p>
-          </figcaption>
-        </figure>
-      ))
-    }
+<section class="relative h-[70vh] md:h-[70vh] overflow-hidden">
+  <div class="w-full h-full relative overflow-hidden">
+    <!-- ✅ Agregado relative al figure -->
+    <figure class="relative w-full h-full z-10">
+      <img
+      title="Explore The Peru"
+        id="hero-img"
+        src="/images/MAPI2__.webp"
+        alt="View of Machu Picchu"
+        width="1920"
+        height="1080"
+        fetchpriority="high"
+        decoding="async"
+        class="w-full h-full object-cover"
+      />
+      <!-- ✅ figcaption ahora está por encima -->
+      <figcaption
+        id="hero-caption"
+        class="absolute inset-0 z-10 bg-black/20 flex flex-col justify-center items-center text-center text-white px-4 py-2 text-xl"
+      >
+        <p id="hero-alt" class="satisfy text-2xl md:text-4xl">
+          View of Machu Picchu
+        </p>
+        <h1 id="hero-title" class="text-4xl md:text-8xl font-semibold">
+          Explore Machu Picchu
+        </h1>
+        <p id="hero-desc" class="mx-auto text-md max-w-3xl mt-4">
+          Live a unique experience through the Andes and the legacy of the Inca
+          civilization.
+        </p>
+      </figcaption>
+    </figure>
+
+    <!-- Botones visibles desde el inicio -->
+    <button
+      id="prevBtn"
+      class="absolute left-4 top-1/2 -translate-y-1/2 z-20 text-white text-4xl"
+    >
+      ❮
+    </button>
+    <button
+      id="nextBtn"
+      class="absolute right-4 top-1/2 -translate-y-1/2 z-20 text-white text-4xl"
+    >
+      ❯
+    </button>
   </div>
 
-  <!-- Navegación con botones -->
-  <nav
-    aria-label="Controles del slider"
-    class="absolute w-full inset-y-0 flex justify-between items-center px-4 z-20"
-  >
-    <button
-      aria-label="Slide anterior"
-      class="bg-white/60 hover:bg-white pb-1 text-5xl text-black rounded-full w-10 h-10 flex items-center justify-center"
-      id="prevBtn">‹</button
-    >
-    <button
-      aria-label="Slide siguiente"
-      class="bg-white/60 hover:bg-white pb-1 text-5xl text-black rounded-full w-10 h-10 flex items-center justify-center"
-      id="nextBtn">›</button
-    >
-  </nav>
+  <script type="module">
+    const images = [
+      {
+        url: "/images/MAPI2__.webp",
+        alt: "View of Machu Picchu",
+        caption: "Explore Machu Picchu",
+        description:
+          "Live a unique experience through the Andes and the legacy of the Inca civilization.",
+      },
+      {
+        url: "/images/TREK3_.webp",
+        alt: "Inca Trail through the mountains",
+        caption: "Andean Adventure",
+        description:
+          "Each tour is designed to connect your traveler’s spirit with the essence of Peru.",
+      },
+    ];
 
-  <script>
-    const slides = document.querySelectorAll("[data-index]");
     let index = 0;
-    console.log(document.querySelectorAll("[data-index]"));
 
-    const showSlide = (i) => {
-      slides.forEach((s, j) => {
-        s.classList.toggle("opacity-100", j === i);
-        s.classList.toggle("z-10", j === i);
-        s.classList.toggle("opacity-0", j !== i);
-        s.classList.toggle("z-0", j !== i);
-      });
-      index = i;
+    const img = document.getElementById("hero-img");
+    const altText = document.getElementById("hero-alt");
+    const title = document.getElementById("hero-title");
+    const desc = document.getElementById("hero-desc");
+
+    const updateContent = (i) => {
+      img.src = images[i].url;
+      img.alt = images[i].alt;
+      altText.textContent = images[i].alt;
+      title.textContent = images[i].caption;
+      desc.textContent = images[i].description;
     };
 
-    document.getElementById("nextBtn")?.addEventListener("click", () => {
-      showSlide((index + 1) % slides.length);
-    });
-    document.getElementById("prevBtn")?.addEventListener("click", () => {
-      showSlide((index - 1 + slides.length) % slides.length);
-    });
+    window.addEventListener("DOMContentLoaded", () => {
+      setTimeout(() => {
+        // Activar botones
+        document.getElementById("nextBtn").addEventListener("click", () => {
+          index = (index + 1) % images.length;
+          updateContent(index);
+        });
 
-    setInterval(() => {
-      showSlide((index + 1) % slides.length);
-    }, 8000);
+        document.getElementById("prevBtn").addEventListener("click", () => {
+          index = (index - 1 + images.length) % images.length;
+          updateContent(index);
+        });
+
+        // Autoplay
+        setInterval(() => {
+          index = (index + 1) % images.length;
+          updateContent(index);
+        }, 8000);
+      }, 2000);
+    });
   </script>
 </section>

@@ -22,7 +22,10 @@ export const allTours = [
         ],
         price: 25,
         paymentLink: "",
-        images: []
+        images: [{ alt: "", ariallabel: "", src: "/images/plaz.webp" },
+            { alt: "", ariallabel: "", src: "/images/ollant.webp" },
+            { alt: "", ariallabel: "", src: "/images/inti_.webp" },
+        ]
     },
     {
         name: "Sacred Valley Tour",
@@ -48,7 +51,10 @@ export const allTours = [
         ],
         price: 60,
         paymentLink: "",
-        images: []
+        images: [{ alt: "", ariallabel: "", src: "/images/chincheros.webp" },
+            { alt: "", ariallabel: "", src: "/images/maras.webp" },
+            { alt: "", ariallabel: "", src: "/images/plaz.webp" },
+        ]
     },
     {
         name: "Maras & Moray Tour",
@@ -74,7 +80,10 @@ export const allTours = [
         ],
         price: 35,
         paymentLink: "",
-        images: []
+        images: [{ alt: "", ariallabel: "", src: "/images/maras.webp" },
+            { alt: "", ariallabel: "", src: "/images/maras_.webp" },
+            { alt: "", ariallabel: "", src: "/images/moray_.webp" },
+        ]
     },
     {
         name: "Humantay Lake Tour",
@@ -101,7 +110,10 @@ export const allTours = [
         ],
         price: 45,
         paymentLink: "",
-        images: []
+        images: [{ alt: "", ariallabel: "", src: "/images/laguna.webp" },
+            { alt: "", ariallabel: "", src: "/images/TREK5_.webp" },
+            { alt: "", ariallabel: "", src: "/images/CHOQUE3_.webp" },
+        ]
     },
     {
         name: "Rainbow Mountain (Vinicunca)",
@@ -128,7 +140,10 @@ export const allTours = [
         ],
         price: 45,
         paymentLink: "",
-        images: []
+        images: [{ alt: "", ariallabel: "", src: "/images/Alpacas.webp" },
+            { alt: "", ariallabel: "", src: "/images/TREK5_.webp" },
+            { alt: "", ariallabel: "", src: "/images/CHOQUE3_.webp" },
+        ]
     },
     {
         name: "Quad Bike Maras & Moray",
@@ -156,7 +171,10 @@ export const allTours = [
         ],
         price: 50,
         paymentLink: "",
-        images: []
+        images: [{ alt: "", ariallabel: "", src: "/images/moray_.webp" },
+            { alt: "", ariallabel: "", src: "/images/maras.webp" },
+            { alt: "", ariallabel: "", src: "/images/maras_.webp" },
+        ]
     },
     {
         name: "Quad Bike Salineras & Huaypo Lake",
@@ -183,7 +201,10 @@ export const allTours = [
         ],
         price: 50,
         paymentLink: "",
-        images: []
+        images: [{ alt: "", ariallabel: "", src: "/images/ollant.webp" },
+            { alt: "", ariallabel: "", src: "/images/mapi4_.webp" },
+            { alt: "", ariallabel: "", src: "/images/maras.webp" },
+        ]
     },
     {
         name: "Full-Day Machu Picchu from Ollantaytambo",
@@ -213,7 +234,10 @@ export const allTours = [
         ],
         price: 370,
         paymentLink: "",
-        images: []
+        images: [{ alt: "", ariallabel: "", src: "/images/ollant.webp" },
+            { alt: "", ariallabel: "", src: "/images/MAPI2_.webp" },
+            { alt: "", ariallabel: "", src: "/images/GUIAMAPI.webp" },
+        ]
     },
     {
         name: "Lima City Tour + San Francisco Monastery",
@@ -230,7 +254,10 @@ export const allTours = [
         ],
         price: 35,
         paymentLink: "",
-        images: []
+        images: [{ alt: "", ariallabel: "", src: "/images/plazama_.webp" },
+            { alt: "", ariallabel: "", src: "/images/lima_.webp" },
+            { alt: "", ariallabel: "", src: "/images/14_.webp" },
+        ]
     },
     {
         name: "Gastronomic Tour + Demo Class",
@@ -247,7 +274,10 @@ export const allTours = [
         ],
         price: 70,
         paymentLink: "",
-        images: []
+        images: [{ alt: "", ariallabel: "", src: "/images/dia.webp" },
+            { alt: "", ariallabel: "", src: "/images/lima_.webp" },
+            { alt: "", ariallabel: "", src: "/images/max.webp" },
+        ]
     },
     {
         name: "Lima Night City Tour + Magic Water Circuit",
@@ -264,7 +294,10 @@ export const allTours = [
         ],
         price: 40,
         paymentLink: "",
-        images: []
+        images: [{ alt: "", ariallabel: "", src: "/images/lima_.webp" },
+            { alt: "", ariallabel: "", src: "/images/miraflores.webp" },
+            { alt: "", ariallabel: "", src: "/images/dia.webp" },
+        ]
     },
     {
         name: "Barranco & Pachacamac Tour",
@@ -281,7 +314,10 @@ export const allTours = [
         ],
         price: 50,
         paymentLink: "",
-        images: []
+        images: [{ alt: "", ariallabel: "", src: "/images/pachacamac.webp" },
+            { alt: "", ariallabel: "", src: "/images/3.webp" },
+            { alt: "", ariallabel: "", src: "/images/6.webp" },
+        ]
     },
     {
         name: "Palomino Islands Marine Adventure",
@@ -298,7 +334,10 @@ export const allTours = [
         ],
         price: 130,
         paymentLink: "",
-        images: []
+        images: [{ alt: "", ariallabel: "", src: "/images/20.webp" },
+            { alt: "", ariallabel: "", src: "/images/miraflores.webp" },
+            { alt: "", ariallabel: "", src: "/images/dia.webp" },
+        ]
     },
     {
         name: "Real Felipe Fortress Experience",
@@ -317,7 +356,7 @@ export const allTours = [
         ],
         price: 40,
         paymentLink: "",
-        images: []
+        images: [{ alt: "", ariallabel: "", src: "/images/8_.webp" },]
     },
     {
         name: "Full Day Shopping Tour - Gamarra & Polvos Azules",
@@ -344,7 +383,7 @@ export const allTours = [
         ],
         price: 45,
         paymentLink: "",
-        images: []
+        images: [{ alt: "", ariallabel: "", src: "/images/10.webp" },]
     },
     {
         name: "Uros & Taquile Island Tour",
@@ -371,7 +410,7 @@ export const allTours = [
         ],
         price: 75,
         paymentLink: "",
-        images: []
+        images: [{ alt: "", ariallabel: "", src: "/images/Puno5_.webp" },]
     },
     {
         name: "Amantani Island Overnight Tour",
@@ -403,7 +442,7 @@ export const allTours = [
         ],
         price: 110,
         paymentLink: "",
-        images: []
+        images: [{ alt: "", ariallabel: "", src: "/images/Puno 1_.webp" },]
     },
     {
         name: "Sillustani Half-Day Tour",
@@ -428,7 +467,9 @@ export const allTours = [
         ],
         price: 45,
         paymentLink: "",
-        images: []
+        images: [{ alt: "", ariallabel: "", src: "/images/Puno7_.webp" },
+            { alt: "", ariallabel: "", src: "/images/Puno6_.webp" },
+        ]
     },
     {
         name: "Colca Valley 2 Days / 1 Night",
@@ -462,7 +503,10 @@ export const allTours = [
         ],
         price: 160,
         paymentLink: "",
-        images: []
+        images: [{ alt: "", ariallabel: "", src: "/images/COLCA3_.webp" },
+            { alt: "", ariallabel: "", src: "/images/COLCA1_.webp" },
+            { alt: "", ariallabel: "", src: "/images/COLCA4_.webp" },
+        ]
     },
     {
         name: "Arequipa City Tour + Santa Catalina Monastery",
@@ -487,7 +531,10 @@ export const allTours = [
         ],
         price: 40,
         paymentLink: "",
-        images: []
+        images: [{ alt: "", ariallabel: "", src: "/images/AQP4_.webp" },
+            { alt: "", ariallabel: "", src: "/images/AQP3_.webp" },
+            { alt: "", ariallabel: "", src: "/images/AQP2_.webp" },
+        ]
     },
     {
         name: "Countryside Tour - Arequipa's Campos and Traditions",
@@ -512,7 +559,10 @@ export const allTours = [
         ],
         price: 40,
         paymentLink: "",
-        images: []
+        images: [{ alt: "", ariallabel: "", src: "/images/AQP1_.webp" },
+            { alt: "", ariallabel: "", src: "/images/AQP2_.webp" },
+            { alt: "", ariallabel: "", src: "/images/AQP3_.webp" },
+        ]
     },
     {
         name: "Ica City Tour + Vineyards + Huacachina + Dune Buggy + Sandboarding",
@@ -539,7 +589,10 @@ export const allTours = [
         price: 170,
         note: "Minimum 2 people",
         paymentLink: "",
-        images: []
+        images: [{ alt: "", ariallabel: "", src: "/images/huacachina.webp" },
+            { alt: "", ariallabel: "", src: "/images/7.webp" },
+            { alt: "", ariallabel: "", src: "/images/arenero22_.webp" },
+        ]
     },
     {
         name: "Huacachina Picnic + Dune Buggy + Sandboarding",
@@ -565,7 +618,10 @@ export const allTours = [
         ],
         price: 55,
         paymentLink: "",
-        images: []
+        images: [{ alt: "", ariallabel: "", src: "/images/7_.webp" },
+            { alt: "", ariallabel: "", src: "/images/huaca china.webp" },
+            { alt: "", ariallabel: "", src: "/images/arenero22_.webp" },
+        ]
     },
     {
         name: "Huacachina Dune Buggy + Sandboarding (Short Tour)",
@@ -591,7 +647,10 @@ export const allTours = [
         ],
         price: 35,
         paymentLink: "",
-        images: []
+        images: [{ alt: "", ariallabel: "", src: "/images/arenero22_.webp" },
+            { alt: "", ariallabel: "", src: "/images/huaca china.webp" },
+
+        ]
     },
     {
         name: "Paracas National Reserve Tour",
@@ -617,7 +676,7 @@ export const allTours = [
         ],
         price: 35,
         paymentLink: "",
-        images: []
+        images: [{ alt: "", ariallabel: "", src: "/images/SUNSET.webp" },]
     },
     {
         name: "Ballestas Islands Tour",
@@ -643,7 +702,7 @@ export const allTours = [
         ],
         price: 40,
         paymentLink: "",
-        images: []
+        images: [{ alt: "", ariallabel: "", src: "/images/ballestas.webp" },]
     },
     {
         name: "Flight Over the Nazca Lines",
@@ -671,7 +730,7 @@ export const allTours = [
         ],
         price: 40,
         paymentLink: "",
-        images: []
+        images: [{ alt: "", ariallabel: "", src: "/images/10.webp" },]
     },
     {
         name: "City Tour Huaraz",
@@ -696,7 +755,9 @@ export const allTours = [
         ],
         price: 70, // Price not specified in input
         paymentLink: "",
-        images: []
+        images: [{ alt: "", ariallabel: "", src: "/images/dia.webp" },
+            { alt: "", ariallabel: "", src: "/images/max.webp" },
+        ]
     },
     {
         name: "Kuélap - Fortress in the Clouds",
@@ -723,7 +784,7 @@ export const allTours = [
         ],
         price: 70,
         paymentLink: "",
-        images: []
+        images: [{ alt: "", ariallabel: "", src: "/images/CHOQUE1_.webp" },]
     },
     {
         name: "Gocta Waterfall Trek",
@@ -749,7 +810,7 @@ export const allTours = [
         ],
         price: 70,
         paymentLink: "",
-        images: []
+        images: [{ alt: "", ariallabel: "", src: "/images/CHOQUE1_.webp" },]
     },
     {
         name: "Karajía Sarcophagi + Quiocta Caves",
@@ -776,7 +837,7 @@ export const allTours = [
         ],
         price: 70,
         paymentLink: "",
-        images: []
+        images: [{ alt: "", ariallabel: "", src: "/images/TRU4.webp" },]
     },
     {
         name: "Revash Mausoleums + Leymebamba Museum",
@@ -801,7 +862,7 @@ export const allTours = [
         ],
         price: 65,
         paymentLink: "",
-        images: []
+        images: [{ alt: "", ariallabel: "", src: "/images/museolarco.webp" },]
     },
     {
         name: "Trujillo City Tour + Paso Horse Show",
@@ -828,7 +889,10 @@ export const allTours = [
         ],
         price: 50,
         paymentLink: "",
-        images: []
+        images: [{ alt: "", ariallabel: "", src: "/images/TRU1_.webp" },
+            { alt: "", ariallabel: "", src: "/images/TRU2_.webp" },
+            { alt: "", ariallabel: "", src: "/images/TRU4_.webp" },
+        ]
     },
     {
         name: "Huaca del Dragón, Huaca de la Luna & Chan Chan",
@@ -854,7 +918,9 @@ export const allTours = [
         ],
         price: 30,
         paymentLink: "",
-        images: []
+        images: [{ alt: "", ariallabel: "", src: "/images/TRU3.webp" },
+
+        ]
     },
     {
         name: "Chiclayo City Tour + Beaches",
@@ -880,7 +946,10 @@ export const allTours = [
         ],
         price: 30,
         paymentLink: "",
-        images: []
+        images: [{ alt: "", ariallabel: "", src: "/images/miraflores.webp" },
+            { alt: "", ariallabel: "", src: "/images/lima_.webp" },
+            { alt: "", ariallabel: "", src: "/images/10.webp" },
+        ]
     },
     {
         name: "Lord of Sipán Tour",
@@ -906,7 +975,8 @@ export const allTours = [
         ],
         price: 70,
         paymentLink: "",
-        images: []
+        images: [{ alt: "", ariallabel: "", src: "/images/museolarco.webp" },
+        ]
     },
     {
         name: "Iquitos - Amazon Adventure",
@@ -961,7 +1031,10 @@ export const allTours = [
         ],
         price: 750,
         paymentLink: "",
-        images: []
+        images: [{ alt: "", ariallabel: "", src: "/images/IQT6_.webp" },
+            { alt: "", ariallabel: "", src: "/images/IQT3_.webp" },
+            { alt: "", ariallabel: "", src: "/images/IQT7_.webp" },
+        ]
       }
 
 ];

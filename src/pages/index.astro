@@ -25,20 +25,55 @@ import { multidays } from "../data/multiDays";
       descripcion="Explore vibrant cities where history, culture, and adventure converge in every street corner."
     />
     <figure
-      class="aspect-video w-11/12 max-w-3xl rounded-lg shadow-lg overflow-hidden border-4 border-white"
+      class="aspect-video w-11/12 max-w-3xl flex rounded-lg shadow-lg overflow-hidden border-4 border-white"
     >
-      <iframe
-        title="Tour virtual por Perú: video promocional de Qillary Tours"
-        loading="lazy"
-        class="w-full h-full"
-        src="https://www.youtube-nocookie.com/embed/sTUi3JTuRys?si=Ga-wOZg-HbOebAn7"
-        title="Descubre los paisajes de Perú en este tour guiado"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        referrerpolicy="strict-origin-when-cross-origin"
-        allowfullscreen
-      >
-      </iframe>
+      <div class="relative w-full aspect-video cursor-pointer">
+        <div
+          class="absolute inset-0 bg-center bg-cover"
+          style="background-image: url('https://img.youtube.com/vi/sTUi3JTuRys/hqdefault.jpg');"
+        >
+        </div>
+        <div
+          id="videoPlaceholder"
+          class="absolute inset-0 flex items-center justify-center"
+        >
+          <div
+            class="w-16 h-16 bg-white/80 rounded-full flex items-center justify-center text-black text-2xl"
+          >
+            ▶
+          </div>
+        </div>
+      </div>
+
+      <script>
+        window.addEventListener("DOMContentLoaded", () => {
+          const placeholder = document.getElementById("videoPlaceholder");
+
+          if (placeholder) {
+            placeholder.addEventListener("click", () => {
+              const iframe = document.createElement("iframe");
+              iframe.src =
+                "https://www.youtube-nocookie.com/embed/sTUi3JTuRys?autoplay=1&rel=0";
+              iframe.title =
+                "Tour virtual por Perú: video promocional de Qillary Tours";
+              iframe.className = "absolute mx-auto inset-0 w-full h-full "; // 👈 tamaño consistente
+              iframe.setAttribute("loading", "lazy");
+              iframe.setAttribute(
+                "referrerpolicy",
+                "strict-origin-when-cross-origin"
+              );
+              iframe.setAttribute("allowfullscreen", "");
+              iframe.setAttribute(
+                "allow",
+                "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              );
+
+              placeholder.replaceWith(iframe);
+            });
+          }
+        });
+      </script>
+
       <script type="application/ld+json">
         {
           "@context": "https://schema.org",
@@ -52,10 +87,7 @@ import { multidays } from "../data/multiDays";
         }
       </script>
 
-      <figcaption class="text-sm text-gray-600">
-        Video promocional del tour: vistas aéreas, cultura local y experiencias
-        auténticas por Perú.
-      </figcaption>
+
     </figure>
   </section>
 

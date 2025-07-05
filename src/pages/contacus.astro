@@ -7,7 +7,11 @@ import { qillary } from "../data/qillary";
 const mensaje = encodeURIComponent(qillary.contact.contactos[1].mensaje);
 ---
 
-<Secundario title="" description="" image="" url="">
+<Secundario
+  title="Contact Us Now The Best Travel Expert"
+  description="With years of experience guiding travelers through Peru, we know how to make every journey seamless and inspiring."
+  url="contacus"
+>
   <HeroStatic src="" />
 
   <header class="mb-5 text-center">
@@ -23,7 +27,7 @@ const mensaje = encodeURIComponent(qillary.contact.contactos[1].mensaje);
     class="flex flex-col-reverse lg:grid lg:grid-cols-8 max-w-5xl mx-auto items-center md:py-10 px-8 md:px-4"
   >
     <div class="max-w-2xl pr-8 col-span-4">
-      <h2 class="text-2xl font-bold mb-2">Contact Us Now</h2>
+      <h1 class="text-2xl font-bold mb-2">Contact Us Now</h1>
       <p class="mb-2">
         Planning your next adventure? Our bilingual team is here to guide you
         every step of the way—before, during, and after your trip.
@@ -37,6 +41,7 @@ const mensaje = encodeURIComponent(qillary.contact.contactos[1].mensaje);
         within 24 hours. Your dream journey through Peru starts here.
       </p>
       <a
+        title="Contact us Whatsapp"
         href={`https://wa.me/${qillary.contact.contactos[1].valor.trim().replace(/\s+/g, "").replace("+", "")}?text=${mensaje}&type=phone_number&app_absent=0`}
         class="text-white py-4 px-8 bg-qillary-aqua font-semibold"
       >
@@ -73,6 +78,7 @@ const mensaje = encodeURIComponent(qillary.contact.contactos[1].mensaje);
             <p>
               <strong>Email:</strong>
               <a
+                title="Contact us email"
                 href="mailto:setsail@example.com"
                 class="hover:text-amber-600 focus:text-amber-600"
               >
@@ -84,6 +90,7 @@ const mensaje = encodeURIComponent(qillary.contact.contactos[1].mensaje);
               class="hover:text-amber-600 focus:text-amber-600"
               href={`https://wa.me/${qillary.contact.contactos[1].valor}`}
               target="_blank"
+              title="Contact us Whatsapp"
               rel="noopener"
             >
               {qillary.contact.contactos[1].valor}

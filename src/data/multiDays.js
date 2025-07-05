@@ -227,7 +227,7 @@ export const multidays = [
         paymentLink: "",
         images: [{ alt: "", ariallabel: "", src: "/images/Puno 1_.webp" },
             { alt: "", ariallabel: "", src: "/images/Puno3_.webp" },
-            { alt: "", ariallabel: "", src: "/images/Puno_4.webp" },
+            { alt: "", ariallabel: "", src: "/images/Puno4_.webp" },
             { alt: "", ariallabel: "", src: "/images/20.webp" },
             { alt: "", ariallabel: "", src: "/images/maras.webp" },]
     },
@@ -291,7 +291,10 @@ export const multidays = [
         ],
         price: 1300,
         paymentLink: "",
-        images: [{ alt: "", ariallabel: "", src: "images/ballestas.webp" },]
+        images: [{ alt: "", ariallabel: "", src: "/images/ballestas.webp" },
+            { alt: "", ariallabel: "", src: "/images/arenero22_.webp" },
+            { alt: "", ariallabel: "", src: "/images/ballestas.webp" },
+        ]
     },
     {
         name: "Lima – Paracas, Ica, Arequipa, Colca, Puno & Cusco",
@@ -377,6 +380,9 @@ export const multidays = [
         ],
         price: 2600,
         paymentLink: "",
-        images: [{ alt: "", ariallabel: "", src: "images/huaca china.webp" }, { alt: "", ariallabel: "", src: "images/Tour-a-la-Montana.webp" }, { alt: "", ariallabel: "", src: "images/Tour-a-la-Montana.webp" }, { alt: "", ariallabel: "", src: "images/Tour-a-la-Montana.webp" }, { alt: "", ariallabel: "", src: "images/Tour-a-la-Montana.webp" },]
+        images: [{ alt: "", ariallabel: "", src: "/images/huaca china.webp" },
+            { alt: "", ariallabel: "", src: "/images/ballestas.webp" },
+            { alt: "", ariallabel: "", src: "/images/COLCA1_.webp" },
+]
     }
 ];

@@ -6,47 +6,59 @@ import { qillary } from "../data/qillary";
 import Whatsapp from "../components/dynamic/Whatsapp.astro";
 import Messenger from "../components/dynamic/Messenger.astro";
 
-const { title, description, image, url } = Astro.props;
+const { title, description, url } = Astro.props;
 ---
 
-<html lang="es">
+<html lang="en">
   <head>
+    <!-- Charset and viewport -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
 
-    <title>{title} | Descubre Perú</title>
+    <!-- Dynamic SEO -->
+    <title>{title} | Explore Peru with Qillary Tours</title>
     <meta name="description" content={description} />
     <meta
       name="keywords"
-      content={`Turismo en Perú, viajes, ${title}, Machu Picchu, experiencias andinas`}
+      content={`Qillary Tours, Peru travel, ${title}, Machu Picchu tours, Andes adventures, cultural experiences`}
     />
-    <meta name="author" content="Pedro Alejandro" />
+    <meta name="author" content="Qillary Tours" />
+    <meta name="robots" content="index, follow" />
 
-    <!-- Metadatos Open Graph (para Facebook, WhatsApp, etc.) -->
+    <!-- Canonical (points to current tour URL) -->
+    <link rel="canonical" href={url} />
+
+    <!-- Open Graph for social media -->
+    <meta property="og:site_name" content="Qillary Tours" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="article" />
     <meta property="og:url" content={url} />
-    <meta property="og:image" content={image} />
 
-    <!-- SEO: referencia a la página principal -->
-    <link rel="canonical" href="https://tusitio.com/" />
-    <meta name="robots" content="index,follow" />
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:site" content="@qillarytours" />
 
     <!-- Favicon -->
     <link rel="icon" href="/qillary-favicon.svg" type="image/svg+xml" />
+
     <link
+      media="print"
+      onload="this.media='all'"
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
   </head>
   <body class="poppins">
     <Header />
-    <main class=" overflow-hidden">
+    <main class="overflow-hidden">
       <slot />
       <Messenger data={qillary} />
-      <Whatsapp data={qillary}/>
+      <Whatsapp data={qillary} />
     </main>
     <Footer />
   </body>

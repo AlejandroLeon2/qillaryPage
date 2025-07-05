@@ -48,7 +48,9 @@ export const peruTreks = [
         ],
         price: 799,
         paymentLink: "",
-        images: [{ alt: "", ariallabel: "", src: "" }]
+        images: [{ alt: "", ariallabel: "", src: "/images/TREK6_.webp" },
+            { alt: "", ariallabel: "", src: "/images/MAPI2__.webp" },
+        { alt: "", ariallabel: "", src: "/images/maras.webp" },]
     },
     {
         name: "Salkantay Trail",
@@ -97,7 +99,10 @@ export const peruTreks = [
         ],
         price: 720,
         paymentLink: "",
-        images: [{ alt: "", ariallabel: "", src: "" }]
+        images: [{ alt: "", ariallabel: "", src: "/images/ollant.webp" },
+            { alt: "", ariallabel: "", src: "/images/mapi4_.webp" },
+            { alt: "", ariallabel: "", src: "/images/plaza-city-tour-cusco_.webp" },
+        ]
     },
     {
         name: "Inka Jungle",
@@ -162,7 +167,10 @@ export const peruTreks = [
         ],
         price: 680,
         paymentLink: "",
-        images: [{ alt: "", ariallabel: "", src: "" }]
+        images: [{ alt: "", ariallabel: "", src: "/images/max.webp" },
+            { alt: "", ariallabel: "", src: "/images/MAPI2__.webp" },
+            { alt: "", ariallabel: "", src: "/images/TREK1.webp" },
+        ]
     },
     {
         name: "Short Inca Trail",
@@ -201,7 +209,10 @@ export const peruTreks = [
         ],
         price: 620,
         paymentLink: "",
-        images: [{ alt: "", ariallabel: "", src: "" }]
+        images: [{ alt: "", ariallabel: "", src: "/images/TREK1.webp" },
+            { alt: "", ariallabel: "", src: "/images/TREK6_.webp" },
+            { alt: "", ariallabel: "", src: "/images/plaz.webp" },
+        ]
     },
     {
         name: "Choquequirao Trek",
@@ -267,7 +278,10 @@ export const peruTreks = [
         ],
         price: 1450,
         paymentLink: "",
-        images: [{ alt: "", ariallabel: "", src: "" }]
+        images: [{ alt: "", ariallabel: "", src: "/images/plaz.webp" },
+            { alt: "", ariallabel: "", src: "/images/TREK4.webp" },
+            { alt: "", ariallabel: "", src: "/images/max.webp" },
+        ]
     },
     {
         name: "Choquequirao Trek",
@@ -314,7 +328,10 @@ export const peruTreks = [
         ],
         price: 690,
         paymentLink: "",
-        images: [{ alt: "", ariallabel: "", src: "" }]
+        images: [{ alt: "", ariallabel: "", src: "/images/CHOQUE4_.webp" },
+            { alt: "", ariallabel: "", src: "/images/GUIAMAPI.webp" },
+            { alt: "", ariallabel: "", src: "/images/TREK1.webp" },
+        ]
     },
     {
         name: "Choquequirao Trek",
@@ -357,6 +374,9 @@ export const peruTreks = [
         ],
         price: 620,
         paymentLink: "",
-        images: [{ alt: "", ariallabel: "", src: "" }]
+        images: [{ alt: "", ariallabel: "", src: "/images/plaz.webp" },
+            { alt: "", ariallabel: "", src: "/images/TREK4.webp" },
+            { alt: "", ariallabel: "", src: "/images/TREK3.webp" },
+        ]
     }
   ];
