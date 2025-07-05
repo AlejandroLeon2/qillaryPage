@@ -32,7 +32,7 @@ const destino = peruTreks.find((d) => {
 });
 ---
 
-<Secundario title={name} description={destino?.description}  url={name}>
-  <HeroStatic />
+<Secundario title={name} description={destino?.description} url={name}>
+  <HeroStatic link={destino?.images[0].src} />
   <DetallesSection tour={destino} />
 </Secundario>

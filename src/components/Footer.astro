@@ -3,9 +3,9 @@ import { qillary } from "../data/qillary";
 ---
 
 <footer class="bg-qillary-dark text-white text-sm lg:text-base">
-  <div class="px-6 pt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+  <div class="px-6 pt-12 grid grid-cols-1 md:grid-cols-4 lg:grid-cols-4 gap-8">
     <!-- Logo + Descripción -->
-    <div class="flex flex-col justify-center items-center">
+    <div class="flex flex-col col-span-1 justify-center items-center">
       <img
         src={qillary.contact.imagen}
         alt={qillary.contact.titulo}
@@ -18,7 +18,7 @@ import { qillary } from "../data/qillary";
     </div>
 
     <!-- Contactos -->
-    <div class="max-w-lg pt-8">
+    <div class="max-w-lg pt-8 col-span-1 px-10 md:px-0">
       <h3 class="text-white font-semibold text-lg mb-3">Our Offices</h3>
       <ul class="space-y-2 mb-4 text-sm text-gray-400">
         <li>
@@ -56,42 +56,58 @@ import { qillary } from "../data/qillary";
     </div>
     <!-- Oficinas -->
 
-    <section class="px-6 py-8 rounded-md shadow-md max-w-lg mx-auto">
+    <section class="px-6 col-span-1 py-8 rounded-mdmax-w-lg mx-auto">
       <h3 class="text-xl font-semibold text-white mb-2">
-        Subscribe to our Newsletter
+        Subscribe to Our Networks
       </h3>
-      <p class="text-gray-400 mb-6">
-        Stay updated with the latest travel tips, exclusive offers, and new
-        destinations from Qillary.
-      </p>
-
-      <form action="/api/subscribe" method="POST" class="space-y-2">
-        <input
-          type="text"
-          id="name"
-          name="name"
-          required
-          placeholder="Name"
-          class="mt-1 block w-full px-4 py-2 bg-gray-700 placeholder:text-white"
-        />
-        <input
-          type="email"
-          id="email"
-          name="email"
-          placeholder="Email"
-          required
-          class="mt-1 block w-full px-4 py-2 bg-gray-700 placeholder:text-white"
-        />
-        <button
-          type="submit"
-          class="w-full bg-qillary-aqua text-lg text-white py-4 hover:bg-cyan-700 transition"
+      <section class="flex flex-col gap-4 justify-center mt-4">
+        <!-- Instagram -->
+        <a
+          href="https://www.instagram.com/qillary.tours"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="Síguenos en Instagram"
+          aria-label="Qillary Tours en Instagram"
+          class="text-white hover:text-pink-400 text-md transition"
         >
-          Subscribe
-        </button>
-      </form>
-    </section>
+          <i class="fab fa-instagram"></i>
+          <span class="text-md ml-2 text-gray-400 hover:text-pink-400"
+            >@Qillary.tours</span
+          >
+        </a>
 
-    <div class="text-white px-6 py-8 rounded-md max-w-lg">
+        <!-- Facebook -->
+        <a
+          href="https://www.facebook.com/100084896946880"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="Conéctate con nosotros en Facebook"
+          aria-label="Qillary Tours en Facebook"
+          class="text-white hover:text-blue-400 text-md transition"
+        >
+          <i class="fab fa-facebook-f"></i>
+          <span class="text-md ml-2 text-gray-400 hover:text-blue-400"
+            >@Qillary.tours</span
+          >
+        </a>
+
+        <!-- TikTok -->
+        <a
+          href="https://www.tiktok.com/@qillary.tours"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="Mira nuestros videos en TikTok"
+          aria-label="Qillary Tours en TikTok"
+          class="text-white hover:text-gray-300 text-md transition"
+        >
+          <i class="fab fa-tiktok"></i>
+          <span class="text-md ml-2 text-gray-400 hover:text-gray-300"
+            >@Qillary.tours</span
+          >
+        </a>
+      </section>
+    </section>
+    <div class="text-white col-span-1 px-6 py-8 rounded-md max-w-lg">
       <h3 class="text-xl font-semibold mb-4">Nuestro Instagram</h3>
       <p class="leading-relaxed text-sm text-gray-400">
         Follow our journey through breathtaking destinations, cultural
@@ -99,17 +115,17 @@ import { qillary } from "../data/qillary";
         Peru.
       </p>
     </div>
-  </div>
-  <div
-    class="border-t mt-4 border-gray-700 py-6 text-center text-xs text-gray-400"
-  >
-    <p class="mb-1">
-      <span lang="en">We speak English and Spanish.</span>
-      <strong lang="es">Hablamos tu idioma.</strong>
-    </p>
-    <nav aria-label="Footer secondary navigation" class="sr-only">
-      <!-- Opcional: enlaces legales o extra -->
-    </nav>
-    <p>© 2025 Qillary Tours. All rights reserved.</p>
+    <div
+      class="border-t mt-4 col-span-1 md:col-span-4 border-gray-700 py-6 text-center text-xs text-gray-400"
+    >
+      <p class="mb-1">
+        <span lang="en">We speak English and Spanish.</span>
+        <strong lang="es">Hablamos tu idioma.</strong>
+      </p>
+      <nav aria-label="Footer secondary navigation" class="sr-only">
+        <!-- Opcional: enlaces legales o extra -->
+      </nav>
+      <p>© 2025 Qillary Tours. All rights reserved.</p>
+    </div>
   </div>
 </footer>

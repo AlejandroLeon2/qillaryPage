@@ -1,5 +1,10 @@
+---
+const { link } = Astro.props;
+---
+
 <section
-  class="h-[90vh] md:h-[90vh] pt-100 md:mt-15 bg-[url('/images/TREK1.webp')] bg-fixed relative bg-cover bg-center"
+  style={`background-image: url('${link}');`}
+  class={`h-[90vh] md:h-[90vh] pt-100 md:mt-15 bg-fixed relative bg-cover bg-center`}
 >
   <div
     class="text-center text-white absolute top-1/3 h-20 right-0 left-0 mx-2 py-4"

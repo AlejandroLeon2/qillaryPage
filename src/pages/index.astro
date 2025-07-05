@@ -16,15 +16,15 @@ import { multidays } from "../data/multiDays";
   <Holidaysection data={multidays} />
   <section
     class="relative w-full h-screen bg-cover bg-center flex flex-col items-center justify-center"
-    style="background-image: url('https://images.unsplash.com/photo-1508264165352-258db2ebd59b?auto=format&fit=crop&w=1950&q=80');"
   >
     <TitleDescripcion
-      extra="my-15 text-white"
+      extra="my-15"
       pretitulo="Go & Discover"
       titulo="Breathtaking Cities"
       descripcion="Explore vibrant cities where history, culture, and adventure converge in every street corner."
     />
     <figure
+      id="videoPlaceholder"
       class="aspect-video w-11/12 max-w-3xl flex rounded-lg shadow-lg overflow-hidden border-4 border-white"
     >
       <div class="relative w-full aspect-video cursor-pointer">
@@ -33,10 +33,7 @@ import { multidays } from "../data/multiDays";
           style="background-image: url('https://img.youtube.com/vi/sTUi3JTuRys/hqdefault.jpg');"
         >
         </div>
-        <div
-          id="videoPlaceholder"
-          class="absolute inset-0 flex items-center justify-center"
-        >
+        <div class="absolute inset-0 flex items-center justify-center">
           <div
             class="w-16 h-16 bg-white/80 rounded-full flex items-center justify-center text-black text-2xl"
           >
@@ -50,9 +47,9 @@ import { multidays } from "../data/multiDays";
   <section>
     <TitleDescripcion
       extra="my-15"
-      pretitulo="Choose Your"
-      titulo="Destination"
-      descripcion="Explore Peru from every angle: the ancient soul of the South, the vibrant heart of the Center, and the natural wonders of the North."
+      pretitulo="Explore the hidden territories of Peru"
+      titulo="With Our Off Road Tours"
+      descripcion="Hop on a 4x4 adventure through Peru’s wildest landscapes. From the sacred heights of the Andes to lush cloud forests and endless deserts."
     />
     <ul
       class="grid grid-cols-1 gap-4 max-w-6xl my-8 mx-auto lg:grid-cols-3 place-items-center"
@@ -86,7 +83,7 @@ import { multidays } from "../data/multiDays";
           "https://www.youtube-nocookie.com/embed/sTUi3JTuRys?autoplay=1&rel=0";
         iframe.title =
           "Tour virtual por Perú: video promocional de Qillary Tours";
-        iframe.className = "absolute mx-auto inset-0 w-full h-full "; // 👈 tamaño consistente
+        iframe.className = "mx-auto inset-0 w-full h-[80svh] "; // 👈 tamaño consistente
         iframe.setAttribute("loading", "lazy");
         iframe.setAttribute(
           "referrerpolicy",
