@@ -44,50 +44,6 @@ import { multidays } from "../data/multiDays";
           </div>
         </div>
       </div>
-
-      <script>
-        window.addEventListener("DOMContentLoaded", () => {
-          const placeholder = document.getElementById("videoPlaceholder");
-
-          if (placeholder) {
-            placeholder.addEventListener("click", () => {
-              const iframe = document.createElement("iframe");
-              iframe.src =
-                "https://www.youtube-nocookie.com/embed/sTUi3JTuRys?autoplay=1&rel=0";
-              iframe.title =
-                "Tour virtual por Perú: video promocional de Qillary Tours";
-              iframe.className = "absolute mx-auto inset-0 w-full h-full "; // 👈 tamaño consistente
-              iframe.setAttribute("loading", "lazy");
-              iframe.setAttribute(
-                "referrerpolicy",
-                "strict-origin-when-cross-origin"
-              );
-              iframe.setAttribute("allowfullscreen", "");
-              iframe.setAttribute(
-                "allow",
-                "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              );
-
-              placeholder.replaceWith(iframe);
-            });
-          }
-        });
-      </script>
-
-      <script type="application/ld+json">
-        {
-          "@context": "https://schema.org",
-          "@type": "VideoObject",
-          "name": "Descubre Perú con Qillary Tours",
-          "description": "Un vistazo a nuestros recorridos exclusivos por Lima, Cusco y más.",
-          "thumbnailUrl": "https://img.youtube.com/vi/sTUi3JTuRys/maxresdefault.jpg",
-          "uploadDate": "2023-05-10",
-          "contentUrl": "https://www.youtube.com/watch?v=sTUi3JTuRys",
-          "embedUrl": "https://www.youtube-nocookie.com/embed/sTUi3JTuRys"
-        }
-      </script>
-
-
     </figure>
   </section>
 
@@ -119,3 +75,44 @@ import { multidays } from "../data/multiDays";
   </section>
   <ReviweSecction />
 </Layout>
+<script is:inline>
+  document.addEventListener("DOMContentLoaded", () => {
+    const placeholder = document.getElementById("videoPlaceholder");
+
+    if (placeholder) {
+      placeholder.addEventListener("click", () => {
+        const iframe = document.createElement("iframe");
+        iframe.src =
+          "https://www.youtube-nocookie.com/embed/sTUi3JTuRys?autoplay=1&rel=0";
+        iframe.title =
+          "Tour virtual por Perú: video promocional de Qillary Tours";
+        iframe.className = "absolute mx-auto inset-0 w-full h-full "; // 👈 tamaño consistente
+        iframe.setAttribute("loading", "lazy");
+        iframe.setAttribute(
+          "referrerpolicy",
+          "strict-origin-when-cross-origin"
+        );
+        iframe.setAttribute("allowfullscreen", "");
+        iframe.setAttribute(
+          "allow",
+          "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        );
+
+        placeholder.replaceWith(iframe);
+      });
+    }
+  });
+</script>
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    "name": "Descubre Perú con Qillary Tours",
+    "description": "Un vistazo a nuestros recorridos exclusivos por Lima, Cusco y más.",
+    "thumbnailUrl": "https://img.youtube.com/vi/sTUi3JTuRys/maxresdefault.jpg",
+    "uploadDate": "2023-05-10",
+    "contentUrl": "https://www.youtube.com/watch?v=sTUi3JTuRys",
+    "embedUrl": "https://www.youtube-nocookie.com/embed/sTUi3JTuRys"
+  }
+</script>

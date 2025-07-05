@@ -105,11 +105,14 @@ const mensaje = encodeURIComponent(qillary.contact.contactos[1].mensaje);
   <ReviweSecction />
   <section class="px-8 py-4">
     <form
+      id="form"
       class="max-w-6xl mx-auto space-y-4 border text-white font-semibold p-4 bg-qillary-aqua"
     >
       <h2 class="text-lg font-bold mb-4">Leave a Reply</h2>
       <!-- Campo de mensaje -->
       <textarea
+        name="message"
+        id="message"
         class="w-full p-4 placeholder-white resize-none bg-white/25"
         placeholder="Message*"
         required></textarea>
@@ -118,11 +121,15 @@ const mensaje = encodeURIComponent(qillary.contact.contactos[1].mensaje);
       <div class="flex flex-col md:flex-row gap-4">
         <input
           type="email"
+          name="email"
+          id="email"
           class="w-full placeholder-white md:w-1/2 p-4 bg-white/25"
           placeholder="Email*"
           required
         />
         <input
+          name="name"
+          id="name"
           type="text"
           class="w-full placeholder-white md:w-1/2 p-4 bg-white/25"
           placeholder="Name*"
@@ -131,9 +138,37 @@ const mensaje = encodeURIComponent(qillary.contact.contactos[1].mensaje);
       </div>
 
       <!-- Botón de envío -->
-      <button type="submit" class="w-full p-4 text-black bg-white">
-        SEND
-      </button>
+      <input
+        type="submit"
+        id="button"
+        value="Send Email"
+        class="w-full p-4 text-black bg-white"
+        placeholder="SEND"
+      />
     </form>
   </section>
 </Secundario>
+
+<script is:inline>
+
+  document.getElementById("form").addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    const btn = document.getElementById("button");
+    btn.value = "Sending...";
+
+    const serviceID = "default_service";
+    const templateID = "template_3cdp8t7";
+
+    emailjs.sendForm(serviceID, templateID, this).then(
+      () => {
+        btn.value = "Send Email";
+        alert("Message sent successfully!");
+      },
+      (err) => {
+        btn.value = "Send Email";
+        alert("Failed to send message. Error: " + JSON.stringify(err));
+      }
+    );
+  });
+</script>

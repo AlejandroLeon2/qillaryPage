@@ -127,6 +127,15 @@ const { tour = { includes: [], excludes: [] } } = Astro.props;
             </section>
           </section>
           <div class="space-y-4 mt-20">
+            <a
+              href={tour.paymentLink||"#"}
+              title="Reserve now Tour with Qillary Tours"
+              aria-label="Reserve "
+              class="inline-block bg-qillary-dark text-white px-6 py-3 rounded shadow-md hover:bg-teal-600 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500 transition text-lg font-semibold tracking-wide"
+            >
+              Reserve Now
+            </a>
+
             <h2 class="font-semibold text-2xl">From our gallery</h2>
             <p>
               A curated selection of moments that capture the heart of every
@@ -181,37 +190,57 @@ const { tour = { includes: [], excludes: [] } } = Astro.props;
         <FormDetalles />
       </div>
     </div>
-
-    <script is:inline>
-      const botones = document.querySelectorAll("[data-tab]");
-      const secciones = Array.from(
-        document.getElementById("contenedor").children
-      ).slice(0, -1);
-
-      function activar(id) {
-        secciones.forEach((sec) => {
-          const activo = sec.id === `${id}`;
-          sec.classList.toggle("hidden", !activo);
-          sec.classList.toggle("block", activo);
-        });
-      }
-
-      function pintar(id) {
-        botones.forEach((boton) => {
-          const activo = boton.dataset.tab === `${id}`;
-          boton.classList.toggle("bg-qillary-gris", !activo);
-          boton.classList.toggle("bg-white", activo);
-        });
-      }
-
-      botones.forEach((btn) => {
-        btn.addEventListener("click", () => activar(btn.dataset.tab));
-        btn.addEventListener("click", (event) =>
-          pintar(event.target.dataset.tab)
-        );
-      });
-
-      activar("INFORMACION");
-    </script>
   </section>
 </section>
+<script is:inline>
+  const botones = document.querySelectorAll("[data-tab]");
+  const secciones = Array.from(
+    document.getElementById("contenedor").children
+  ).slice(0, -1);
+
+  function activar(id) {
+    secciones.forEach((sec) => {
+      const activo = sec.id === `${id}`;
+      sec.classList.toggle("hidden", !activo);
+      sec.classList.toggle("block", activo);
+    });
+  }
+
+  function pintar(id) {
+    botones.forEach((boton) => {
+      const activo = boton.dataset.tab === `${id}`;
+      boton.classList.toggle("bg-qillary-gris", !activo);
+      boton.classList.toggle("bg-white", activo);
+    });
+  }
+
+  botones.forEach((btn) => {
+    btn.addEventListener("click", () => activar(btn.dataset.tab));
+    btn.addEventListener("click", (event) => pintar(event.target.dataset.tab));
+  });
+
+  activar("INFORMACION");
+</script>
+
+<script is:inline>
+  document.getElementById("form").addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    const btn = document.getElementById("button");
+    btn.value = "Sending...";
+
+    const serviceID = "default_service";
+    const templateID = "template_3cdp8t7";
+
+    emailjs.sendForm(serviceID, templateID, this).then(
+      () => {
+        btn.value = "Send Email";
+        alert("Message sent successfully!");
+      },
+      (err) => {
+        btn.value = "Send Email";
+        alert("Failed to send message. Error: " + JSON.stringify(err));
+      }
+    );
+  });
+</script>

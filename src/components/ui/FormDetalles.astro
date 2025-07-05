@@ -1,7 +1,7 @@
 <form
-  class=" h-185 lg:max-w-xs mx-10 lg:mx-20 lg:ml-8 lg:mr-4 px-6 py-8 mt-15 bg-qillary-aqua shadow space-y-6 text-white"
+  id="form"
+  class="h-185 lg:max-w-xs mx-10 lg:mx-20 lg:ml-8 lg:mr-4 px-6 py-8 mt-15 bg-qillary-aqua shadow space-y-6 text-white"
   aria-label="Formulario de reserva de tour"
-  method="POST"
 >
   <header class="text-center">
     <h2 class="text-2xl font-bold text-white">Book This Tour</h2>
@@ -15,6 +15,7 @@
       <input
         type="text"
         name="name"
+        id="name"
         required
         placeholder="Name *"
         class="pl-10 w-full p-2 bg-white/20 text-white placeholder-white rounded"
@@ -38,23 +39,11 @@
         class="fas fa-envelope absolute left-3 top-1/2 -translate-y-1/2 text-white"
       ></i>
       <input
-        type="email"
+        type="text"
         name="email"
+        id="email"
         required
         placeholder="Email *"
-        class="pl-10 w-full p-2 bg-white/20 text-white placeholder-white rounded"
-      />
-    </div>
-
-    <div class="relative">
-      <i
-        class="fas fa-envelope-open-text absolute left-3 top-1/2 -translate-y-1/2 text-white"
-      ></i>
-      <input
-        type="email"
-        name="confirmEmail"
-        required
-        placeholder="Confirm Email *"
         class="pl-10 w-full p-2 bg-white/20 text-white placeholder-white rounded"
       />
     </div>
@@ -65,7 +54,8 @@
       ></i>
       <input
         type="text"
-        name="date"
+        name="time"
+        id="time"
         placeholder="Date (dd-mm-yy)"
         class="pl-10 w-full p-2 bg-white/20 text-white placeholder-white rounded"
       />
@@ -90,6 +80,7 @@
     <i class="fas fa-comment-dots absolute left-3 top-3 text-white"></i>
     <textarea
       name="message"
+      id="message"
       rows="4"
       placeholder="Message"
       class="pl-10 pt-2 w-full p-2 bg-white/20 text-white placeholder-white rounded"
@@ -97,12 +88,13 @@
   </div>
 
   <div class="flex flex-col justify-center gap-4 pt-4">
-    <button
+    <input
       type="submit"
+      id="button"
+      value="Send Email"
+      placeholder="check Availability"
       class="bg-qillary-white text-qillary-dark px-6 py-5 rounded hover:bg-teal-500 active:scale-95 hover:text-white transition"
-    >
-      Check Availability
-    </button>
-
+    />
   </div>
 </form>
+
