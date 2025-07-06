@@ -6,8 +6,6 @@ import { qillary } from "../data/qillary";
 import { peruTreks } from "../data/peruTreks";
 import { allTours } from "../data/allTours";
 
-
-
 function all(entrada, enlace) {
   return entrada.map((tour) => {
     const slug = tour.name
@@ -61,7 +59,7 @@ const menuData = [
   aria-label="Menú móvil principal"
 >
   <section
-    class="hidden md:flex justify-between px-2 py-3 w-full bg-qillary-dark text-sm text-qillary-white"
+    class="hidden md:flex justify-between px-2 pt-3.5 w-full bg-qillary-dark text-sm text-qillary-white"
   >
     <!-- Información de contacto (visible y rastreable) -->
     <address class="not-italic flex flex-wrap gap-6 items-center">
@@ -128,6 +126,55 @@ const menuData = [
           </a>
         </li>
       </ul>
+      <!-- Botón flotante o fijo -->
+      <!-- Contenedor del traductor -->
+      <div
+        id="google_translate_element"
+        class=" mt-6 hidden md:flex min-w-30"
+      >
+      </div>
+
+      <!-- Estilos para personalizar el widget -->
+      <style>
+        #google_translate_element {
+          font-size: 1.75rem;
+          line-height: 0.5rem;
+        }
+      </style>
+
+      <!-- Script de inicialización del traductor -->
+      <script is:inline>
+        function googleTranslateElementInit() {
+          new google.translate.TranslateElement(
+            {
+              pageLanguage: "en,es",
+              includedLanguages: "es,en",
+              layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+            },
+            "google_translate_element"
+          );
+        }
+
+        function activarTraductor() {
+          const contenedor = document.getElementById(
+            "google_translate_element"
+          );
+
+          const intentarAbrirMenu = () => {
+            const combo = contenedor?.querySelector(".goog-te-combo");
+            if (combo) {
+              combo.focus();
+              combo.click();
+            } else {
+              setTimeout(intentarAbrirMenu, 200);
+            }
+          };
+
+          intentarAbrirMenu();
+        }
+      </script>
+
+      <!-- Carga del script oficial de Google Translate -->
 
     </nav>
   </section>
@@ -140,7 +187,7 @@ const menuData = [
         ><i class="fas fa-bars text-2xl"></i></button
       >
       <a
-      title="Home - pagina de inicio de Qillary Tours"
+        title="Home - pagina de inicio de Qillary Tours"
         href="/"
         class="text-xl flex font-semibold mx-auto md:mx-0 text-cyan-700"
       >
