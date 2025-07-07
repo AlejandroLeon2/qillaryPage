@@ -167,8 +167,8 @@ export const peruTreks = [
         ],
         price: 680,
         paymentLink: "",
-        images: [{ alt: "", ariallabel: "", src: "/images/CHOQUE4.webp" },
-            { alt: "", ariallabel: "", src: "/images/TREk7.webp" },
+        images: [{ alt: "", ariallabel: "", src: "/images/TREK9.webp" },
+            { alt: "", ariallabel: "", src: "/images/TREK7.webp" },
             { alt: "", ariallabel: "", src: "/images/TREK8.webp" },
             { alt: "", ariallabel: "", src: "/images/CHOQUE2_.webp" }
         ]
@@ -210,9 +210,9 @@ export const peruTreks = [
         ],
         price: 620,
         paymentLink: "",
-        images: [{ alt: "", ariallabel: "", src: "/images/TREK1.webp" },
-            { alt: "", ariallabel: "", src: "/images/TREK6_.webp" },
-            { alt: "", ariallabel: "", src: "/images/plaz.webp" },
+        images: [{ alt: "", ariallabel: "", src: "/images/CHOQUE4_.webp" },
+            { alt: "", ariallabel: "", src: "/images/TREK8.webp" },
+            { alt: "", ariallabel: "", src: "/images/TREK7.webp" },
         ]
     },
     {
