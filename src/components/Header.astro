@@ -153,11 +153,12 @@ const menuData = [
               contenedor.style.padding = "0.5rem 1rem"; // padding Y: 3rem, padding X: 1rem
               contenedor.style.marginBottom = "0.5rem";
               contenedor.style.border = "none";
-              contenedor.style.borderRadius = "1rem";
+              contenedor.style.borderRadius = "0.2rem";
 
               const textos = contenedor.querySelectorAll("span, a, div");
               textos.forEach((el) => {
-                el.style.color = "white";
+                el.style.color = "black";
+                el.style.fontWeight = "600"; // Equivalente a font-semibold
               });
             }
           }, 300); // Espera 3 segundos tras cargar el DOM
