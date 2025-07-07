@@ -128,7 +128,7 @@ const menuData = [
       </ul>
       <!-- Botón flotante o fijo -->
       <!-- Contenedor del traductor -->
-      <div id="google_translate_element" class="mt-6 hidden md:flex min-w-30">
+      <div id="google_translate_element" class="mt-6 hidden md:flex ">
       </div>
 
       <!-- Estilos para personalizar el widget -->
@@ -141,6 +141,25 @@ const menuData = [
 
       <!-- Script de inicialización del traductor -->
       <script is:inline>
+        document.addEventListener("DOMContentLoaded", () => {
+          setTimeout(() => {
+            const panelTraductor =
+              document
+                .querySelector("table.VIpgJd-ZVi9od-ORHb-KE6vqe")
+                ?.closest("table") ||
+              document
+                .querySelector("table.VIpgJd-ZVi9od-l4eHX-hSRGPd")
+                ?.closest("table");
+
+            if (panelTraductor) {
+              panelTraductor.style.display = "none";
+              console.log("Panel de Google Translate ocultado.");
+            } else {
+              console.warn("No se encontró el panel del traductor.");
+            }
+          }, 1000); // Ajusta el tiempo si el contenido tarda más en cargarse
+        });
+
         document.addEventListener("DOMContentLoaded", () => {
           setTimeout(() => {
             const icono = document.querySelector(".goog-te-gadget-icon");
