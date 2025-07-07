@@ -128,22 +128,41 @@ const menuData = [
       </ul>
       <!-- Botón flotante o fijo -->
       <!-- Contenedor del traductor -->
-      <div
-        id="google_translate_element"
-        class=" mt-6 hidden md:flex min-w-30"
-      >
+      <div id="google_translate_element" class="mt-6 hidden md:flex min-w-30">
       </div>
 
       <!-- Estilos para personalizar el widget -->
       <style>
         #google_translate_element {
           font-size: 1.75rem;
-          line-height: 0.5rem;
+          line-height: 0.45rem;
         }
       </style>
 
       <!-- Script de inicialización del traductor -->
       <script is:inline>
+        document.addEventListener("DOMContentLoaded", () => {
+          setTimeout(() => {
+            const icono = document.querySelector(".goog-te-gadget-icon");
+            const contenedor = document.querySelector(".goog-te-gadget-simple");
+
+            if (icono) icono.style.display = "none";
+
+            if (contenedor) {
+              contenedor.style.backgroundColor = "aqua";
+              contenedor.style.padding = "0.5rem 1rem"; // padding Y: 3rem, padding X: 1rem
+              contenedor.style.marginBottom = "0.5rem";
+              contenedor.style.border = "none";
+              contenedor.style.borderRadius = "1rem";
+
+              const textos = contenedor.querySelectorAll("span, a, div");
+              textos.forEach((el) => {
+                el.style.color = "white";
+              });
+            }
+          }, 300); // Espera 3 segundos tras cargar el DOM
+        });
+
         function googleTranslateElementInit() {
           new google.translate.TranslateElement(
             {
@@ -175,7 +194,6 @@ const menuData = [
       </script>
 
       <!-- Carga del script oficial de Google Translate -->
-
     </nav>
   </section>
 

@@ -215,7 +215,7 @@ export const peruTreks = [
         ]
     },
     {
-        name: "Choquequirao Trek",
+        name: "Choquequirao Trek 8D / 7N",
         duration: "8 Days / 7 Nights",
         description: "Epic Trek to the Last Inca Refuge. If you're looking for a life-changing trek far from the crowds, the 8-day Choquequirao Trek is a journey into Peru's most majestic and unexplored sacred landscape. Considered the sister city of Machu Picchu, Choquequirao is more isolated, larger in area, and still being excavated. This expedition is ideal for serious adventurers, photographers, and cultural enthusiasts who want to walk in the footsteps of the last Incas.",
         destinos: ["Choquequirao", "Machu Picchu"],
@@ -284,7 +284,7 @@ export const peruTreks = [
         ]
     },
     {
-        name: "Choquequirao Trek",
+        name: "Choquequirao Trek 5D / 4N",
         duration: "5 Days / 4 Nights",
         description: "The Hidden Treasure of the Andes - A Compact Pilgrimage to the Sacred Cradle of the Incas. This unforgettable 5-day trekking journey takes you deep into one of the most sacred and remote Inca sites in Peru—Choquequirao, known as the 'Cradle of Gold' and often described as Machu Picchu's wild sister. This trek is designed for those seeking an immersive experience in less time, blending breathtaking scenery, physical challenge, cultural immersion, and a genuine sense of discovery. Every step takes you through dramatic landscapes: plunging canyons, tropical forests, ancient trails, and Andean villages. The route traces the path once used by the Incas fleeing Spanish invaders, offering not just a trek, but a spiritual return to a lost world.",
         destinos: ["Choquequirao"],
@@ -334,7 +334,7 @@ export const peruTreks = [
         ]
     },
     {
-        name: "Choquequirao Trek",
+        name: "Choquequirao Trek 4D / 3N",
         duration: "4 Days / 3 Nights",
         description: "An Intense and Sacred Challenge - The Ultimate Trek for the Passionate Explorer. This 4-day adventure to Choquequirao, one of the last great secrets of the Andes, is a physically demanding yet soul-awakening journey. Known as 'The Cradle of Gold,' Choquequirao sits majestically on a mountain saddle overlooking the deep Apurímac Canyon. Far from the crowds of Machu Picchu, this site remains wild, powerful, and only accessible by foot—making the experience even more rewarding. This trek is perfect for experienced hikers with limited time who are seeking not just a physical challenge but a profound connection with Inca history and the untouched Andean landscape. The route takes you across dramatic cliffs, ancient trails, tropical microclimates, and vast canyons, culminating in a full exploration of the mysterious Inca city.",
         destinos: ["Choquequirao"],
@@ -376,7 +376,7 @@ export const peruTreks = [
         paymentLink: "",
         images: [{ alt: "", ariallabel: "", src: "/images/plaz.webp" },
             { alt: "", ariallabel: "", src: "/images/TREK4.webp" },
-            { alt: "", ariallabel: "", src: "/images/TREK3.webp" },
+            { alt: "", ariallabel: "", src: "/images/TREK3_.webp" },
         ]
     }
   ];
