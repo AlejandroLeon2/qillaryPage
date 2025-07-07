@@ -167,9 +167,10 @@ export const peruTreks = [
         ],
         price: 680,
         paymentLink: "",
-        images: [{ alt: "", ariallabel: "", src: "/images/max.webp" },
-            { alt: "", ariallabel: "", src: "/images/MAPI2__.webp" },
-            { alt: "", ariallabel: "", src: "/images/TREK1.webp" },
+        images: [{ alt: "", ariallabel: "", src: "/images/CHOQUE4.webp" },
+            { alt: "", ariallabel: "", src: "/images/TREk7.webp" },
+            { alt: "", ariallabel: "", src: "/images/TREK8.webp" },
+            { alt: "", ariallabel: "", src: "/images/CHOQUE2_.webp" }
         ]
     },
     {
@@ -278,9 +279,9 @@ export const peruTreks = [
         ],
         price: 1450,
         paymentLink: "",
-        images: [{ alt: "", ariallabel: "", src: "/images/plaz.webp" },
-            { alt: "", ariallabel: "", src: "/images/TREK4.webp" },
-            { alt: "", ariallabel: "", src: "/images/max.webp" },
+        images: [{ alt: "", ariallabel: "", src: "/images/CHOQUE3_.webp" },
+            { alt: "", ariallabel: "", src: "/images/CHOQUE2_.webp" },
+            { alt: "", ariallabel: "", src: "/images/CHOQUE1_.webp" },
         ]
     },
     {
@@ -329,8 +330,8 @@ export const peruTreks = [
         price: 690,
         paymentLink: "",
         images: [{ alt: "", ariallabel: "", src: "/images/CHOQUE4_.webp" },
-            { alt: "", ariallabel: "", src: "/images/GUIAMAPI.webp" },
-            { alt: "", ariallabel: "", src: "/images/TREK1.webp" },
+            { alt: "", ariallabel: "", src: "/images/CHOQUE1_.webp" },
+            { alt: "", ariallabel: "", src: "/images/CHOQUE3_.webp" },
         ]
     },
     {
@@ -374,9 +375,9 @@ export const peruTreks = [
         ],
         price: 620,
         paymentLink: "",
-        images: [{ alt: "", ariallabel: "", src: "/images/plaz.webp" },
-            { alt: "", ariallabel: "", src: "/images/TREK4.webp" },
-            { alt: "", ariallabel: "", src: "/images/TREK3_.webp" },
+        images: [{ alt: "", ariallabel: "", src: "/images/CHOQUE3_.webp" },
+            { alt: "", ariallabel: "", src: "/images/CHOQUE5_.webp" },
+            { alt: "", ariallabel: "", src: "/images/CHOQUE2_.webp" },
         ]
     }
   ];
