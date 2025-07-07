@@ -193,20 +193,33 @@ const { tour = { includes: [], excludes: [] } } = Astro.props;
             <h3 class="text-lg text-black mb-4">You can pay with:</h3>
             <div class="flex lg:flex-col justify-center px-8 gap-4">
               <img
-                src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg"
-                alt="PayPal"
-                class="h-10 w-30 transition-transform hover:scale-110"
-              />
-              <img
-                src="https://upload.wikimedia.org/wikipedia/commons/4/41/Visa_Logo.png"
-                alt="Visa"
-                class="h-8 w-25 transition-transform hover:scale-110"
-              />
-              <img
-                src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg"
-                alt="Mastercard"
-                class="h-10 w-15 transition-transform hover:scale-110"
-              />
+              src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg"
+              alt="PayPal"
+              title="Pay with PayPal"
+              aria-label="Pay with PayPal"
+              class="h-10 w-30 transition-transform hover:scale-110"
+            />
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/4/41/Visa_Logo.png"
+              alt="Visa"
+              title="Visa payment accepted"
+              aria-label="Visa payment accepted"
+              class="h-8 w-25 transition-transform hover:scale-110"
+            />
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg"
+              alt="Mastercard"
+              title="Mastercard supported"
+              aria-label="Mastercard supported"
+              class="h-10 w-15 transition-transform hover:scale-110"
+            />
+            <img
+              src="/images/mincetur.jpg"
+              alt="Mincetur Certification"
+              title="Certified by MINCETUR (Peruvian Ministry of Tourism)"
+              aria-label="Certified by MINCETUR (Peruvian Ministry of Tourism)"
+              class="h-auto w-20 transition-transform hover:scale-110"
+            />            
             </div>
           </div>
         </section>
