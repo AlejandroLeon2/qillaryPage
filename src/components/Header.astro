@@ -55,7 +55,7 @@ const menuData = [
 ---
 
 <header
-  class="fixed inset-0 bg-white z-50 md:flex md:flex-col h-19 md:h-27"
+  class="fixed inset-0 bg-white z-50 md:flex md:flex-col h-19 md:h-20"
   aria-label="Menú móvil principal"
 >
   <section
@@ -128,8 +128,7 @@ const menuData = [
       </ul>
       <!-- Botón flotante o fijo -->
       <!-- Contenedor del traductor -->
-      <div id="google_translate_element" class="mt-6 hidden md:flex ">
-      </div>
+      <div id="google_translate_element" class="mt-4 hidden md:flex"></div>
 
       <!-- Estilos para personalizar el widget -->
       <style>
@@ -174,8 +173,14 @@ const menuData = [
               contenedor.style.border = "none";
               contenedor.style.borderRadius = "0.2rem";
 
-              const textos = contenedor.querySelectorAll("span, a, div");
+              const textos = contenedor.querySelectorAll("span, a, div ");
+              const textos2 = contenedor.querySelectorAll("img");
+              textos2.forEach((imagen) => {
+                imagen.style.display = "none";
+              });
+
               textos.forEach((el) => {
+                el.style.display = "non";
                 el.style.color = "black";
                 el.style.fontWeight = "600"; // Equivalente a font-semibold
               });
