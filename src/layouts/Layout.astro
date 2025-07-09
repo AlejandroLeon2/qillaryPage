@@ -43,26 +43,8 @@ import { qillary } from "../data/qillary";
     <meta property="og:url" content="https://qillary.tours/" />
     <meta
       property="og:image"
-      content="https://qillary.tours/images/machu-picchu.jpg"
+      content="https://qillary.tours/images/TREK3_.webp"
     />
-
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta
-      name="twitter:title"
-      content="Trips to Machu Picchu & Peru | Qillary Tours"
-    />
-    <meta
-      name="twitter:description"
-      content="Travel with purpose and passion. Unique guided tours across Peru’s most breathtaking destinations."
-    />
-    <meta
-      name="twitter:image"
-      content="https://qillary.tours/images/machu-picchu.jpg"
-    />
-    <meta name="twitter:site" content="@qillarytours" />
-    <meta name="twitter:creator" content="@qillarytours" />
-
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/qillary-favicon.svg" />
 
@@ -70,12 +52,7 @@ import { qillary } from "../data/qillary";
     <link rel="canonical" href="https://qillary.tours/" />
 
     <!-- Preload LCP image -->
-    <link
-      rel="preload"
-      as="image"
-      href="/images/machu-picchu.jpg"
-      fetchpriority="high"
-    />
+    <link as="image" href="/images/TREK3_.webp" fetchpriority="high" />
 
     <link
       media="print"
@@ -83,28 +60,22 @@ import { qillary } from "../data/qillary";
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
-  </head><label for="title">title</label>
+    <meta name="robots" content="index, follow" />
 
-  <script
-    type="text/javascript"
-    src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
-  ></script>
-  <script type="text/javascript">
-    emailjs.init("jRYXHpsbqwdF76a3Q");
-  </script>
-  <script
-    src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
-    defer></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+    ></script>
+    <script type="text/javascript">
+      emailjs.init("jRYXHpsbqwdF76a3Q");
+    </script>
+    <script
+      src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
+      defer></script>
 
-  <!-- Opcional: estilos para ocultar el widget hasta que se use -->
-  <style>
-    #google_translate_element {
-      display: none;
-    }
-  </style>
 
+  </head>
   <body class="poppins">
-    <!-- Slot donde se inyecta el contenido específico de cada página -->
     <Header />
     <main>
       <slot />
@@ -113,5 +84,4 @@ import { qillary } from "../data/qillary";
     </main>
     <Footer />
   </body>
-
 </html>

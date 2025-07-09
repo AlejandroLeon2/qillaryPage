@@ -172,7 +172,7 @@ const { tour = { includes: [], excludes: [] } } = Astro.props;
 
         <!-- TOUR PLAN -->
         <ContenedorSecciones tab={configTabs.tabsPrimarios[1].tab}>
-          <h2 class="text-3xl font-semibold mb-8">Tour Plan</h2>
+          <h2 class="text-2xl font-bold mb-8">Tour Plan</h2>
           <Acordeon dia={tour} />
         </ContenedorSecciones>
 
@@ -180,7 +180,7 @@ const { tour = { includes: [], excludes: [] } } = Astro.props;
 
         <!-- GALLERY -->
         <ContenedorSecciones tab={configTabs.tabsPrimarios[2].tab}>
-          <h3 class="text-xl font-bold mb-4">Galería de fotos</h3>
+          <h3 class="text-2xl font-bold mb-4">Galería de fotos</h3>
 
           <Gallery images={tour.images} />
         </ContenedorSecciones>
@@ -189,37 +189,37 @@ const { tour = { includes: [], excludes: [] } } = Astro.props;
         </ContenedorSecciones>
         <section>
           <FormDetalles />
-          <div class="py-6 px-18 xl:px-4 max-w-xs mx-auto">
+          <img
+            src="/images/mincetur.jpg"
+            alt="Mincetur Certification"
+            title="Certified by MINCETUR (Peruvian Ministry of Tourism)"
+            aria-label="Certified by MINCETUR (Peruvian Ministry of Tourism)"
+            class="h-auto mx-auto my-4 w-20 transition-transform hover:scale-110"
+          />
+          <div class=" px-18 xl:px-4 max-w-xs mx-auto">
             <h3 class="text-lg text-black mb-4">You can pay with:</h3>
             <div class="flex lg:flex-col justify-center px-8 gap-4">
               <img
-              src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg"
-              alt="PayPal"
-              title="Pay with PayPal"
-              aria-label="Pay with PayPal"
-              class="h-10 w-30 transition-transform hover:scale-110"
-            />
-            <img
-              src="https://upload.wikimedia.org/wikipedia/commons/4/41/Visa_Logo.png"
-              alt="Visa"
-              title="Visa payment accepted"
-              aria-label="Visa payment accepted"
-              class="h-8 w-25 transition-transform hover:scale-110"
-            />
-            <img
-              src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg"
-              alt="Mastercard"
-              title="Mastercard supported"
-              aria-label="Mastercard supported"
-              class="h-10 w-15 transition-transform hover:scale-110"
-            />
-            <img
-              src="/images/mincetur.jpg"
-              alt="Mincetur Certification"
-              title="Certified by MINCETUR (Peruvian Ministry of Tourism)"
-              aria-label="Certified by MINCETUR (Peruvian Ministry of Tourism)"
-              class="h-auto w-20 transition-transform hover:scale-110"
-            />            
+                src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg"
+                alt="PayPal"
+                title="Pay with PayPal"
+                aria-label="Pay with PayPal"
+                class="h-10 w-30 transition-transform hover:scale-110"
+              />
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/4/41/Visa_Logo.png"
+                alt="Visa"
+                title="Visa payment accepted"
+                aria-label="Visa payment accepted"
+                class="h-8 w-25 transition-transform hover:scale-110"
+              />
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg"
+                alt="Mastercard"
+                title="Mastercard supported"
+                aria-label="Mastercard supported"
+                class="h-10 w-15 transition-transform hover:scale-110"
+              />
             </div>
           </div>
         </section>

@@ -59,10 +59,10 @@ const menuData = [
   aria-label="Menú móvil principal"
 >
   <section
-    class="hidden md:flex justify-between px-2 pt-3.5 w-full bg-qillary-dark text-sm text-qillary-white"
+    class="hidden md:flex justify-between px-2 w-full  md:bg-qillary-dark text-sm text-qillary-white"
   >
     <!-- Información de contacto (visible y rastreable) -->
-    <address class="not-italic flex flex-wrap gap-6 items-center">
+    <address class="not-italic hidden md:flex flex-wrap gap-6 items-center">
       <div class="flex items-center gap-2">
         <i class="fas fa-envelope text-qillary-aqua" aria-hidden="true"></i>
         <a
@@ -91,7 +91,7 @@ const menuData = [
       aria-label="Redes sociales y configuración"
       class="flex items-center gap-4"
     >
-      <ul class="flex gap-6 mr-10 list-none">
+      <ul class="hidden md:flex gap-6 mr-10 list-none">
         <li>
           <a
             href={qillary.contact.facebook.url}
@@ -126,11 +126,9 @@ const menuData = [
           </a>
         </li>
       </ul>
-      <!-- Botón flotante o fijo -->
-      <!-- Contenedor del traductor -->
-      <div id="google_translate_element" class="mt-4 hidden md:flex"></div>
 
-      <!-- Estilos para personalizar el widget -->
+      <div id="google_translate_element" class="mx-auto"></div>
+
       <style>
         #google_translate_element {
           font-size: 1.75rem;
@@ -168,8 +166,8 @@ const menuData = [
 
             if (contenedor) {
               contenedor.style.backgroundColor = "aqua";
-              contenedor.style.padding = "0.5rem 1rem"; // padding Y: 3rem, padding X: 1rem
-              contenedor.style.marginBottom = "0.5rem";
+              contenedor.style.padding = "0.8rem 1rem"; // padding Y: 3rem, padding X: 1rem
+              contenedor.style.margin = "0.4rem";
               contenedor.style.border = "none";
               contenedor.style.borderRadius = "0.2rem";
 
@@ -198,6 +196,24 @@ const menuData = [
             "google_translate_element"
           );
         }
+        const observer = new MutationObserver(() => {
+          const elementos = document.querySelectorAll(".skiptranslate");
+
+          elementos.forEach((el) => {
+            // Si contiene un iframe sin contenido útil, lo ocultamos
+            const iframe = el.querySelector("iframe");
+            if (iframe && iframe.id.includes("container")) {
+              el.style.display = "none";
+              iframe.style.display = "none";
+              console.log("Iframe de traducción ocultado.");
+            }
+          });
+        });
+
+        observer.observe(document.body, {
+          childList: true,
+          subtree: true,
+        });
 
         function activarTraductor() {
           const contenedor = document.getElementById(
