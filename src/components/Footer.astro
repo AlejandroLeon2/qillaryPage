@@ -35,11 +35,11 @@ import { qillary } from "../data/qillary";
         </li>
       </ul>
       <ul class="space-y-2 text-gray-400">
-        <li class="flex gap-2">
+        <li class="flex gap-2 group">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
-            class="h-5 w-5 text-qillary-aqua"
+            class="h-5 w-5 text-white group-hover:text-amber-500"
             fill="currentColor"
           >
             <path
@@ -48,15 +48,17 @@ import { qillary } from "../data/qillary";
             <path d="M22 6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v.5l10 6.25L22 6.5V6z"
             ></path>
           </svg>
-          <a href={`mailto:${qillary.contact.contactos[0].valor}`}
+          <a
+            class="group-hover:text-amber-500"
+            href={`mailto:${qillary.contact.contactos[0].valor}`}
             >{qillary.contact.contactos[0].valor}</a
           >
         </li>
-        <li class="flex gap-2">
+        <li class="flex gap-2 group">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 448 512"
-            class="h-5 w-5 text-green-400"
+            class="h-5 w-5 text-white group-hover:text-amber-500"
             fill="currentColor"
           >
             <path
@@ -68,6 +70,7 @@ import { qillary } from "../data/qillary";
             href={`https://wa.me/${qillary.contact.contactos[1].valor}`}
             title={qillary.contact.contactos[1].title}
             target="_blank"
+            class="group-hover:text-amber-500"
             rel="noopener"
           >
             {qillary.contact.contactos[1].valor}
