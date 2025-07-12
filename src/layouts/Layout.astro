@@ -61,19 +61,6 @@ import { qillary } from "../data/qillary";
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
     <meta name="robots" content="index, follow" />
-
-    <script
-      type="text/javascript"
-      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
-    ></script>
-    <script type="text/javascript">
-      emailjs.init("jRYXHpsbqwdF76a3Q");
-    </script>
-    <script
-      src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
-      defer></script>
-
-
   </head>
   <body class="poppins">
     <Header />
@@ -83,5 +70,17 @@ import { qillary } from "../data/qillary";
       <Whatsapp data={qillary} />
     </main>
     <Footer />
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+    ></script>
+    <script is:inline>
+      emailjs.init("jRYXHpsbqwdF76a3Q");
+    </script>
+    <script
+      defer
+      fetchpriority="low"
+      src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
+    ></script>
   </body>
 </html>
