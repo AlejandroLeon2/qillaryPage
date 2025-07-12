@@ -59,12 +59,23 @@ const menuData = [
   aria-label="Menú móvil principal"
 >
   <section
-    class="hidden md:flex justify-between px-2 w-full  md:bg-qillary-dark text-sm text-qillary-white"
+    class="hidden md:flex justify-between px-2 w-full md:bg-qillary-dark text-sm text-qillary-white"
   >
     <!-- Información de contacto (visible y rastreable) -->
     <address class="not-italic hidden md:flex flex-wrap gap-6 items-center">
       <div class="flex items-center gap-2">
-        <i class="fas fa-envelope text-qillary-aqua" aria-hidden="true"></i>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          class="h-5 w-5 text-qillary-aqua"
+          fill="currentColor"
+        >
+          <path d="M2 8.5V19a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8.5l-10 6.25L2 8.5z"
+          ></path>
+          <path d="M22 6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v.5l10 6.25L22 6.5V6z"
+          ></path>
+        </svg>
+
         <a
           href={`mailto:${qillary.contact.contactos[0].valor}`}
           title={qillary.contact.contactos[0].title}
@@ -72,7 +83,19 @@ const menuData = [
         >
       </div>
       <div class="flex items-center gap-2">
-        <i class="fas fa-phone text-qillary-aqua" aria-hidden="true"></i>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          class="text-qillary-aqua"
+          fill="currentColor"
+          class="lucide lucide-phone-icon lucide-phone"
+          ><path
+            d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"
+          ></path></svg
+        >
+
         <a
           href={`tel:${qillary.contact.contactos[1].valor.trim()}`}
           title={qillary.contact.contactos[0].title}
@@ -80,8 +103,16 @@ const menuData = [
         >
       </div>
       <div class="flex items-center gap-2">
-        <i class="fas fa-map-marker-alt text-qillary-aqua" aria-hidden="true"
-        ></i>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 384 512"
+          class="min-w-4.5 min-h-4.5 max-w-4.5 max-h-4.5 text-qillary-aqua"
+          fill="currentColor"
+        >
+          <path
+            d="M192 0C86 0 0 86 0 192c0 77.4 27.5 99.6 172.3 310.6a24 24 0 0 0 39.4 0C356.5 291.6 384 269.4 384 192 384 86 298 0 192 0zm0 272a80 80 0 1 1 80-80 80 80 0 0 1-80 80z"
+          ></path>
+        </svg>
         <span>{qillary.contact.oficinas[1].direccion}</span>
       </div>
     </address>
@@ -100,7 +131,20 @@ const menuData = [
             rel="noopener"
             target="_blank"
           >
-            <i class="fab fa-facebook-f hover:text-cyan-500"></i>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 320 512"
+              width="19"
+              height="19"
+              class="hover:text-blue-400"
+              fill="currentColor"
+              aria-label="Facebook icon"
+              role="img"
+            >
+              <path
+                d="M279.14 288l14.22-92.66h-88.91V127.41c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.14 44.38-121.14 124.72v70.62H22.89V288h81.33v224h100.2V288z"
+              ></path>
+            </svg>
           </a>
         </li>
         <li>
@@ -111,7 +155,22 @@ const menuData = [
             rel="noopener"
             target="_blank"
           >
-            <i class="fab fa-instagram hover:text-pink-500"></i>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              class="hover:text-pink-600"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-instagram-icon lucide-instagram"
+              ><rect width="20" height="20" x="2" y="2" rx="5" ry="5"
+              ></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"
+              ></path><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line></svg
+            >
           </a>
         </li>
         <li>
@@ -122,7 +181,20 @@ const menuData = [
             rel="noopener"
             target="_blank"
           >
-            <i class="fab fa-tiktok hover:text-amber-400"></i>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 448 512"
+              class="hover:text-amber-500"
+              width="19"
+              height="19"
+              fill="currentColor"
+              aria-label="TikTok icon"
+              role="img"
+            >
+              <path
+                d="M325.6 32c1.6 43.2 35.2 78.1 78.4 78.6v85.4c-32.6-1.2-63.3-11.6-89.2-29v192.3c0 73.6-59.7 133.4-133.4 133.4s-133.4-59.7-133.4-133.4c0-72.1 57.1-130.7 128.8-133.3v86.7c-25.4 2.5-45.2 24-45.2 50.1 0 27.8 22.5 50.3 50.3 50.3s50.3-22.5 50.3-50.3V32h93.4z"
+              ></path>
+            </svg>
           </a>
         </li>
       </ul>
@@ -243,7 +315,20 @@ const menuData = [
       class="flex items-center h-20 bg-white md:bg-transparent px-3 lg:ml-10 md:px-0 md:h-20"
     >
       <button id="close-menu" class="md:hidden" aria-label="Abrir menú"
-        ><i class="fas fa-bars text-2xl"></i></button
+        ><svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="32"
+          height="32"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="lucide lucide-menu-icon lucide-menu"
+          ><path d="M4 12h16"></path><path d="M4 18h16"></path><path d="M4 6h16"
+          ></path></svg
+        ></button
       >
       <a
         title="Home - pagina de inicio de Qillary Tours"

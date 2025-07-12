@@ -11,7 +11,6 @@ import { multidays } from "../data/multiDays";
 ---
 
 <Layout>
-
   <HeroDynamic />
   <Holidaysection data={multidays} />
   <section
@@ -30,7 +29,7 @@ import { multidays } from "../data/multiDays";
       <div class="relative w-full aspect-video cursor-pointer">
         <div
           class="absolute inset-0 bg-center bg-cover"
-          style="background-image: url('https://img.youtube.com/vi/sTUi3JTuRys/hqdefault.jpg');"
+          style="background-image: url('/images/CHOQUE4_.webp');"
         >
         </div>
         <div class="absolute inset-0 flex items-center justify-center">
@@ -43,7 +42,6 @@ import { multidays } from "../data/multiDays";
       </div>
     </figure>
   </section>
- 
 
   <section>
     <TitleDescripcion
@@ -84,7 +82,7 @@ import { multidays } from "../data/multiDays";
           "https://www.youtube-nocookie.com/embed/sTUi3JTuRys?autoplay=1&rel=0";
         iframe.title =
           "Tour virtual por Perú: video promocional de Qillary Tours";
-        iframe.className = "mx-auto inset-0 w-full h-[80svh] "; // 👈 tamaño consistente
+        iframe.className = "mx-auto inset-0 w-full h-full min-h-[75svh] mb-10 ";
         iframe.setAttribute("loading", "lazy");
         iframe.setAttribute(
           "referrerpolicy",
