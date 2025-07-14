@@ -55,11 +55,11 @@ const menuData = [
 ---
 
 <header
-  class="fixed inset-0 bg-white z-50 md:flex md:flex-col h-19 md:h-20"
+  class="fixed inset-0 max-w-screen bg-white z-50 md:flex md:flex-col h-19 md:h-20"
   aria-label="Menú móvil principal"
 >
   <section
-    class="flex justify-end  md:justify-between px-2 w-full md:bg-qillary-dark text-sm text-qillary-white"
+    class="flex justify-center md:justify-between px-2 w-full md:bg-qillary-dark text-sm text-qillary-white"
   >
     <!-- Información de contacto (visible y rastreable) -->
     <address class="not-italic hidden md:flex flex-wrap gap-6 items-center">
@@ -199,7 +199,7 @@ const menuData = [
         </li>
       </ul>
 
-      <div id="google_translate_element" class="mx-auto"></div>
+      <div id="google_translate_element" class="mx-auto overflow-hidden"></div>
 
       <style>
         #google_translate_element {
@@ -237,25 +237,27 @@ const menuData = [
             if (icono) icono.style.display = "none";
 
             if (contenedor) {
-              contenedor.style.backgroundColor = "aqua";
-              contenedor.style.padding = "0.8rem 1rem"; // padding Y: 3rem, padding X: 1rem
+              const esCelular = window.matchMedia("(max-width: 767px)").matches;
+
+              contenedor.style.backgroundColor = esCelular ? "aqua" : "white";
+              contenedor.style.padding = "0.8rem 1rem";
               contenedor.style.margin = "0.25rem";
               contenedor.style.border = "none";
               contenedor.style.borderRadius = "0.2rem";
 
-              const textos = contenedor.querySelectorAll("span, a, div ");
+              const textos = contenedor.querySelectorAll("span, a, div");
               const textos2 = contenedor.querySelectorAll("img");
+
               textos2.forEach((imagen) => {
                 imagen.style.display = "none";
               });
 
               textos.forEach((el) => {
-                el.style.display = "non";
                 el.style.color = "black";
-                el.style.fontWeight = "600"; // Equivalente a font-semibold
+                el.style.fontWeight = "600";
               });
             }
-          }, 300); // Espera 3 segundos tras cargar el DOM
+          }, 300);
         });
 
         function googleTranslateElementInit() {
