@@ -3,6 +3,7 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import "../styles/global.css";
 import { qillary } from "../data/qillary";
+import Instagram from "../components/dynamic/Instagram.astro";
 import Whatsapp from "../components/dynamic/Whatsapp.astro";
 import Messenger from "../components/dynamic/Messenger.astro";
 
@@ -78,8 +79,52 @@ const { title, description, url } = Astro.props;
     <Header />
     <main class="overflow-hidden">
       <slot />
-      <Messenger data={qillary} />
-      <Whatsapp data={qillary} />
+
+      <button
+        id="btn"
+        title="Open contact panel"
+        class="fixed bottom-5 right-1 md:right-5 z-50 px-2 py-2 rounded-full bg-amber-400 duration-500 flex items-center justify-center"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="h-10 w-10"
+          ><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"></path><path d="M8 12h.01"
+          ></path><path d="M12 12h.01"></path><path d="M16 12h.01"></path></svg
+        >
+      </button>
+
+      <div
+        id="mover"
+        class="fixed flex flex-col space-y-1 duration-300 translate-y-60 z-50 bottom-5 right-1 md:right-5"
+      >
+        <button
+          id="btn-cerrar"
+          class="text-center active:scale-95 hover:scale-105"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="2"
+            stroke="currentColor"
+            class="w-full h-10 text-amber-400"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M6 18L18 6M6 6l12 12"></path>
+          </svg></button
+        >
+        <Instagram data={qillary} />
+        <Messenger data={qillary} />
+        <Whatsapp data={qillary} />
+      </div>
     </main>
     <Footer />
     <script
@@ -95,3 +140,24 @@ const { title, description, url } = Astro.props;
     ></script>
   </body>
 </html>
+<script is:inline>
+  const btn = document.getElementById("btn");
+  const mover = document.getElementById("mover");
+  const cerrar = document.getElementById("btn-cerrar");
+  btn.addEventListener("click", () => {
+    mover.classList.toggle("translate-y-60");
+    btn.classList.toggle("translate-y-60");
+  });
+  cerrar.addEventListener("click", () => {
+    mover.classList.toggle("translate-y-60");
+    btn.classList.toggle("translate-y-60");
+  });
+  document.addEventListener("DOMContentLoaded", () => {
+    if (btn && mover) {
+      setTimeout(() => {
+        mover.classList.toggle("translate-y-60");
+        btn.classList.toggle("translate-y-60");
+      }, 15000);
+    }
+  });
+</script>

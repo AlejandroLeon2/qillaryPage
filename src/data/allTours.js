@@ -22,6 +22,8 @@ export const allTours = [
         ],
         price: 25,
         paymentLink: "",
+        titulofoto: "",
+        descripcionfoto: "",
         images: [{ alt: "", ariallabel: "", src: "/images/plaz.webp" },
             { alt: "", ariallabel: "", src: "/images/ollant.webp" },
             { alt: "", ariallabel: "", src: "/images/inti_.webp" },
@@ -51,6 +53,8 @@ export const allTours = [
         ],
         price: 60,
         paymentLink: "",
+        titulofoto: "",
+        descripcionfoto: "",
         images: [{ alt: "", ariallabel: "", src: "/images/chincheros.webp" },
             { alt: "", ariallabel: "", src: "/images/maras.webp" },
             { alt: "", ariallabel: "", src: "/images/plaz.webp" },
@@ -80,6 +84,8 @@ export const allTours = [
         ],
         price: 35,
         paymentLink: "",
+        titulofoto: "",
+        descripcionfoto: "",
         images: [{ alt: "", ariallabel: "", src: "/images/maras.webp" },
             { alt: "", ariallabel: "", src: "/images/maras_.webp" },
             { alt: "", ariallabel: "", src: "/images/moray_.webp" },
@@ -110,6 +116,8 @@ export const allTours = [
         ],
         price: 45,
         paymentLink: "",
+        titulofoto: "",
+        descripcionfoto: "",
         images: [{ alt: "", ariallabel: "", src: "/images/laguna.webp" },
             { alt: "", ariallabel: "", src: "/images/TREK5_.webp" },
             { alt: "", ariallabel: "", src: "/images/CHOQUE3_.webp" },
@@ -140,6 +148,8 @@ export const allTours = [
         ],
         price: 45,
         paymentLink: "",
+        titulofoto: "",
+        descripcionfoto: "",
         images: [{ alt: "", ariallabel: "", src: "/images/Alpacas.webp" },
             { alt: "", ariallabel: "", src: "/images/TREK5_.webp" },
             { alt: "", ariallabel: "", src: "/images/CHOQUE3_.webp" },
@@ -171,6 +181,8 @@ export const allTours = [
         ],
         price: 50,
         paymentLink: "",
+        titulofoto: "",
+        descripcionfoto: "",
         images: [{ alt: "", ariallabel: "", src: "/images/moray_.webp" },
             { alt: "", ariallabel: "", src: "/images/maras.webp" },
             { alt: "", ariallabel: "", src: "/images/maras_.webp" },
@@ -201,6 +213,8 @@ export const allTours = [
         ],
         price: 50,
         paymentLink: "",
+        titulofoto: "",
+        descripcionfoto: "",
         images: [{ alt: "", ariallabel: "", src: "/images/ollant.webp" },
             { alt: "", ariallabel: "", src: "/images/mapi4_.webp" },
             { alt: "", ariallabel: "", src: "/images/maras.webp" },
@@ -234,6 +248,8 @@ export const allTours = [
         ],
         price: 370,
         paymentLink: "",
+        titulofoto: "",
+        descripcionfoto: "",
         images: [{ alt: "", ariallabel: "", src: "/images/ollant.webp" },
             { alt: "", ariallabel: "", src: "/images/MAPI2_.webp" },
             { alt: "", ariallabel: "", src: "/images/GUIAMAPI.webp" },
@@ -254,6 +270,8 @@ export const allTours = [
         ],
         price: 35,
         paymentLink: "",
+        titulofoto: "",
+        descripcionfoto: "",
         images: [{ alt: "", ariallabel: "", src: "/images/plazama_.webp" },
             { alt: "", ariallabel: "", src: "/images/lima_.webp" },
             { alt: "", ariallabel: "", src: "/images/14_.webp" },
@@ -274,6 +292,8 @@ export const allTours = [
         ],
         price: 70,
         paymentLink: "",
+        titulofoto: "",
+        descripcionfoto: "",
         images: [{ alt: "", ariallabel: "", src: "/images/dia.webp" },
             { alt: "", ariallabel: "", src: "/images/lima_.webp" },
             { alt: "", ariallabel: "", src: "/images/max.webp" },
@@ -294,6 +314,8 @@ export const allTours = [
         ],
         price: 40,
         paymentLink: "",
+        titulofoto: "",
+        descripcionfoto: "",
         images: [{ alt: "", ariallabel: "", src: "/images/lima_.webp" },
             { alt: "", ariallabel: "", src: "/images/miraflores.webp" },
             { alt: "", ariallabel: "", src: "/images/dia.webp" },
@@ -314,6 +336,8 @@ export const allTours = [
         ],
         price: 50,
         paymentLink: "",
+        titulofoto: "",
+        descripcionfoto: "",
         images: [{ alt: "", ariallabel: "", src: "/images/pachacamac.webp" },
             { alt: "", ariallabel: "", src: "/images/3.webp" },
             { alt: "", ariallabel: "", src: "/images/6.webp" },
@@ -334,6 +358,8 @@ export const allTours = [
         ],
         price: 130,
         paymentLink: "",
+        titulofoto: "",
+        descripcionfoto: "",
         images: [{ alt: "", ariallabel: "", src: "/images/20.webp" },
             { alt: "", ariallabel: "", src: "/images/miraflores.webp" },
             { alt: "", ariallabel: "", src: "/images/dia.webp" },
@@ -356,6 +382,8 @@ export const allTours = [
         ],
         price: 40,
         paymentLink: "",
+        titulofoto: "",
+        descripcionfoto: "",
         images: [{ alt: "", ariallabel: "", src: "/images/8_.webp" },]
     },
     {
@@ -383,6 +411,8 @@ export const allTours = [
         ],
         price: 45,
         paymentLink: "",
+        titulofoto: "",
+        descripcionfoto: "",
         images: [{ alt: "", ariallabel: "", src: "/images/10.webp" },]
     },
     {
@@ -410,6 +440,8 @@ export const allTours = [
         ],
         price: 75,
         paymentLink: "",
+        titulofoto: "",
+        descripcionfoto: "",
         images: [{ alt: "", ariallabel: "", src: "/images/Puno5_.webp" },]
     },
     {
@@ -442,6 +474,8 @@ export const allTours = [
         ],
         price: 110,
         paymentLink: "",
+        titulofoto: "",
+        descripcionfoto: "",
         images: [{ alt: "", ariallabel: "", src: "/images/Puno 1_.webp" },]
     },
     {
@@ -467,6 +501,8 @@ export const allTours = [
         ],
         price: 45,
         paymentLink: "",
+        titulofoto: "",
+        descripcionfoto: "",
         images: [{ alt: "", ariallabel: "", src: "/images/Puno7_.webp" },
             { alt: "", ariallabel: "", src: "/images/Puno6_.webp" },
         ]
@@ -503,6 +539,8 @@ export const allTours = [
         ],
         price: 160,
         paymentLink: "",
+        titulofoto: "",
+        descripcionfoto: "",
         images: [{ alt: "", ariallabel: "", src: "/images/COLCA3_.webp" },
             { alt: "", ariallabel: "", src: "/images/COLCA1_.webp" },
             { alt: "", ariallabel: "", src: "/images/COLCA4_.webp" },
@@ -531,6 +569,8 @@ export const allTours = [
         ],
         price: 40,
         paymentLink: "",
+        titulofoto: "",
+        descripcionfoto: "",
         images: [{ alt: "", ariallabel: "", src: "/images/AQP4_.webp" },
             { alt: "", ariallabel: "", src: "/images/AQP3_.webp" },
             { alt: "", ariallabel: "", src: "/images/AQP2_.webp" },
@@ -559,6 +599,8 @@ export const allTours = [
         ],
         price: 40,
         paymentLink: "",
+        titulofoto: "",
+        descripcionfoto: "",
         images: [{ alt: "", ariallabel: "", src: "/images/AQP1_.webp" },
             { alt: "", ariallabel: "", src: "/images/AQP2_.webp" },
             { alt: "", ariallabel: "", src: "/images/AQP3_.webp" },
@@ -589,6 +631,8 @@ export const allTours = [
         price: 170,
         note: "Minimum 2 people",
         paymentLink: "",
+        titulofoto: "",
+        descripcionfoto: "",
         images: [{ alt: "", ariallabel: "", src: "/images/huacachina.webp" },
             { alt: "", ariallabel: "", src: "/images/7.webp" },
             { alt: "", ariallabel: "", src: "/images/arenero22_.webp" },
@@ -618,6 +662,8 @@ export const allTours = [
         ],
         price: 55,
         paymentLink: "",
+        titulofoto: "",
+        descripcionfoto: "",
         images: [{ alt: "", ariallabel: "", src: "/images/7_.webp" },
             { alt: "", ariallabel: "", src: "/images/huaca china.webp" },
             { alt: "", ariallabel: "", src: "/images/arenero22_.webp" },
@@ -647,6 +693,8 @@ export const allTours = [
         ],
         price: 35,
         paymentLink: "",
+        titulofoto: "",
+        descripcionfoto: "",
         images: [{ alt: "", ariallabel: "", src: "/images/arenero22_.webp" },
             { alt: "", ariallabel: "", src: "/images/huaca china.webp" },
 
@@ -676,6 +724,8 @@ export const allTours = [
         ],
         price: 35,
         paymentLink: "",
+        titulofoto: "",
+        descripcionfoto: "",
         images: [{ alt: "", ariallabel: "", src: "/images/SUNSET.webp" },]
     },
     {
@@ -702,6 +752,8 @@ export const allTours = [
         ],
         price: 40,
         paymentLink: "",
+        titulofoto: "",
+        descripcionfoto: "",
         images: [{ alt: "", ariallabel: "", src: "/images/ballestas.webp" },]
     },
     {
@@ -730,6 +782,8 @@ export const allTours = [
         ],
         price: 40,
         paymentLink: "",
+        titulofoto: "",
+        descripcionfoto: "",
         images: [{ alt: "", ariallabel: "", src: "/images/10.webp" },]
     },
     {
@@ -755,6 +809,8 @@ export const allTours = [
         ],
         price: 70, // Price not specified in input
         paymentLink: "",
+        titulofoto: "",
+        descripcionfoto: "",
         images: [{ alt: "", ariallabel: "", src: "/images/dia.webp" },
             { alt: "", ariallabel: "", src: "/images/max.webp" },
         ]
@@ -784,6 +840,8 @@ export const allTours = [
         ],
         price: 70,
         paymentLink: "",
+        titulofoto: "",
+        descripcionfoto: "",
         images: [{ alt: "", ariallabel: "", src: "/images/CHOQUE1_.webp" },]
     },
     {
@@ -810,6 +868,8 @@ export const allTours = [
         ],
         price: 70,
         paymentLink: "",
+        titulofoto: "",
+        descripcionfoto: "",
         images: [{ alt: "", ariallabel: "", src: "/images/CHOQUE1_.webp" },]
     },
     {
@@ -837,6 +897,8 @@ export const allTours = [
         ],
         price: 70,
         paymentLink: "",
+        titulofoto: "",
+        descripcionfoto: "",
         images: [{ alt: "", ariallabel: "", src: "/images/TRU4.webp" },]
     },
     {
@@ -862,6 +924,8 @@ export const allTours = [
         ],
         price: 65,
         paymentLink: "",
+        titulofoto: "",
+        descripcionfoto: "",
         images: [{ alt: "", ariallabel: "", src: "/images/museolarco.webp" },]
     },
     {
@@ -889,6 +953,8 @@ export const allTours = [
         ],
         price: 50,
         paymentLink: "",
+        titulofoto: "",
+        descripcionfoto: "",
         images: [{ alt: "", ariallabel: "", src: "/images/TRU1_.webp" },
             { alt: "", ariallabel: "", src: "/images/TRU2_.webp" },
             { alt: "", ariallabel: "", src: "/images/TRU4_.webp" },
@@ -918,6 +984,8 @@ export const allTours = [
         ],
         price: 30,
         paymentLink: "",
+        titulofoto: "",
+        descripcionfoto: "",
         images: [{ alt: "", ariallabel: "", src: "/images/TRU3.webp" },
 
         ]
@@ -946,6 +1014,8 @@ export const allTours = [
         ],
         price: 30,
         paymentLink: "",
+        titulofoto: "",
+        descripcionfoto: "",
         images: [{ alt: "", ariallabel: "", src: "/images/miraflores.webp" },
             { alt: "", ariallabel: "", src: "/images/lima_.webp" },
             { alt: "", ariallabel: "", src: "/images/10.webp" },
@@ -975,6 +1045,8 @@ export const allTours = [
         ],
         price: 70,
         paymentLink: "",
+        titulofoto: "",
+        descripcionfoto: "",
         images: [{ alt: "", ariallabel: "", src: "/images/museolarco.webp" },
         ]
     },
@@ -1031,6 +1103,8 @@ export const allTours = [
         ],
         price: 750,
         paymentLink: "",
+        titulofoto: "",
+        descripcionfoto: "",
         images: [{ alt: "", ariallabel: "", src: "/images/IQT6_.webp" },
             { alt: "", ariallabel: "", src: "/images/IQT3_.webp" },
             { alt: "", ariallabel: "", src: "/images/IQT7_.webp" },

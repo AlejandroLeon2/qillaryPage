@@ -4,7 +4,7 @@ import TitleDescripcion from "../ui/TitleDescripcion.astro";
 ---
 
 <section
-  class="overflow-hidden w-full flex flex-col bg-fixed justify-center bg-[url('/images/TREK2_.webp')] bg-cover bg-no-repeat items-center h-150 mx-auto relative"
+  class="overflow-hidden max-w-screem w-full flex flex-col bg-fixed justify-center bg-[url('/images/TREK2_.webp')] bg-cover bg-no-repeat items-center h-150 mx-auto relative"
 >
   <TitleDescripcion
     pre="text-white"
@@ -14,19 +14,19 @@ import TitleDescripcion from "../ui/TitleDescripcion.astro";
     descripcion="Real stories from happy travelers who explored Peru with us."
   />
   <div
-    class="flex transition-transform duration-500 ease-in-out"
+    class="flex transition-transform  duration-500 ease-in-out"
     id="carousel-track"
     style="transform: translateX(0%)"
   >
     {
       reviews.map((review,idx) => (
-        <div class="min-w-full  flex-shrink-0  ">
-          <div class="bg-white rounded-lg shadow-md flex flex-col justify-center items-center px-8 py-6 max-w-md  mx-auto">
+        <div class="min-w-full  flex-shrink-0   ">
+          <div class="bg-white rounded-lg shadow-md px-4 flex flex-col justify-center items-center  py-6 max-w-sm md:max-w-md  mx-auto">
             <img
               src={review.photo}
               alt="avatar"
               title="Personas que recomiendan qillari tours"
-              class="w-20 h-20 rounded-full object-cover mb-2"
+              class="w-15 md:w-20 h-20 rounded-full object-cover mb-2"
             />
             <h3 class=" font-bold satisfy text-2xl">{review.name}</h3>
             <p class="text-yellow-500 text-xl">{review.stars}</p>

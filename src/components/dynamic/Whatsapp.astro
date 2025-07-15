@@ -1,8 +1,6 @@
 ---
 const { data } = Astro.props;
-const mensaje = encodeURIComponent(
- data.contact.contactos[1].mensaje
-);
+const mensaje = encodeURIComponent(data.contact.contactos[1].mensaje);
 ---
 
 <a
@@ -10,10 +8,8 @@ const mensaje = encodeURIComponent(
   target="_blank"
   title={`WhatsApp - Contacto directo con ${data.contact.contactos[1].title}`}
   aria-label={`Abrir chat de WhatsApp con ${data.contact.contactos[1].title}`}
-  class="fixed
-  bottom-5
-  right-5
-
+  class="
+active:scale-95 duration-300 hover:scale-105
   z-50
   w-14
   h-auto"

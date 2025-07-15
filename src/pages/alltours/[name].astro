@@ -31,7 +31,12 @@ const destino = allTours.find((d) => {
 });
 ---
 
-<Secundario title={name} description={destino?.description}  url={name}>
-  <HeroStatic link={destino?.images[0].src} titulo={destino?.name} />
+<Secundario title={name} description={destino?.description} url={name}>
+  <HeroStatic
+    link={destino?.images[0].src}
+    titulo={destino?.name}
+    sub={destino?.titulofoto}
+    descripcion={destino?.descripcionfoto}
+  />
   <DetallesSection tour={destino} />
 </Secundario>
