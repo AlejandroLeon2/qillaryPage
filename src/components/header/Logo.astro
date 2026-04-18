@@ -1,0 +1,20 @@
+---
+import { qillary } from "../../data/qillary";
+
+interface Props {
+  className?: string;
+}
+
+const { className = "" } = Astro.props;
+const { logo, logoAlt, name } = qillary.brand;
+---
+
+<a href="/" title={`Home - ${name}`} class={`flex items-center ${className}`}>
+  <img
+    src={logo}
+    alt={logoAlt}
+    title={logoAlt}
+    class="w-32 md:w-40 h-auto object-contain transition-transform hover:scale-105"
+    loading="eager"
+  />
+</a>

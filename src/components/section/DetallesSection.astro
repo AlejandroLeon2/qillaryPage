@@ -6,11 +6,12 @@ import ContenedorSecciones from "../ui/ContenedorSecciones.astro";
 import { configTabs } from "../../data/menuseccionesmulti";
 import Gallery from "../dynamic/Gallery.astro";
 import Recomendacion from "../ui/Recomendacion.astro";
+import ReviewList from "../ui/ReviewList.astro";
 
 const { tour = { includes: [], excludes: [] } } = Astro.props;
 ---
 
-<section class="w-full relative flex flex-col md:flex-row z-49">
+<section class="w-full relative flex flex-col z-49">
   <nav
     class="flex flex-col w-full md:absolute -top-22 right-0 left-0 lg:max-w-4xl xl:max-w-7xl mx-auto catamaran bg-qillary-gris md:flex-row text-qillary-dark font-semibol"
   >
@@ -21,9 +22,9 @@ const { tour = { includes: [], excludes: [] } } = Astro.props;
     }
   </nav>
   <section
-    class="flex flex-col lg:flex-row md:px-4 lg:px-0 justify-between lg:max-w-4xl xl:max-w-7xl mx-auto pb-4"
+    class="flex flex-col lg:flex-row justify-between xl:max-w-7xl mx-auto pb-4"
   >
-    <div class="pb-6 w-full shadow-black/20 shadow-lg shadow-x">
+    <div class="pb-6 w-full">
       <div
         id="contenedor"
         class="flex flex-col mt-14 md:mt-0 lg:flex-row md:justify-between items-center md:items-stretch relative poppins"
@@ -37,11 +38,11 @@ const { tour = { includes: [], excludes: [] } } = Astro.props;
               <h1 class="text-2xl md:text-3xl font-bold">
                 {tour.name}
               </h1>
-              <div>
+              <!-- <div>
                 <span class="font-semibold text-lg text-qillary-aqua"
                   >${tour.price}</span
                 > / per person
-              </div>
+              </div> -->
             </div>
             <div>
               <p class="my-2 text-qillary-aqua font-semibold">
@@ -153,7 +154,7 @@ const { tour = { includes: [], excludes: [] } } = Astro.props;
                         typeof img === "object" &&
                         img !== null &&
                         typeof img.src === "string" &&
-                        img.src.trim() !== ""
+                        img.src.trim() !== "",
                     )
                     .map((img, index) => (
                       <img
@@ -176,62 +177,78 @@ const { tour = { includes: [], excludes: [] } } = Astro.props;
           <Acordeon dia={tour} />
         </ContenedorSecciones>
 
-        <!-- LOCATION -->
-
         <!-- GALLERY -->
         <ContenedorSecciones tab={configTabs.tabsPrimarios[2].tab}>
           <h3 class="text-2xl font-bold mb-4">Galería de fotos</h3>
 
           <Gallery images={tour.images} />
         </ContenedorSecciones>
-        <ContenedorSecciones tab={configTabs.tabsPrimarios[3].tab}>
-          <Recomendacion />
-        </ContenedorSecciones>
-        <section>
-          <FormDetalles />
-          <img
-            src="/images/mincetur.jpg"
-            alt="Mincetur Certification"
-            title="Certified by MINCETUR (Peruvian Ministry of Tourism)"
-            aria-label="Certified by MINCETUR (Peruvian Ministry of Tourism)"
-            class="h-auto mx-auto my-4 w-20 transition-transform hover:scale-110"
-          />
-          <div class=" px-18 xl:px-4 max-w-xs mx-auto">
-            <h3 class="text-lg text-black mb-4">You can pay with:</h3>
-            <div class="flex lg:flex-col justify-center px-8 gap-4">
-              <img
-                src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg"
-                alt="PayPal"
-                title="Pay with PayPal"
-                aria-label="Pay with PayPal"
-                class="h-10 w-30 transition-transform hover:scale-110"
-              />
-              <img
-                src="https://upload.wikimedia.org/wikipedia/commons/4/41/Visa_Logo.png"
-                alt="Visa"
-                title="Visa payment accepted"
-                aria-label="Visa payment accepted"
-                class="h-8 w-25 transition-transform hover:scale-110"
-              />
-              <img
-                src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg"
-                alt="Mastercard"
-                title="Mastercard supported"
-                aria-label="Mastercard supported"
-                class="h-10 w-15 transition-transform hover:scale-110"
-              />
+        <aside class="h-full p-4 flex-shrink-0">
+          <div class="sticky top-24 self-start space-y-8">
+            <!-- Formulario de Reserva -->
+            <section>
+              <FormDetalles />
+            </section>
+
+            <!-- Certificación y Pagos -->
+            <div class="flex flex-col gap-8 py-6 border-t border-gray-100">
+              <!-- Certificación -->
+              <div class="text-center group">
+                <img
+                  src="/images/mincetur.jpg"
+                  alt="Mincetur Certification"
+                  title="Certified by MINCETUR (Peruvian Ministry of Tourism)"
+                  aria-label="Certified by MINCETUR (Peruvian Ministry of Tourism)"
+                  class="h-auto mx-auto w-16 transition-all duration-300 grayscale group-hover:grayscale-0 group-hover:scale-105"
+                />
+                <p
+                  class="mt-3 text-xs font-medium text-gray-500 uppercase tracking-wider"
+                >
+                  Certificado por MINCETUR
+                </p>
+              </div>
+
+              <!-- Métodos de pago -->
+              <div class="text-center">
+                <h3
+                  class="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-4"
+                >
+                  Pagos Seguros
+                </h3>
+                <div
+                  class="flex justify-center gap-6 opacity-70 hover:opacity-100 transition-opacity duration-300"
+                >
+                  <span
+                    class="iconify h-8 w-8 transition-transform hover:scale-110"
+                    data-icon="logos:paypal"
+                    title="Pay with PayPal"
+                    aria-label="Pay with PayPal"></span>
+                  <span
+                    class="iconify h-8 w-8 transition-transform hover:scale-110"
+                    data-icon="logos:visa"
+                    title="Visa payment accepted"
+                    aria-label="Visa payment accepted"></span>
+                  <span
+                    class="iconify h-8 w-8 transition-transform hover:scale-110"
+                    data-icon="logos:mastercard"
+                    title="Mastercard supported"
+                    aria-label="Mastercard supported"></span>
+                </div>
+              </div>
             </div>
           </div>
-        </section>
+        </aside>
       </div>
     </div>
   </section>
+  <ReviewList />
+  <Recomendacion />
 </section>
 
 <script is:inline>
   const botones = document.querySelectorAll("[data-tab]");
   const secciones = Array.from(
-    document.getElementById("contenedor").children
+    document.getElementById("contenedor").children,
   ).slice(0, -1);
 
   function activar(id) {
@@ -276,7 +293,7 @@ const { tour = { includes: [], excludes: [] } } = Astro.props;
       (err) => {
         btn.value = "Send Email";
         alert("Failed to send message. Error: " + JSON.stringify(err));
-      }
+      },
     );
   });
 </script>

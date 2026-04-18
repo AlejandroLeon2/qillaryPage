@@ -15,11 +15,7 @@ export const configTabs = {
             tab: 'GALLERY',
             icon: 'fas fa-images',
         },
-        {
-            label: 'REVIEWS',
-            tab: 'REVIEWS',
-            icon: 'fas fa-comments',
-        },
+
     ],
     tabsSecundarios: [
         {
@@ -34,4 +30,3 @@ export const configTabs = {
         },
     ],
 };
-  

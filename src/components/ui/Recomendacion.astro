@@ -1,172 +1,234 @@
 ---
-const defaultScores = [
-  { label: "Rating", value: 40 },
-  { label: "Comfort", value: 40 },
-  { label: "Food", value: 60 },
-  { label: "Hospitality", value: 100 },
-  { label: "Hygiene", value: 40 },
-  { label: "Reception", value: 40 },
-];
+import InsightStats from "./recomendacion/InsightStats.astro";
+import ProgressItem from "./recomendacion/ProgressItem.astro";
+import StarPicker from "./recomendacion/StarPicker.astro";
+import CheckIcon from "../icons/CheckIcon.astro";
+
+/**
+ * FORM_CONFIG: Centralized configuration for the Google Form integration.
+ * Following SOLID: Open/Closed Principle - adding new fields only requires updating this object.
+ */
+const FORM_CONFIG = {
+  actionUrl:
+    "https://docs.google.com/forms/u/0/d/e/1FAIpQLSfatqPk1C3bJkdFuTwnIgIAy37ECCTspfQ24vWLieM4a8mafw/formResponse",
+  fields: {
+    fullName: "entry.825349695",
+    email: "entry.1184816743",
+    message: "entry.1119693367",
+    tourTitle: "entry.1116928306",
+  },
+  scores: [
+    { label: "Rating", value: 85, entryId: "entry.1453492309" },
+    { label: "Comfort", value: 90, entryId: "entry.1308543407" },
+    { label: "Food", value: 75, entryId: "entry.1512253580" },
+    { label: "Hospitality", value: 95, entryId: "entry.1723899316" },
+    { label: "Hygiene", value: 80, entryId: "entry.284062126" },
+    { label: "Reception", value: 88, entryId: "entry.1604449663" },
+  ],
+};
+
+const STATS_CONTENT = {
+  rating: "4.8",
+  label: "Excellent Choice",
+  title: "Traveler Insights",
+  description:
+    "We take every piece of feedback seriously. Here is a breakdown of how our community perceives our services across key categories.",
+};
 ---
 
-<section class="max-w-4xl mx-auto  px-4 space-y-12">
-  <!-- Breakdown Section -->
-  <div>
-    <h2 class="text-2xl font-bold mb-2">Customer Experience Summary</h2>
-    <p class="text-gray-600 mb-8">
-      Discover how our travelers have rated their experience with our tours. We
-      are committed to providing exceptional service in every aspect of your
-      journey—from comfort to hospitality.
-    </p>
+<article
+  class="flex flex-col h-full gap-12 lg:flex-row mb-8 px-6 xl:max-w-7xl w-full mx-auto justify-between"
+>
+  <!-- Experience Stats Section -->
+  <section
+    class="sticky top-6 flex flex-col w-full lg:max-w-sm gap-12 items-start"
+    aria-labelledby="insights-title"
+  >
+    <InsightStats
+      id="insights-title"
+      title={STATS_CONTENT.title}
+      description={STATS_CONTENT.description}
+      rating={STATS_CONTENT.rating}
+      label={STATS_CONTENT.label}
+    />
 
-    <div class="flex flex-col md:flex-row gap-10">
-      <!-- Left Score -->
-      <div class="flex flex-col items-center md:items-start md:w-1/3">
-        <span class="text-5xl font-bold">5.3</span>
-        <div class="text-qillary-aqua font-semibold mt-2 flex items-center gap-1">
-          <svg
-            class="w-4 h-4 text-qillary-aqua"
-            fill="currentColor"
-            viewBox="0 0 20 20"
-          >
-            <path
-              d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.518 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.975 2.89a1 1 0 00-.364 1.118l1.518 4.674c.3.921-.755 1.688-1.538 1.118L10 15.347l-3.975 2.89c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.364-1.118L1.666 10.1c-.783-.57-.38-1.81.588-1.81h4.915a1 1 0 00.95-.69l1.518-4.674z"
-            ></path>
-          </svg>
-          Good
-        </div>
-      </div>
-
-      <!-- Right Bars -->
-      <div class="flex-1 space-y-6">
-        {
-          defaultScores.map(({ label, value }) => (
-            <div class="space-y-1" key={label}>
-              <div class="flex justify-between text-sm font-semibold">
-                <span>{label}</span>
-                <span>{value}%</span>
-              </div>
-              <div class="w-full bg-gray-200 h-3 rounded-full">
-                <div
-                  class="bg-qillary-aqua h-3 rounded-full"
-                  style={`width: ${value}%`}
-                />
-              </div>
-            </div>
-          ))
-        }
-      </div>
+    <!-- Progress Bars (Dumb Components) -->
+    <div
+      class="grid grid-cols-2 pb-12 md:pb-0 lg:flex w-full lg:flex-col gap-x-12 gap-y-6"
+      role="img"
+      aria-label="Statistics grid"
+    >
+      {
+        FORM_CONFIG.scores.map(({ label, value }) => (
+          <ProgressItem label={label} value={value} />
+        ))
+      }
     </div>
-  </div>
+  </section>
 
-  <!-- Comment Form -->
-  <div class="bg-qillary-aqua text-white p-8 rounded-lg">
-    <h3 class="text-2xl font-bold mb-4">Share Your Travel Experience</h3>
-    <p class="mb-6 text-white/90">
-      Help future travelers by sharing your opinion about our services. Your
-      feedback makes us better!
-    </p>
-
-    <form id="review-form" class="space-y-6">
-      <div class="grid grid-cols-2 md:grid-cols-3 gap-4 text-sm">
-        {
-          defaultScores.map((score) => (
-            <label key={score.label} class="flex flex-col gap-1">
-              <span class="text-white font-semibold">{score.label}</span>
-              <div class="flex gap-1">
-                {[1, 2, 3, 4, 5].map((i) => (
-                  <input
-                    type="radio"
-                    name={`score-${score.label}`}
-                    value={i}
-                    class="accent-yellow-400"
-                  />
-                ))}
-              </div>
-            </label>
-          ))
-        }
-      </div>
-
-      <textarea
-        name="comment"
-        rows="4"
-        placeholder="Write your comment here..."
-        class="w-full p-3 rounded text-white bg-white/20  placeholder:text-white"
-      ></textarea>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <input
-          type="text"
-          name="name"
-          placeholder="Full Name*"
-          required
-          class="p-3 rounded text-white bg-white/20 placeholder:text-white"
-        />
-        <input
-          type="email"
-          name="email"
-          placeholder="Email Address*"
-          required
-          class="p-3 rounded text-white bg-white/20 placeholder:text-white"
-        />
-      </div>
-
-      <label class="flex items-center gap-2 text-sm">
-        <input type="checkbox" class="accent-white" />
-        Save my name, email, and website in this browser for the next time I comment.
-      </label>
-
-      <button
-        type="submit"
-        class="bg-white text-black hover:text-white  py-2 px-6 rounded font-bold uppercase tracking-wide hover:bg-cyan-800"
-        >Submit</button
+  <!-- Review Form Container (Smart Wrapper) -->
+  <section
+    class="relative bg-qillary-aqua rounded-sm p-8 md:p-12 overflow-hidden"
+    aria-labelledby="form-title"
+  >
+    <!-- Success Panel: Displayed after successful submission -->
+    <div
+      id="success-panel"
+      class="hidden flex mx-auto flex-col w-full items-center justify-center text-center py-12 space-y-6 animate-in fade-in zoom-in duration-500"
+      role="alert"
+    >
+      <div
+        class="w-20 h-20 bg-cyan-900 rounded-full flex items-center justify-center shadow-lg"
       >
-    </form>
-  </div>
+        <CheckIcon class="h-10 w-10 text-white" />
+      </div>
+      <div class="text-cyan-950">
+        <h3 class="text-3xl font-bold mb-2">Thank You!</h3>
+        <p class="max-w-sm font-medium">
+          Your feedback has been submitted directly to our quality team. We
+          appreciate your time!
+        </p>
+      </div>
+      <button
+        onclick="window.location.reload()"
+        class="bg-cyan-900 hover:bg-cyan-800 text-white px-8 py-3 rounded-xl font-bold transition-all shadow-md active:scale-95"
+      >
+        Send Another Review
+      </button>
+    </div>
 
-  <!-- User Comments -->
-  <div id="reviews-output" class="space-y-6"></div>
-</section>
+    <!-- Form Panel -->
+    <div id="form-panel">
+      <header class="mb-10 text-center md:text-left">
+        <h3 id="form-title" class="text-3xl font-bold text-cyan-950 mb-3">
+          Share Your Journey
+        </h3>
+        <p class="text-cyan-900 font-medium max-w-xl">
+          Help us maintain our standards and inspire others. Every review is
+          sent directly to our management team for review.
+        </p>
+      </header>
+
+      <form
+        id="google-review-form"
+        class="space-y-8"
+        data-action={FORM_CONFIG.actionUrl}
+        data-entry-titulo={FORM_CONFIG.fields.tourTitle}
+      >
+        <!-- Ratings Grid (StarPicker components) -->
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
+          {
+            FORM_CONFIG.scores.map((score) => (
+              <StarPicker label={score.label} entryId={score.entryId} />
+            ))
+          }
+        </div>
+
+        <!-- Contact Information -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <input
+            type="text"
+            name={FORM_CONFIG.fields.fullName}
+            placeholder="Your Full Name*"
+            required
+            aria-label="Full Name"
+            class="w-full p-4 rounded-xl bg-white/60 border border-cyan-900/20 text-cyan-950 placeholder:text-cyan-800 focus:bg-white focus:outline-none focus:ring-2 focus:ring-cyan-900 transition-all font-medium"
+          />
+          <input
+            type="email"
+            name={FORM_CONFIG.fields.email}
+            placeholder="Your Email Address*"
+            required
+            aria-label="Email Address"
+            class="w-full p-4 rounded-xl bg-white/60 border border-cyan-900/20 text-cyan-950 placeholder:text-cyan-800 focus:bg-white focus:outline-none focus:ring-2 focus:ring-cyan-900 transition-all font-medium"
+          />
+        </div>
+
+        <!-- Feedback Message -->
+        <textarea
+          name={FORM_CONFIG.fields.message}
+          rows="5"
+          required
+          placeholder="Tell us about the highlights of your trip..."
+          aria-label="Your Feedback"
+          class="w-full p-4 rounded-xl bg-white/60 border border-cyan-900/20 text-cyan-950 placeholder:text-cyan-800 focus:bg-white focus:outline-none focus:ring-2 focus:ring-cyan-900 transition-all resize-none font-medium"
+        ></textarea>
+
+        <!-- Form Footer/Action -->
+        <footer
+          class="flex flex-col md:flex-row items-center justify-between gap-6"
+        >
+          <p
+            class="text-xs text-cyan-950/70 font-bold max-w-sm text-center md:text-left"
+          >
+            By submitting, you agree that your feedback may be displayed
+            anonymously on our website to help other travelers.
+          </p>
+          <button
+            id="submit-btn"
+            type="submit"
+            class="w-full md:w-auto px-12 py-4 bg-cyan-950 text-white rounded-2xl font-black uppercase tracking-widest hover:bg-cyan-900 hover:scale-105 active:scale-95 transition-all shadow-xl shadow-cyan-900/30"
+          >
+            Send Review
+          </button>
+        </footer>
+      </form>
+    </div>
+  </section>
+</article>
 
 <script is:inline>
-  const form = document.querySelector("#review-form");
-  const output = document.querySelector("#reviews-output");
-  const reviews = JSON.parse(localStorage.getItem("reviews") || "[]");
+  (function () {
+    const form = document.querySelector("#google-review-form");
+    const submitBtn = document.querySelector("#submit-btn");
+    const formPanel = document.querySelector("#form-panel");
+    const successPanel = document.querySelector("#success-panel");
 
-  const renderReviews = () => {
-    output.innerHTML = "";
-    reviews.forEach((r, idx) => {
-      const div = document.createElement("div");
-      div.className = "border-t pt-4";
-      div.innerHTML = `
-        <div class="flex gap-4 items-start">
-          <img src="https://i.pravatar.cc/50?u=user-${idx}" alt="avatar" class="w-12 h-12 rounded-full" />
-          <div>
-            <p class="font-bold">${r.name}</p>
-            <p class="text-sm text-gray-600">${new Date(r.date).toLocaleString()}</p>
-            <p class="text-sm text-gray-700 mt-2">${r.comment}</p>
-          </div>
-        </div>
-      `;
-      output.appendChild(div);
+    if (!form) return;
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const actionUrl = form.dataset.action;
+
+      // Update UI state
+      submitBtn.disabled = true;
+      const originalText = submitBtn.textContent;
+      submitBtn.textContent = "Sending...";
+      submitBtn.classList.add("opacity-50", "cursor-not-allowed");
+
+      const formData = new FormData(form);
+
+      // Capturar el valor dinamico del titulo y adjuntarlo si existe
+      const tituloEl = document.querySelector("#titulo");
+      const entryTitulo = form.dataset.entryTitulo;
+      if (tituloEl && tituloEl.dataset.titulo && entryTitulo) {
+        formData.append(entryTitulo, tituloEl.dataset.titulo);
+      }
+
+      try {
+        // Google Forms requires no-cors mode for cross-origin submission without a proper API
+        await fetch(actionUrl, {
+          method: "POST",
+          mode: "no-cors",
+          body: formData,
+        });
+
+        // Show success state
+        formPanel.classList.add("hidden");
+        successPanel.classList.remove("hidden");
+        successPanel.scrollIntoView({ behavior: "smooth", block: "center" });
+      } catch (error) {
+        console.error("Submission error:", error);
+        alert(
+          "There was an error sending your review. Please try again or contact us directly.",
+        );
+
+        // Reset UI state
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalText;
+        submitBtn.classList.remove("opacity-50", "cursor-not-allowed");
+      }
     });
-  };
-
-  renderReviews();
-
-  form.addEventListener("submit", (e) => {
-    e.preventDefault();
-    const formData = new FormData(form);
-    const review = {
-      name: formData.get("name"),
-      email: formData.get("email"),
-      comment: formData.get("comment"),
-      date: new Date().toISOString(),
-    };
-    reviews.push(review);
-    localStorage.setItem("reviews", JSON.stringify(reviews));
-    form.reset();
-    renderReviews();
-  });
+  })();
 </script>

@@ -1,0 +1,32 @@
+---
+const { social } = Astro.props;
+---
+
+<div class="col-span-1">
+  <h3 class="text-white font-bold text-lg mb-6 border-b-2 border-qillary-aqua w-fit">
+    Travel Highlights
+  </h3>
+  <p class="leading-relaxed text-sm text-gray-400 mb-6">
+    Discover Peru through our lens. We share stories, cultural snapshots, 
+    and breathtaking moments from travelers like you.
+  </p>
+  
+  <div class="p-4 bg-gray-800/50 rounded-xl border border-gray-700">
+    <p class="text-xs text-qillary-aqua font-bold uppercase tracking-wider mb-2">
+      Live from Peru
+    </p>
+    <p class="text-sm text-gray-300 mb-4">
+      Tag us in your photos to be featured in our highlights!
+    </p>
+    <a 
+      href={social.url} 
+      target="_blank" 
+      class="inline-flex items-center gap-2 text-sm font-semibold text-white hover:text-qillary-aqua transition-colors"
+    >
+      <span>View Gallery</span>
+      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M5 12h14M12 5l7 7-7 7"/>
+      </svg>
+    </a>
+  </div>
+</div>

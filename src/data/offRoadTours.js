@@ -5,23 +5,23 @@ export const offRoadTours = [
         description: "Embark on a once-in-a-lifetime 4x4 expedition through Peru's most iconic landscapes. From the cliffs of Lima to the deserts of Paracas and Ica, through the ancient Nazca lines, the white city of Arequipa, the majestic Colca Canyon, the sacred Lake Titicaca, and into the heart of the Inca Empire in Cusco and Machu Picchu. This 17-day journey is perfect for adventurous travelers who seek freedom, flexibility, and deep cultural connection. Accompanied by a private guide/driver and a comfortable 4x4 vehicle, you'll explore Peru at your own pace, with curated stops, authentic experiences, and breathtaking routes.",
         destinos: ["Lima", "Paracas", "Ica", "Nazca", "Arequipa", "Colca Canyon", "Puno", "Lake Titicaca", "Cusco", "Sacred Valley", "Machu Picchu"],
         includes: [
-                "16 nights in selected 3★ hotels (daily breakfast included)",
-                "Private 4x4 vehicle with professional driver/guide",
-                "All fuel, tolls, and parking fees",
-                "All entrance fees to archaeological sites and attractions",
-                "Guided tours in Lima, Paracas, Nazca, Arequipa, Colca, Puno, Cusco, Sacred Valley, and Machu Picchu",
-                "Train tickets to/from Machu Picchu (Expedition or similar)",
-                "Bus tickets Aguas Calientes – Machu Picchu – Aguas Calientes",
-                "Domestic flight from Cusco to Lima (economy class)",
-                "Airport transfers in Lima and Cusco"
-            ]
+            "16 nights in selected 3★ hotels (daily breakfast included)",
+            "Private 4x4 vehicle with professional driver/guide",
+            "All fuel, tolls, and parking fees",
+            "All entrance fees to archaeological sites and attractions",
+            "Guided tours in Lima, Paracas, Nazca, Arequipa, Colca, Puno, Cusco, Sacred Valley, and Machu Picchu",
+            "Train tickets to/from Machu Picchu (Expedition or similar)",
+            "Bus tickets Aguas Calientes – Machu Picchu – Aguas Calientes",
+            "Domestic flight from Cusco to Lima (economy class)",
+            "Airport transfers in Lima and Cusco"
+        ]
         ,
         excludes: [
-                "International flights",
-                "Meals not specified",
-                "Tips and personal expenses",
-                "Optional Nazca flight (can be arranged upon request)"
-            ]
+            "International flights",
+            "Meals not specified",
+            "Tips and personal expenses",
+            "Optional Nazca flight (can be arranged upon request)"
+        ]
         ,
         itinerary: [
             {
@@ -95,13 +95,13 @@ export const offRoadTours = [
         ],
         price: 1700,
         paymentLink: "",
-        titulofoto: "hola",
-        descripcionfoto:"descripcion",
+        titulofoto: "",
+        descripcionfoto: "",
         images: [{ alt: "", ariallabel: "", src: "/images/TourMontana.webp" },
-            { alt: "", ariallabel: "", src: "/images/COLCA1_.webp" },
-            { alt: "", ariallabel: "", src: "/images/7_.webp" },
-            { alt: "", ariallabel: "", src: "/images/Puno5_.webp" },
-            { alt: "", ariallabel: "", src: "/images/ballestas.webp" },]
+        { alt: "", ariallabel: "", src: "/images/COLCA1_.webp" },
+        { alt: "", ariallabel: "", src: "/images/7_.webp" },
+        { alt: "", ariallabel: "", src: "/images/Puno5_.webp" },
+        { alt: "", ariallabel: "", src: "/images/ballestas.webp" },]
     },
     {
         name: "North off road norte del Perú",
@@ -109,20 +109,20 @@ export const offRoadTours = [
         description: "Venture deep into Peru's northern highlands and lush jungles on this 18-day 4x4 overland expedition. From the bustling capital of Lima to the pristine mountains of Huaraz, the archaeological riches of Trujillo and Chiclayo, the mystical cloud forests of Chachapoyas, and the tropical warmth of Tarapoto, this journey is a rare opportunity to explore the Peru most travelers never see. Ideal for adventurous souls who crave authenticity, cultural depth, and landscapes that range from glaciers to waterfalls, this expedition combines road-trip freedom with curated, expert-guided exploration.",
         destinos: ["Lima", "Huaraz", "Trujillo", "Chiclayo", "Chachapoyas", "Moyobamba", "Tarapoto"],
         includes: [
-                "17 nights in carefully selected 3★ hotels (daily breakfast)",
-                "Private 4x4 vehicle with professional driver/guide throughout the trip",
-                "All fuel, tolls, and parking costs",
-                "Entrance tickets and guided tours at all scheduled sites",
-                "Domestic flight: Tarapoto → Lima",
-                "Private airport transfers (arrival/departure)"
-            ]
+            "17 nights in carefully selected 3★ hotels (daily breakfast)",
+            "Private 4x4 vehicle with professional driver/guide throughout the trip",
+            "All fuel, tolls, and parking costs",
+            "Entrance tickets and guided tours at all scheduled sites",
+            "Domestic flight: Tarapoto → Lima",
+            "Private airport transfers (arrival/departure)"
+        ]
         ,
-        excludes:  [
-                "International flights",
-                "Meals not specified",
-                "Optional activities (Gocta zipline, cacao workshops, Nazca overflight)",
-                "Tips and personal expenses"
-            ]
+        excludes: [
+            "International flights",
+            "Meals not specified",
+            "Optional activities (Gocta zipline, cacao workshops, Nazca overflight)",
+            "Tips and personal expenses"
+        ]
         ,
         itinerary: [
             {
@@ -203,32 +203,32 @@ export const offRoadTours = [
         titulofoto: "",
         descripcionfoto: "",
         images: [{ alt: "", ariallabel: "", src: "/images/TRU4_.webp" },
-            { alt: "", ariallabel: "", src: "/images/TRU2_.webp" },
-            { alt: "", ariallabel: "", src: "/images/IQT4_.webp" },
-            { alt: "", ariallabel: "", src: "/images/TRU5_.webp" },
-            { alt: "", ariallabel: "", src: "/images/TRU3.webp" },]
+        { alt: "", ariallabel: "", src: "/images/TRU2_.webp" },
+        { alt: "", ariallabel: "", src: "/images/IQT4_.webp" },
+        { alt: "", ariallabel: "", src: "/images/TRU5_.webp" },
+        { alt: "", ariallabel: "", src: "/images/TRU3.webp" },]
     },
     {
         name: "Center off road sierra & selva central",
         duration: "16 Days / 15 Nights",
         description: "Explore the untamed beauty of Peru's central Andes and high jungle on this 16-day 4x4 off-road adventure. Journey from Lima into the vibrant valleys of Chanchamayo, through German-influenced Oxapampa, across the peaks of Tarma and Huancayo, to the historic cities of Ayacucho and Huancavelica, and the surreal rock forest of Huayllay. This itinerary blends cultural immersion, nature, and off-the-beaten-path exploration like no other. Perfect for travelers who want true diversity: alpine lagoons, colonial towns, cloud forests, ancient cultures, and warm local hospitality—far from the tourist crowds.",
         destinos: ["Lima", "Chanchamayo", "Oxapampa", "Pozuzo", "Tarma", "Huancayo", "Huancavelica", "Ayacucho", "Huayllay"],
-        includes:  [
-                "15 nights in 3★ hotels or ecolodges (breakfast included)",
-                "Private 4x4 vehicle with driver/guide",
-                "Fuel, tolls, parking",
-                "Guided visits and entrance tickets to all sites mentioned",
-                "Airport transfers in Lima (arrival and departure)",
-                "Lima City Tour with lunch on Day 15"
-            ]
-     ,
-        excludes:  [
-                "International flights",
-                "Meals not mentioned",
-                "Optional tours (rafting, thermal baths, workshops)",
-                "Tips and personal expenses"
-            ]
-       ,
+        includes: [
+            "15 nights in 3★ hotels or ecolodges (breakfast included)",
+            "Private 4x4 vehicle with driver/guide",
+            "Fuel, tolls, parking",
+            "Guided visits and entrance tickets to all sites mentioned",
+            "Airport transfers in Lima (arrival and departure)",
+            "Lima City Tour with lunch on Day 15"
+        ]
+        ,
+        excludes: [
+            "International flights",
+            "Meals not mentioned",
+            "Optional tours (rafting, thermal baths, workshops)",
+            "Tips and personal expenses"
+        ]
+        ,
         itinerary: [
             {
                 title: "Arrival in Lima",
@@ -300,9 +300,9 @@ export const offRoadTours = [
         titulofoto: "",
         descripcionfoto: "",
         images: [{ alt: "", ariallabel: "", src: "/images/IQT2_.webp" },
-            { alt: "", ariallabel: "", src: "/images/IQT5_.webp" },
-            { alt: "", ariallabel: "", src: "/images/IQT5_.webp" },
-            { alt: "", ariallabel: "", src: "/images/IQT5_.webp" },
-            { alt: "", ariallabel: "", src: "/images/IQT5_.webp" }]
+        { alt: "", ariallabel: "", src: "/images/IQT5_.webp" },
+        { alt: "", ariallabel: "", src: "/images/IQT5_.webp" },
+        { alt: "", ariallabel: "", src: "/images/IQT5_.webp" },
+        { alt: "", ariallabel: "", src: "/images/IQT5_.webp" }]
     }
 ];

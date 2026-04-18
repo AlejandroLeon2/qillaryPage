@@ -1,0 +1,149 @@
+---
+import { qillary } from "../../data/qillary";
+
+const { emails, phones, offices, social } = qillary.contact;
+---
+
+<section
+  class="hidden md:flex justify-between px-4 lg:px-10 py-1 bg-qillary-dark text-xs font-semibold text-qillary-white w-full"
+>
+  <!-- Contact Information -->
+  <address class="not-italic flex flex-wrap gap-2 items-center">
+    {
+      emails.map((email) => (
+        <div class="flex items-center gap-1">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            class="h-5 w-5 text-qillary-aqua"
+            fill="currentColor"
+          >
+            <path d="M2 8.5V19a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8.5l-10 6.25L2 8.5z" />
+            <path d="M22 6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v.5l10 6.25L22 6.5V6z" />
+          </svg>
+          <a
+            href={`mailto:${email.value}`}
+            title={email.title}
+            class="hover:underline transition-all"
+          >
+            {email.value}
+          </a>
+        </div>
+      ))
+    }
+
+    {
+      phones.map((phone) => (
+        <div class="flex items-center gap-2">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            class="h-5 w-5 text-qillary-aqua"
+            fill="currentColor"
+          >
+            <path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384" />
+          </svg>
+          <a
+            href={`tel:${phone.value.replace(/\s+/g, "")}`}
+            title={phone.title}
+            class="hover:underline transition-all"
+          >
+            {phone.value}
+          </a>
+        </div>
+      ))
+    }
+
+    <div class="flex items-center gap-2">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 384 512"
+        class="h-4 w-4 text-qillary-aqua"
+        fill="currentColor"
+      >
+        <path
+          d="M192 0C86 0 0 86 0 192c0 77.4 27.5 99.6 172.3 310.6a24 24 0 0 0 39.4 0C356.5 291.6 384 269.4 384 192 384 86 298 0 192 0zm0 272a80 80 0 1 1 80-80 80 80 0 0 1-80 80z"
+        ></path>
+      </svg>
+      <span>{offices[1].address}</span>
+    </div>
+  </address>
+
+  <!-- Social Media & Tools -->
+  <nav aria-label="Social and tools" class="flex items-center gap-6">
+    <ul class="flex gap-5 list-none">
+      <li>
+        <a
+          href={social.facebook.url}
+          title={social.facebook.description}
+          aria-label={social.facebook.title}
+          rel="noopener"
+          target="_blank"
+          class="text-qillary-white hover:text-blue-400 transition-colors"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 320 512"
+            width="18"
+            height="18"
+            fill="currentColor"
+          >
+            <path
+              d="M279.14 288l14.22-92.66h-88.91V127.41c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.14 44.38-121.14 124.72v70.62H22.89V288h81.33v224h100.2V288z"
+            ></path>
+          </svg>
+        </a>
+      </li>
+      <li>
+        <a
+          href={social.instagram.url}
+          title={social.instagram.description}
+          aria-label={social.instagram.title}
+          rel="noopener"
+          target="_blank"
+          class="text-qillary-white hover:text-pink-500 transition-colors"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="19"
+            height="19"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+            <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
+          </svg>
+        </a>
+      </li>
+      <li>
+        <a
+          href={social.tiktok.url}
+          title={social.tiktok.description}
+          aria-label={social.tiktok.title}
+          rel="noopener"
+          target="_blank"
+          class="text-qillary-white hover:text-amber-500 transition-colors"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 448 512"
+            width="18"
+            height="18"
+            fill="currentColor"
+          >
+            <path
+              d="M325.6 32c1.6 43.2 35.2 78.1 78.4 78.6v85.4c-32.6-1.2-63.3-11.6-89.2-29v192.3c0 73.6-59.7 133.4-133.4 133.4s-133.4-59.7-133.4-133.4c0-72.1 57.1-130.7 128.8-133.3v86.7c-25.4 2.5-45.2 24-45.2 50.1 0 27.8 22.5 50.3 50.3 50.3s50.3-22.5 50.3-50.3V32h93.4z"
+            ></path>
+          </svg>
+        </a>
+      </li>
+    </ul>
+
+    <slot name="translator" />
+  </nav>
+</section>

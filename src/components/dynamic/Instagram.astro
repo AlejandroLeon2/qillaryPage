@@ -1,12 +1,13 @@
 ---
 const { data } = Astro.props;
+const instagram = data.contact.social.instagram;
 ---
 
 <a
-  href={data.contact.instagram.url}
+  href={instagram.url}
   target="_blank"
-  title={data.contact.instagram.title}
-  aria-label={`Abrir conversación en Messenger con Qillary Tours`}
+  title={instagram.title}
+  aria-label={`Abrir Instagram de Qillary Tours`}
   class=" z-50 w-14 h-14 rounded-xl bg-gradient-to-tr active:scale-95 duration-300 hover:scale-105 from-amber-600 via-pink-500 to-indigo-600 flex  items-center justify-center shadow-lg"
 >
   <svg

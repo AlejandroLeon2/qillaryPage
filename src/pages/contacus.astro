@@ -4,7 +4,11 @@ import HeroStatic from "../components/section/HeroStatic.astro";
 import TitleDescripcion from "../components/ui/TitleDescripcion.astro";
 import ReviweSecction from "../components/section/ReviweSecction.astro";
 import { qillary } from "../data/qillary";
-const mensaje = encodeURIComponent(qillary.contact.contactos[1].mensaje);
+
+const { contact, team } = qillary;
+const whatsapp = contact.phones[0];
+const email = contact.emails[0];
+const mensaje = encodeURIComponent(whatsapp.message);
 ---
 
 <Secundario
@@ -42,7 +46,7 @@ const mensaje = encodeURIComponent(qillary.contact.contactos[1].mensaje);
       </p>
       <a
         title="Contact us Whatsapp"
-        href={`https://wa.me/${qillary.contact.contactos[1].valor.trim().replace(/\s+/g, "").replace("+", "")}?text=${mensaje}&type=phone_number&app_absent=0`}
+        href={`https://wa.me/${whatsapp.value.trim().replace(/\s+/g, "").replace("+", "")}?text=${mensaje}&type=phone_number&app_absent=0`}
         class="text-white py-4 px-8 bg-qillary-aqua font-semibold"
       >
         Contact Us
@@ -53,49 +57,50 @@ const mensaje = encodeURIComponent(qillary.contact.contactos[1].mensaje);
       class="col-span-4 my-4 md:w-1/2 lg:w-full xl:w-100 items-center relative group overflow-hidden"
     >
       <img
-        src={qillary.team.imagen}
-        alt={qillary.team.alt}
-        title={qillary.team.title}
+        src={team.imagen}
+        alt={team.alt}
+        title={team.title}
         class="object-cover w-full h-auto"
       />
       <figcaption
         class="lg:absolute md:text-center h-30 z-1 group-hover:bottom-0 transition-all duration-300 bg-qillary-aqua p-4"
       >
-        <h3 class="font-semibold text-white">{qillary.team.nombre}</h3>
-        <p class="mt-1 text-xs text-white">{qillary.team.descripcion}</p>
+        <h3 class="font-semibold text-white">{team.nombre}</h3>
+        <p class="mt-1 text-xs text-white">{team.descripcion}</p>
       </figcaption>
     </figure>
   </section>
+  
   <section
     class="grid grid-cols-1 md:grid-cols-2 max-w-5xl gap-6 my-4 place-items-center mx-auto"
   >
     {
-      qillary.contact.oficinas.map((element) => (
+      contact.offices.map((office) => (
         <article class="space-y-2 w-80">
-          <h3 class="text-xl font-semibold">{element.ciudad}</h3>
-          <p class="pb-4">{element.descripcion}</p>
+          <h3 class="text-xl font-semibold">{office.city}</h3>
+          <p class="pb-4">{office.description}</p>
           <address class="not-italic">
             <p>
               <strong>Email:</strong>
               <a
                 title="Contact us email"
-                href="mailto:setsail@example.com"
+                href={`mailto:${email.value}`}
                 class="hover:text-amber-600 focus:text-amber-600"
               >
-                {qillary.contact.contactos[0].valor}
+                {email.value}
               </a>
             </p>
             <strong>Phone:</strong>{" "}
             <a
               class="hover:text-amber-600 focus:text-amber-600"
-              href={`https://wa.me/${qillary.contact.contactos[1].valor}`}
+              href={`https://wa.me/${whatsapp.value.replace(/\s+/g, "").replace("+", "")}`}
               target="_blank"
               title="Contact us Whatsapp"
               rel="noopener"
             >
-              {qillary.contact.contactos[1].valor}
+              {whatsapp.value}
             </a>
-            <p class="py-4">{element.direccion}</p>
+            <p class="py-4 font-semibold">{office.address}</p>
           </address>
         </article>
       ))
@@ -103,13 +108,13 @@ const mensaje = encodeURIComponent(qillary.contact.contactos[1].mensaje);
   </section>
 
   <ReviweSecction />
+  
   <section class="px-8 py-4">
     <form
       id="form"
       class="max-w-6xl mx-auto space-y-4 border text-white font-semibold p-4 bg-qillary-aqua"
     >
       <h2 class="text-lg font-bold mb-4">Leave a Reply</h2>
-      <!-- Campo de mensaje -->
       <textarea
         name="message"
         id="message"
@@ -117,7 +122,6 @@ const mensaje = encodeURIComponent(qillary.contact.contactos[1].mensaje);
         placeholder="Message*"
         required></textarea>
 
-      <!-- Campos de email y nombre en fila -->
       <div class="flex flex-col md:flex-row gap-4">
         <input
           type="email"
@@ -137,23 +141,23 @@ const mensaje = encodeURIComponent(qillary.contact.contactos[1].mensaje);
         />
       </div>
 
-      <!-- Botón de envío -->
       <input
         type="submit"
         id="button"
         value="Send Email"
-        class="w-full p-4 text-black bg-white"
-        placeholder="SEND"
+        class="w-full p-4 text-black bg-white cursor-pointer hover:bg-gray-100 transition-colors"
       />
     </form>
   </section>
 </Secundario>
 
 <script is:inline>
-  document.getElementById("form").addEventListener("submit", function (event) {
+  document.getElementById("form")?.addEventListener("submit", function (event) {
     event.preventDefault();
 
     const btn = document.getElementById("button");
+    if (!btn) return;
+    
     btn.value = "Sending...";
 
     const serviceID = "default_service";

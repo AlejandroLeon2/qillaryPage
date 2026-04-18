@@ -1,13 +1,14 @@
 ---
 const { data } = Astro.props;
+const messenger = data.contact.social.messenger;
 ---
 
 <a
-  href={data.contact.contactos[2].valor}
+  href={messenger.url}
   target="_blank"
-  title={data.contact.contactos[2].title}
+  title={messenger.title}
   aria-label={`Abrir conversación en Messenger con Qillary Tours`}
-  class=" z-50 w-14 h-14 rounded-full active:scale-95 duration-300 hover:scale-105 bg-[#0084FF] flex items-center justify-center shadow-lg"
+  class="z-50 w-14 h-14 rounded-full active:scale-95 duration-300 hover:scale-105 bg-[#0084FF] flex items-center justify-center shadow-lg"
 >
   <svg
     class="w-8 h-8 fill-white"
