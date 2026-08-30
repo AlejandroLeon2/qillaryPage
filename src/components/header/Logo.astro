@@ -9,7 +9,11 @@ const { className = "" } = Astro.props;
 const { logo, logoAlt, name } = qillary.brand;
 ---
 
-<a href="/" title={`Home - ${name}`} class={`flex items-center ${className}`}>
+<a
+  href="/"
+  title={`Home - ${name}`}
+  class={`flex items-center z-10 ${className}`}
+>
   <img
     src={logo}
     alt={logoAlt}

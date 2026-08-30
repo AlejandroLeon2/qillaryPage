@@ -16,8 +16,8 @@ const hasChildren = children.length > 0;
 <li class="poppins bg-white">
   {
     hasChildren ? (
-      <div class="group border-b border-gray-200  md:border-transparent  ">
-        <p class="flex  font-semibold escuchar relative group   items-center justify-between md px-2 py-2 cursor-pointer  text-black hover:text-qillary-aqua ">
+      <div class="group border-b transition-all duration-500 ease-in-out border-gray-200  md:border-transparent  ">
+        <p class="flex  font-bold escuchar relative group   items-center justify-between md px-2 py-2 cursor-pointer  text-black hover:text-qillary-aqua ">
           {label}
 
           <svg
@@ -30,13 +30,13 @@ const hasChildren = children.length > 0;
             stroke-width="2"
             stroke-linecap="round"
             stroke-linejoin="round"
-            class=" transition-all duration-300 ease-in-out group-hover:rotate-90 group-focus:rotate-90 group-active:rotate-90"
+            class=" transition-all text-gray-600 duration-300 ease-in-out group-hover:rotate-90 group-focus:rotate-90 group-active:rotate-90"
           >
             <path d="m9 18 6-6-6-6" />
           </svg>
         </p>
 
-        <ul class=" md:absolute overflow-y-scroll max-h-100  mb-4 md:bg-qillary-gris hidden md:pt-4   md:gap-4 group-focus:grid group-hover:grid lg:grid-cols-2 max-w-2xl  w-auto md:pl-6 md:pr-4 md:mr-4">
+        <ul class=" md:absolute md:left-0 rounded-sm  h-auto max-h-100  md:right-0 md:mx-6 lg:mx-20 overflow-y-scroll  md:bg-white hidden  md:gap-4 group-focus:grid group-hover:grid lg:grid-cols-2  md:px-4 md:py-4">
           {children.map((subItem) => (
             <li class="pl-8 md:pl-0 ">
               <a
@@ -47,13 +47,14 @@ const hasChildren = children.length > 0;
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 384 512"
-                  class="min-w-4 min-h-4 max-w-4 max-h-4 mr-1"
+                  class="w-4 h-4 mr-1 "
                   fill="currentColor"
                 >
                   <path d="M192 0C86 0 0 86 0 192c0 77.4 27.5 99.6 172.3 310.6a24 24 0 0 0 39.4 0C356.5 291.6 384 269.4 384 192 384 86 298 0 192 0zm0 272a80 80 0 1 1 80-80 80 80 0 0 1-80 80z" />
                 </svg>
-
-                {subItem.label}
+                <span class="text-xs xl:text-sm text-black">
+                  {subItem.label}
+                </span>
               </a>
             </li>
           ))}
@@ -63,7 +64,7 @@ const hasChildren = children.length > 0;
       <a
         title={label}
         href={href}
-        class="menu-link  border-b border-gray-200 md:border-white font-semibold flex items-center justify-between px-3 py-2 text-gray-800 hover:text-qillary-aqua "
+        class="menu-link  border-b border-gray-200 md:border-white font-bold flex items-center justify-between px-3 py-2 text-black hover:text-qillary-aqua "
       >
         {label}
       </a>

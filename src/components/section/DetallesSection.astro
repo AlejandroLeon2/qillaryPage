@@ -11,236 +11,200 @@ import ReviewList from "../ui/ReviewList.astro";
 const { tour = { includes: [], excludes: [] } } = Astro.props;
 ---
 
-<section class="w-full relative flex flex-col z-49">
-  <nav
-    class="flex flex-col w-full md:absolute -top-22 right-0 left-0 lg:max-w-4xl xl:max-w-7xl mx-auto catamaran bg-qillary-gris md:flex-row text-qillary-dark font-semibol"
-  >
-    {
-      configTabs.tabsPrimarios.map((element) => (
-        <BotonSecciones data={element} />
-      ))
-    }
-  </nav>
+<section class="w-full h-full relative flex flex-col">
   <section
-    class="flex flex-col lg:flex-row justify-between xl:max-w-7xl mx-auto pb-4"
+    class="grid relative grid-cols-1 lg:grid-cols-3 xl:max-w-7xl mx-auto pb-4"
   >
-    <div class="pb-6 w-full">
-      <div
-        id="contenedor"
-        class="flex flex-col mt-14 md:mt-0 lg:flex-row md:justify-between items-center md:items-stretch relative poppins"
-      >
-        <!-- INFORMACION -->
+    <nav
+      class="flex flex-col left-6 md:absolute -top-22 max-w-7xl lg:mx-auto catamaran bg-qillary-gris md:flex-row text-qillary-dark font-semibol"
+    >
+      {
+        configTabs.tabsPrimarios.map((element) => (
+          <BotonSecciones data={element} />
+        ))
+      }
+    </nav>
+    <div
+      id="contenedor"
+      class="flex flex-col col-span-2 mt-14 md:mt-0 lg:flex-row relative poppins"
+    >
+      <!-- INFORMACION -->
 
-        <ContenedorSecciones tab={configTabs.tabsPrimarios[0].tab}>
-          <!-- Cabecera con nombre y precio -->
-          <header class="">
-            <div class="flex gap-4 items-center">
-              <h1 class="text-2xl md:text-3xl font-bold">
-                {tour.name}
-              </h1>
-              <!-- <div>
+      <ContenedorSecciones tab={configTabs.tabsPrimarios[0].tab}>
+        <!-- Cabecera con nombre y precio -->
+        <header class="">
+          <div class="flex gap-4 items-center">
+            <h1 class="text-2xl md:text-3xl font-bold">
+              {tour.name}
+            </h1>
+
+            <!-- <div>
                 <span class="font-semibold text-lg text-qillary-aqua"
                   >${tour.price}</span
                 > / per person
               </div> -->
-            </div>
-            <div>
-              <p class="my-2 text-qillary-aqua font-semibold">
-                {tour.duration}
-              </p>
-            </div>
-          </header>
+          </div>
 
-          <section class="">
-            <p class="mb-6">{tour.description}</p>
-
-            <!-- Detalles destacados -->
-            <section
-              class="flex gap-2 mb-6 text-xs text-white"
-              aria-label="Detalles destacados"
-            >
-              <div class="text-center px-6 py-3 bg-qillary-aqua">
-                <i class="fas fa-route" aria-hidden="true"></i>
-                <span>1 Tour</span>
-              </div>
-
-              <div class="text-center px-6 py-3 bg-qillary-aqua">
-                <i class="fas fa-user" aria-hidden="true"></i>
-                <span>13+ Age</span>
-              </div>
-
-              <div class="text-center px-6 py-3 bg-qillary-aqua">
-                <i class="fas fa-star" aria-hidden="true"></i>
-                <span>Popular</span>
-              </div>
-            </section>
-
-            <!-- Información detallada -->
-            <section class="flex gap-6 mb-8" aria-label="Itinerario">
-              <div class="grid grid-cols-4 md:grid-cols-5 w-full">
-                <h2 class="font-semibold col-span-1">Destino</h2>
-                <ul
-                  class="mt-4 grid col-span-3 grid-cols-2 md:grid-cols-3 md:col-span-4 items-center gap-4"
-                >
-                  {
-                    tour.destinos.map((element) => (
-                      <li class="">
-                        <p class="min-w-10">{element}</p>
-                      </li>
-                    ))
-                  }
-                </ul>
-              </div>
-            </section>
-
-            <!-- Incluido/No incluido -->
-            <section
-              class="grid grid-cols-1 gap-20"
-              aria-label="Servicios incluidos y no incluidos"
-            >
-              <div class="grid grid-cols-1 md:grid-cols-4">
-                <h2 class="font-semibold">Includes</h2>
-                <ul class="col-span-3 gap-3 grid md:grid-cols-2">
-                  {
-                    tour.includes.map((item) => (
-                      <li class="flex items-start gap-2  py-2">
-                        <i class="fas fa-check-circle  text-green-400 text-lg" />
-
-                        <p class="">{item}</p>
-                      </li>
-                    ))
-                  }
-                </ul>
-              </div>
-              <div class="grid grid-cols-1 md:grid-cols-4">
-                <h2 class="font-semibold">Excludes</h2>
-                <ul class="col-span-3 grid md:grid-cols-2">
-                  {
-                    tour.excludes.map((item) => (
-                      <li class="flex items-start gap-2 py-2">
-                        <i class="fas fa-times-circle text-red-500 text-lg" />
-                        <p>{item}</p>
-                      </li>
-                    ))
-                  }
-                </ul>
-              </div>
-            </section>
-          </section>
-          <div class="space-y-4 mt-20">
-            <h2 class="font-semibold text-2xl">From our gallery</h2>
-            <p>
-              A curated selection of moments that capture the heart of every
-              journey with Qillary Tours.
+          <div>
+            <p class="my-2 text-qillary-aqua font-semibold">
+              {tour.duration}
             </p>
-            <div
-              class="grid space-y-2 grid-cols-1 md:grid-cols-3 lg:grid-cols-3 place-items-center"
-            >
-              {
-                Array.isArray(tour.images) &&
-                  tour.images
-                    .slice(0, 3)
-                    .filter(
-                      (img) =>
-                        typeof img === "object" &&
-                        img !== null &&
-                        typeof img.src === "string" &&
-                        img.src.trim() !== "",
-                    )
-                    .map((img, index) => (
-                      <img
-                        src={img.src}
-                        alt={img.alt || "Imagen del tour"}
-                        title={
-                          img.ariallabel || "Paisaje representativo del viaje"
-                        }
-                        class="w-full h-90 md:w-50 md:h-50 lg:w-60 lg:h-60 object-cover"
-                      />
-                    ))
-              }
-            </div>
           </div>
-        </ContenedorSecciones>
+        </header>
 
-        <!-- TOUR PLAN -->
-        <ContenedorSecciones tab={configTabs.tabsPrimarios[1].tab}>
-          <h2 class="text-2xl font-bold mb-8">Tour Plan</h2>
-          <Acordeon dia={tour} />
-        </ContenedorSecciones>
+        <section class="">
+          <p class="mb-6">{tour.description}</p>
 
-        <!-- GALLERY -->
-        <ContenedorSecciones tab={configTabs.tabsPrimarios[2].tab}>
-          <h3 class="text-2xl font-bold mb-4">Galería de fotos</h3>
-
-          <Gallery images={tour.images} />
-        </ContenedorSecciones>
-        <aside class="h-full p-4 flex-shrink-0">
-          <div class="sticky top-24 self-start space-y-8">
-            <!-- Formulario de Reserva -->
-            <section>
-              <FormDetalles />
-            </section>
-
-            <!-- Certificación y Pagos -->
-            <div class="flex flex-col gap-8 py-6 border-t border-gray-100">
-              <!-- Certificación -->
-              <div class="text-center group">
-                <img
-                  src="/images/mincetur.jpg"
-                  alt="Mincetur Certification"
-                  title="Certified by MINCETUR (Peruvian Ministry of Tourism)"
-                  aria-label="Certified by MINCETUR (Peruvian Ministry of Tourism)"
-                  class="h-auto mx-auto w-16 transition-all duration-300 grayscale group-hover:grayscale-0 group-hover:scale-105"
-                />
-                <p
-                  class="mt-3 text-xs font-medium text-gray-500 uppercase tracking-wider"
-                >
-                  Certificado por MINCETUR
-                </p>
-              </div>
-
-              <!-- Métodos de pago -->
-              <div class="text-center">
-                <h3
-                  class="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-4"
-                >
-                  Pagos Seguros
-                </h3>
-                <div
-                  class="flex justify-center gap-6 opacity-70 hover:opacity-100 transition-opacity duration-300"
-                >
-                  <span
-                    class="iconify h-8 w-8 transition-transform hover:scale-110"
-                    data-icon="logos:paypal"
-                    title="Pay with PayPal"
-                    aria-label="Pay with PayPal"></span>
-                  <span
-                    class="iconify h-8 w-8 transition-transform hover:scale-110"
-                    data-icon="logos:visa"
-                    title="Visa payment accepted"
-                    aria-label="Visa payment accepted"></span>
-                  <span
-                    class="iconify h-8 w-8 transition-transform hover:scale-110"
-                    data-icon="logos:mastercard"
-                    title="Mastercard supported"
-                    aria-label="Mastercard supported"></span>
-                </div>
-              </div>
+          <!-- Detalles destacados -->
+          <section
+            class="flex gap-2 mb-6 text-xs text-white"
+            aria-label="Detalles destacados"
+          >
+            <div class="text-center px-6 py-3 bg-qillary-aqua">
+              <i class="fas fa-route" aria-hidden="true"></i>
+              <span>1 Tour</span>
             </div>
-          </div>
-        </aside>
-      </div>
+
+            <div class="text-center px-6 py-3 bg-qillary-aqua">
+              <i class="fas fa-user" aria-hidden="true"></i>
+              <span>13+ Age</span>
+            </div>
+
+            <div class="text-center px-6 py-3 bg-qillary-aqua">
+              <i class="fas fa-star" aria-hidden="true"></i>
+              <span>Popular</span>
+            </div>
+          </section>
+
+          <!-- Información detallada -->
+          <section class="flex gap-6 mb-8" aria-label="Itinerario">
+            <div class="grid grid-cols-4 md:grid-cols-5 w-full">
+              <h2 class="font-semibold col-span-1">Destino</h2>
+              <ul
+                class="mt-4 grid col-span-3 grid-cols-2 md:grid-cols-3 md:col-span-4 items-center gap-4"
+              >
+                {
+                  tour.destinos.map((element) => (
+                    <li class="">
+                      <p class="min-w-10">{element}</p>
+                    </li>
+                  ))
+                }
+              </ul>
+            </div>
+          </section>
+
+          <!-- Incluido/No incluido -->
+          <section
+            class="grid grid-cols-1 gap-20"
+            aria-label="Servicios incluidos y no incluidos"
+          >
+            <div class="grid grid-cols-1 md:grid-cols-4">
+              <h2 class="font-semibold">Includes</h2>
+              <ul class="col-span-3 gap-3 grid md:grid-cols-2">
+                {
+                  tour.includes.map((item) => (
+                    <li class="flex items-start gap-2  py-2">
+                      <i class="fas fa-check-circle  text-green-400 text-lg" />
+
+                      <p class="">{item}</p>
+                    </li>
+                  ))
+                }
+              </ul>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-4">
+              <h2 class="font-semibold">Excludes</h2>
+              <ul class="col-span-3 grid md:grid-cols-2">
+                {
+                  tour.excludes.map((item) => (
+                    <li class="flex items-start gap-2 py-2">
+                      <i class="fas fa-times-circle text-red-500 text-lg" />
+                      <p>{item}</p>
+                    </li>
+                  ))
+                }
+              </ul>
+            </div>
+          </section>
+        </section>
+        <Gallery images={tour.images} variant="summary" />
+      </ContenedorSecciones>
+
+      <!-- TOUR PLAN -->
+      <ContenedorSecciones tab={configTabs.tabsPrimarios[1].tab}>
+        <h2 class="text-2xl font-bold mb-8">Tour Plan</h2>
+        <Acordeon dia={tour} />
+      </ContenedorSecciones>
+
+      <!-- GALLERY -->
+      <ContenedorSecciones tab={configTabs.tabsPrimarios[2].tab}>
+        <h3 class="text-2xl font-bold mb-4">Galería de fotos</h3>
+
+        <Gallery images={tour.images} />
+      </ContenedorSecciones>
+
+      <!-- Formulario de Reserva -->
     </div>
+
+    <aside class="px-6 space-y-4">
+      <FormDetalles />
+      <div
+        class="grid grid-cols-4 grid-col-2 w-full space-y-4 items-center gap-8 px-6 border-t border-gray-100"
+      >
+        <!-- Certificación -->
+        <div
+          class="col-span-1 lg:col-span-4 text-center md:text-left text-xl space-y-2"
+        >
+          <h2 class="font-bold hidden lg:block text-black">
+            Certified by Mincetur
+          </h2>
+          <img
+            src="/images/mincetur.jpg"
+            alt="Mincetur Certification"
+            title="Certified by MINCETUR (Peruvian Ministry of Tourism)"
+            aria-label="Certified by MINCETUR (Peruvian Ministry of Tourism)"
+            class="h-auto mx-auto max-h-40 w-40 lg:w-30 transition-all duration-300 hover:-translate-y-2"
+          />
+        </div>
+
+        <!-- Métodos de pago -->
+        <div
+          class="flex flex-col col-span-3 lg:col-span-4 text-center text-xl space-y-2"
+        >
+          <h2 class="font-bold hidden lg:block md:text-left text-black">
+            We Accept
+          </h2>
+          <div class="flex gap-2 items-center">
+            <i
+              class="iconify h-full max-h-30 lg:max-h-20 w-full transition-transform hover:-translate-y-2"
+              data-icon="logos:paypal"
+              title="Pay with PayPal"
+              aria-label="Pay with PayPal"></i>
+            <i
+              class="iconify h-full max-h-30 lg:max-h-20 w-full transition-transform hover:-translate-y-2"
+              data-icon="logos:visa"
+              title="Visa payment accepted"
+              aria-label="Visa payment accepted"></i>
+            <i
+              class="iconify h-full max-h-30 lg:max-h-20 w-full transition-transform hover:-translate-y-2"
+              data-icon="logos:mastercard"
+              title="Mastercard supported"
+              aria-label="Mastercard supported"></i>
+          </div>
+        </div>
+      </div>
+    </aside>
   </section>
-  <ReviewList />
-  <Recomendacion />
 </section>
+<ReviewList />
+<Recomendacion />
 
 <script is:inline>
   const botones = document.querySelectorAll("[data-tab]");
   const secciones = Array.from(
     document.getElementById("contenedor").children,
-  ).slice(0, -1);
+  ).slice(0, 3);
 
   function activar(id) {
     secciones.forEach((sec) => {
@@ -264,27 +228,4 @@ const { tour = { includes: [], excludes: [] } } = Astro.props;
   });
 
   activar("INFORMACION");
-</script>
-
-<script is:inline>
-  document.getElementById("form").addEventListener("submit", function (event) {
-    event.preventDefault();
-
-    const btn = document.getElementById("button");
-    btn.value = "Sending...";
-
-    const serviceID = "service_hfeo2xd";
-    const templateID = "template_3cdp8t7";
-
-    emailjs.sendForm(serviceID, templateID, this, "jRYXHpsbqwdF76a3Q").then(
-      () => {
-        btn.value = "Send Email";
-        alert("Message sent successfully!");
-      },
-      (err) => {
-        btn.value = "Send Email";
-        alert("Failed to send message. Error: " + JSON.stringify(err));
-      },
-    );
-  });
 </script>

@@ -1,57 +1,242 @@
 ---
-const { images = [] } = Astro.props;
+export interface Props {
+  images?: any[];
+  variant?: "summary" | "full";
+}
 
-const getImage = (index) => {
-  const img = images[index];
-  return {
-    show: !!img?.src,
-    src: img?.src || "/nice.png",
-    alt: img?.alt || "Landscape from the tour",
-    title: `Tour image: ${img?.ariallabel || "Peruvian scenery"}`,
-  };
-};
+const { images = [], variant = "full" } = Astro.props;
+
+// Filtrar imágenes válidas
+const validImages = Array.isArray(images)
+  ? images.filter(
+      (img) =>
+        typeof img === "object" &&
+        img !== null &&
+        typeof img.src === "string" &&
+        img.src.trim() !== "",
+    )
+  : [];
+
+// Generar un ID único para vincular las miniaturas con su modal
+const galleryId = Math.random().toString(36).substring(2, 9);
 ---
 
-<section
-  class="md:grid flex flex-col space-y-4 md:space-y-0 grid-cols-1 md:grid-cols-6 gap-4 md:p-4"
+{
+  variant === "summary" ? (
+    <div
+      class="space-y-4 mt-20 gallery-wrapper relative"
+      id="galeria"
+      data-gallery-id={galleryId}
+    >
+      <h2 class="font-semibold text-2xl">From our gallery</h2>
+      <p>
+        A curated selection of moments that capture the heart of every journey
+        with Qillary Tours.
+      </p>
+      <div class="grid space-y-2 grid-cols-1 md:grid-cols-3 lg:grid-cols-3 place-items-center gap-4">
+        {validImages.slice(0, 3).map((img, index) => (
+          <img
+            src={img.src}
+            alt={img.alt || "Imagen del tour"}
+            title={img.ariallabel || "Paisaje representativo del viaje"}
+            class="w-full h-90 md:w-50 md:h-50 lg:w-60 lg:h-60 object-cover cursor-pointer hover:opacity-80 hover:scale-105 transition-all duration-300 rounded shadow gallery-thumbnail"
+            data-index={index}
+          />
+        ))}
+      </div>
+    </div>
+  ) : (
+    <section
+      class="gallery-wrapper relative md:grid flex flex-col space-y-4 md:space-y-0 grid-cols-1 md:grid-cols-6 gap-4 md:p-4"
+      id="galeria"
+      data-gallery-id={galleryId}
+    >
+      {validImages.map((img, index) => {
+        let className =
+          "bg-white rounded shadow overflow-hidden flex items-center justify-center cursor-pointer hover:opacity-80 transition-opacity gallery-thumbnail group relative";
+        let imgClass =
+          "h-full w-full object-cover transition-transform duration-500 group-hover:scale-105";
+
+        if (index % 5 === 0) {
+          className += " col-span-3 row-span-2";
+        } else if (index % 5 === 1) {
+          className += " col-span-3";
+          imgClass =
+            "max-h-full w-full object-cover transition-transform duration-500 group-hover:scale-105";
+        } else if (index % 5 === 2) {
+          className += " col-span-3";
+          imgClass =
+            "max-h-full w-full object-cover transition-transform duration-500 group-hover:scale-105";
+        } else if (index % 5 === 3) {
+          className += " col-span-2";
+        } else if (index % 5 === 4) {
+          className += " col-span-4 h-50 xl:h-70";
+        } else {
+          className += " col-span-2";
+        }
+
+        return (
+          <div class={className} data-index={index}>
+            <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity z-10 flex items-center justify-center text-white text-3xl">
+              <i class="fas fa-search-plus" />
+            </div>
+            <img
+              src={img.src}
+              alt={img.alt || "Turismo"}
+              title={img.ariallabel || "Turismo"}
+              class={imgClass}
+            />
+          </div>
+        );
+      })}
+    </section>
+  )
+}
+
+<!-- Modal Slider -->
+<div
+  id={`modal-${galleryId}`}
+  class="fixed inset-0 backdrop-blur-sm z-50 hidden items-center text-black justify-center opacity-0 transition-opacity duration-300"
 >
-  {
-    getImage(0).show && (
-      <div class="col-span-3 row-span-2 bg-white rounded shadow overflow-hidden flex items-center justify-center">
-        <img {...getImage(0)} class="h-full w-full object-cover" />
-      </div>
-    )
-  }
+  <button
+    class="absolute top-4 right-6 md:top-8 md:right-10 hover:text-qillary-aqua text-4xl md:text-5xl lg:text-6xl z-50 close-modal transition-colors"
+    aria-label="Close"
+  >
+    &times;
+  </button>
 
-  {
-    getImage(1).show && (
-      <div class="col-span-3 bg-white rounded shadow overflow-hidden flex items-center justify-center">
-        <img {...getImage(1)} class="max-h-full w-full object-cover" />
-      </div>
-    )
-  }
+  <button
+    class="absolute left-2 md:left-8 top-1/2 -translate-y-1/2 hover:text-qillary-aqua text-4xl md:text-6xl z-50 prev-modal transition-colors"
+    aria-label="Previous"
+  >
+    &#10094;
+  </button>
 
-  {
-    getImage(2).show && (
-      <div class="col-span-3 bg-white rounded shadow overflow-hidden flex items-center justify-center">
-        <img {...getImage(2)} class="max-h-full w-full object-cover" />
-      </div>
-    )
-  }
+  <button
+    class="absolute right-2 md:right-8 top-1/2 -translate-y-1/2 hover:text-qillary-aqua text-4xl md:text-6xl z-50 next-modal transition-colors"
+    aria-label="Next"
+  >
+    &#10095;
+  </button>
 
-  {
-    getImage(3).show && (
-      <div class="col-span-2 bg-white rounded shadow overflow-hidden flex items-center justify-center">
-        <img {...getImage(3)} class="h-full w-full object-cover" />
-      </div>
-    )
-  }
+  <div
+    class="relative w-full max-w-6xl h-4/5 flex overflow-hidden slider-container"
+  >
+    <div
+      class="flex w-full h-full transition-transform duration-500 ease-in-out slider-track"
+      style="transform: translateX(0%);"
+    >
+      {
+        validImages.map((img) => (
+          <div class="w-full h-full flex-shrink-0 flex justify-center items-center p-4">
+            <img
+              src={img.src}
+              class="max-w-full max-h-full object-contain drop-shadow-2xl rounded-sm"
+              alt={img.alt || "Full gallery image"}
+            />
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</div>
 
-  {
-    getImage(4).show && (
-      <div class="col-span-4 bg-white rounded shadow overflow-hidden h-50 xl:h-70 flex items-center justify-center">
-        <img {...getImage(4)} class="h-full w-full object-cover" />
-      </div>
-    )
-  }
-</section>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const wrappers = document.querySelectorAll(".gallery-wrapper");
+
+    wrappers.forEach((wrapper) => {
+      const galleryId = wrapper.getAttribute("data-gallery-id");
+      const modal = document.getElementById(`modal-${galleryId}`);
+      if (!modal) return;
+
+      const track = modal.querySelector(".slider-track") as HTMLElement;
+      const thumbnails = wrapper.querySelectorAll(".gallery-thumbnail");
+      const closeBtn = modal.querySelector(".close-modal");
+      const prevBtn = modal.querySelector(".prev-modal");
+      const nextBtn = modal.querySelector(".next-modal");
+
+      let currentIndex = 0;
+      const totalImages = track.children.length;
+
+      const updateSlider = () => {
+        track.style.transform = `translateX(-${currentIndex * 100}%)`;
+      };
+
+      const openModal = (index: number) => {
+        currentIndex = index;
+        updateSlider();
+        modal.classList.remove("hidden");
+        modal.classList.add("flex");
+        // Forzar reflujo
+        void modal.offsetWidth;
+        modal.classList.remove("opacity-0");
+        modal.classList.add("opacity-100");
+        document.body.style.overflow = "hidden"; // Desactivar scroll
+      };
+
+      const closeModal = () => {
+        modal.classList.remove("opacity-100");
+        modal.classList.add("opacity-0");
+        setTimeout(() => {
+          modal.classList.add("hidden");
+          modal.classList.remove("flex");
+          document.body.style.overflow = ""; // Restaurar scroll
+        }, 300);
+      };
+
+      thumbnails.forEach((thumb) => {
+        thumb.addEventListener("click", (e) => {
+          let target = e.currentTarget as HTMLElement;
+          // Si hace click en la superposición (icono), busca el contenedor principal
+          if (!target.hasAttribute("data-index")) {
+            target = target.closest("[data-index]") as HTMLElement;
+          }
+          const index = parseInt(target.getAttribute("data-index") || "0", 10);
+          openModal(index);
+        });
+      });
+
+      closeBtn?.addEventListener("click", closeModal);
+
+      prevBtn?.addEventListener("click", (e) => {
+        e.stopPropagation();
+        currentIndex = currentIndex > 0 ? currentIndex - 1 : totalImages - 1;
+        updateSlider();
+      });
+
+      nextBtn?.addEventListener("click", (e) => {
+        e.stopPropagation();
+        currentIndex = currentIndex < totalImages - 1 ? currentIndex + 1 : 0;
+        updateSlider();
+      });
+
+      // Navegación con teclado
+      document.addEventListener("keydown", (e) => {
+        if (modal.classList.contains("hidden")) return;
+        if (e.key === "Escape") closeModal();
+        if (e.key === "ArrowLeft") {
+          currentIndex = currentIndex > 0 ? currentIndex - 1 : totalImages - 1;
+          updateSlider();
+        }
+        if (e.key === "ArrowRight") {
+          currentIndex = currentIndex < totalImages - 1 ? currentIndex + 1 : 0;
+          updateSlider();
+        }
+      });
+
+      // Cerrar al hacer click fuera de la imagen (click en el modal o el track vacío)
+      modal.addEventListener("click", (e) => {
+        const target = e.target as HTMLElement;
+        if (
+          target === modal ||
+          target === track ||
+          target.classList.contains("slider-container") ||
+          (target.closest(".flex-shrink-0") && target.tagName !== "IMG")
+        ) {
+          closeModal();
+        }
+      });
+    });
+  });
+</script>

@@ -1,0 +1,61 @@
+name: Build and Deploy Website
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Setup Node
+        uses: actions/setup-node@v5
+        with:
+          node-version: 24
+
+      - name: Enable Corepack
+        run: corepack enable
+
+      - name: Setup pnpm
+        run: corepack prepare pnpm@10 --activate
+
+      - name: Verify environment
+        run: |
+          echo "Node:"
+          node --version
+          echo "pnpm:"
+          pnpm --version
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build TinaCMS + Astro
+        run: pnpm build
+        env:
+          TINA_TOKEN: ${{ secrets.TINA_TOKEN }}
+          TINA_CLIENT_ID: ${{ secrets.TINA_CLIENT_ID }}
+          PUBLIC_TINA_CLIENT_ID: ${{ secrets.TINA_CLIENT_ID }}
+          TINA_BRANCH: main
+
+      - name: Verify static build
+        run: |
+          test -f dist/index.html
+          echo "Static build generated successfully"
+          echo "Files to deploy:"
+          find dist -type f | sort
+
+      - name: Deploy ONLY dist to cPanel
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.0
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftps
+          port: 21
+          local-dir: ./dist/
+          server-dir: /

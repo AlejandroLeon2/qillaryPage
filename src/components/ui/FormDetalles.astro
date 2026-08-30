@@ -1,7 +1,8 @@
 <form
   id="form"
-  class="h-full w-full lg:max-w-xs mx-auto px-4 py-8 mt-15 bg-qillary-aqua text-white"
+  class="lg:max-w-xs h-fit mx-auto px-4 py-8 mt-15 bg-qillary-aqua text-white"
   aria-label="Formulario de reserva de tour"
+  style="top: 20px; position: sticky;"
 >
   <header class="text-center">
     <h2 class="text-2xl font-bold text-white">Book This Tour</h2>
@@ -18,7 +19,7 @@
         id="name"
         required
         placeholder="Name *"
-        class="pl-10 w-full p-2 bg-white/20 text-white placeholder-white rounded"
+        class="placeholder:text-white pl-10 w-full p-2 bg-white/20 text-white rounded"
       />
     </div>
 
@@ -60,20 +61,6 @@
         class="pl-10 w-full p-2 bg-white/20 text-white placeholder-white rounded"
       />
     </div>
-
-    <div class="relative">
-      <i
-        class="fas fa-ticket-alt absolute left-3 top-1/2 -translate-y-1/2 text-white"
-      ></i>
-      <input
-        type="number"
-        name="tickets"
-        min="1"
-        required
-        placeholder="Number of tickets *"
-        class="pl-10 w-full p-2 bg-white/20 text-white placeholder-white rounded"
-      />
-    </div>
   </fieldset>
 
   <div class="relative">
@@ -93,7 +80,85 @@
       id="button"
       value="Send Email"
       placeholder="check Availability"
-      class="bg-qillary-white text-qillary-dark px-6 py-5 rounded hover:bg-teal-500 active:scale-95 hover:text-white transition"
+      class="w-full md:w-auto duration-300 cursor-pointer px-12 py-4 bg-cyan-950 text-white rounded-sm font-black uppercase tracking-widest hover:bg-white hover:text-cyan-950 active:bg-cyan-950 active:text-white hover:scale-105 active:scale-95 transition-all shadow-xl shadow-cyan-900/30"
     />
   </div>
 </form>
+
+<script>
+  const form = document.getElementById("form") as HTMLFormElement;
+  if (form) {
+    form.addEventListener("submit", async function (event) {
+      event.preventDefault();
+
+      const btn = document.getElementById("button") as HTMLInputElement;
+      if (btn) btn.value = "Sending...";
+
+      // Target URL for Google Form submission
+      const googleFormUrl =
+        "https://docs.google.com/forms/d/e/1FAIpQLSevkyqAnekQSsQ1Hfg-94ADpnpWYeFEvN9oonTr8MiYtaKLsw/formResponse";
+
+      const formData = new FormData(this);
+
+      // Prepare Google Form submission payloads using their specific entry IDs
+      const googleFormData = new URLSearchParams();
+      googleFormData.append(
+        "entry.1895530568",
+        formData.get("name")?.toString() || "",
+      );
+      googleFormData.append(
+        "entry.1479455098",
+        formData.get("phone")?.toString() || "",
+      );
+      googleFormData.append(
+        "entry.2001265092",
+        formData.get("email")?.toString() || "",
+      );
+      googleFormData.append(
+        "entry.1469682395",
+        formData.get("message")?.toString() || "",
+      );
+
+      const dateStr = formData.get("time")?.toString() || "";
+      if (dateStr) {
+        // Format expected from placeholder: 'dd-mm-yy'
+        const parts = dateStr.split(/[-/\.]/);
+        if (parts.length >= 3) {
+          googleFormData.append("entry.2115973432_day", parts[0]);
+          googleFormData.append("entry.2115973432_month", parts[1]);
+          let year = parts[2];
+          if (year.length === 2) year = "20" + year;
+          googleFormData.append("entry.2115973432_year", year);
+        }
+      }
+
+      // Execute Google Forms POST with mode: 'no-cors'
+      const googleFormsPromise = fetch(googleFormUrl, {
+        method: "POST",
+        mode: "no-cors",
+        body: googleFormData,
+      });
+
+      // Execute EmailJS
+      const serviceID = "service_hfeo2xd";
+      const templateID = "template_3cdp8t7";
+      // @ts-ignore - Assuming emailjs is loaded globally via Secundario.astro
+      const emailjsPromise = emailjs.sendForm(
+        serviceID,
+        templateID,
+        this,
+        "jRYXHpsbqwdF76a3Q",
+      );
+
+      try {
+        await Promise.all([googleFormsPromise, emailjsPromise]);
+        if (btn) btn.value = "Send Email";
+        alert("Message sent successfully!");
+        form.reset();
+      } catch (err) {
+        if (btn) btn.value = "Send Email";
+        alert("Failed to send message. Error: " + JSON.stringify(err));
+      }
+    });
+  }
+</script>
